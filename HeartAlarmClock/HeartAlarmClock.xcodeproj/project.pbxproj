@@ -15,6 +15,7 @@
 		C917402D200DE85D00145E8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C917402C200DE85D00145E8D /* main.m */; };
 		C9174037200DE85D00145E8D /* HeartAlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174036200DE85D00145E8D /* HeartAlarmClockTests.m */; };
 		C9174042200DE85D00145E8D /* HeartAlarmClockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174041200DE85D00145E8D /* HeartAlarmClockUITests.m */; };
+		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.release.xcconfig"; sourceTree = "<group>"; };
+		4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartAlarmClock.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C917401A200DE85D00145E8D /* HeartAlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartAlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C917401D200DE85D00145E8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C917401E200DE85D00145E8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		C917403D200DE85D00145E8D /* HeartAlarmClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeartAlarmClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9174041200DE85D00145E8D /* HeartAlarmClockUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartAlarmClockUITests.m; sourceTree = "<group>"; };
 		C9174043200DE85D00145E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25C1A116F33D2B3D0505ABB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */,
+				01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		48D63C1EA65BE27D44F9AC3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C9174011200DE85D00145E8D = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +107,8 @@
 				C9174035200DE85D00145E8D /* HeartAlarmClockTests */,
 				C9174040200DE85D00145E8D /* HeartAlarmClockUITests */,
 				C917401B200DE85D00145E8D /* Products */,
+				25C1A116F33D2B3D0505ABB9 /* Pods */,
+				48D63C1EA65BE27D44F9AC3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,9 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9174046200DE85D00145E8D /* Build configuration list for PBXNativeTarget "HeartAlarmClock" */;
 			buildPhases = (
+				742D7D11D223B71BFA698D2D /* [CP] Check Pods Manifest.lock */,
 				C9174016200DE85D00145E8D /* Sources */,
 				C9174017200DE85D00145E8D /* Frameworks */,
 				C9174018200DE85D00145E8D /* Resources */,
+				CD134DCE8AFCA210663CA40E /* [CP] Embed Pods Frameworks */,
+				B82F18A8DABDABB92A47F75B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +286,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		742D7D11D223B71BFA698D2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B82F18A8DABDABB92A47F75B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD134DCE8AFCA210663CA40E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9174016200DE85D00145E8D /* Sources */ = {
@@ -428,6 +503,7 @@
 		};
 		C9174047200DE85D00145E8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +518,7 @@
 		};
 		C9174048200DE85D00145E8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,17 @@
+platform :ios,'8.0'
+target 'HeartAlarmClock' do
+    pod 'AFNetworking', '=3.1.0'
+    pod 'YYKit'
+    pod 'MBProgressHUD', '=1.0.0'
+    pod 'Masonry'
+    pod 'SDWebImage', '=3.8'
+    pod 'MJExtension', '=3.0.13'
+    pod 'MJRefresh', '=3.1.12'
+    pod 'FMDB', '=2.7.2'
+    pod 'SDAutoLayout', '=2.2.0'
+    pod 'LJWKeyboardHandler', '=1.0.3'
+    pod 'LKDBHelper', '=2.4.4'
+    pod 'UMengUShare/Social/ReducedWeChat'
+    pod 'UMengUShare/Social/ReducedQQ'
+    pod 'UMengUShare/Social/ReducedSina'
+end
