@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C917401F200DE85D00145E8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C917401E200DE85D00145E8D /* AppDelegate.m */; };
-		C9174022200DE85D00145E8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174021200DE85D00145E8D /* ViewController.m */; };
-		C9174025200DE85D00145E8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9174023200DE85D00145E8D /* Main.storyboard */; };
 		C9174027200DE85D00145E8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9174026200DE85D00145E8D /* Assets.xcassets */; };
-		C917402A200DE85D00145E8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9174028200DE85D00145E8D /* LaunchScreen.storyboard */; };
 		C917402D200DE85D00145E8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C917402C200DE85D00145E8D /* main.m */; };
 		C9174037200DE85D00145E8D /* HeartAlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174036200DE85D00145E8D /* HeartAlarmClockTests.m */; };
 		C9174042200DE85D00145E8D /* HeartAlarmClockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174041200DE85D00145E8D /* HeartAlarmClockUITests.m */; };
+		C917405C200DF24800145E8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174057200DF24700145E8D /* AppDelegate.m */; };
+		C917405F200DF26000145E8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C917405E200DF26000145E8D /* HomeViewController.m */; };
 		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
 /* End PBXBuildFile section */
 
@@ -39,13 +37,7 @@
 		01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.release.xcconfig"; sourceTree = "<group>"; };
 		4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartAlarmClock.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C917401A200DE85D00145E8D /* HeartAlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartAlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C917401D200DE85D00145E8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C917401E200DE85D00145E8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C9174020200DE85D00145E8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C9174021200DE85D00145E8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C9174024200DE85D00145E8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9174026200DE85D00145E8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C9174029200DE85D00145E8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C917402B200DE85D00145E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C917402C200DE85D00145E8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9174032200DE85D00145E8D /* HeartAlarmClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeartAlarmClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +46,10 @@
 		C917403D200DE85D00145E8D /* HeartAlarmClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeartAlarmClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9174041200DE85D00145E8D /* HeartAlarmClockUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartAlarmClockUITests.m; sourceTree = "<group>"; };
 		C9174043200DE85D00145E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9174056200DF24700145E8D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C9174057200DF24700145E8D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C917405D200DF26000145E8D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C917405E200DF26000145E8D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,13 +121,13 @@
 		C917401C200DE85D00145E8D /* HeartAlarmClock */ = {
 			isa = PBXGroup;
 			children = (
-				C917401D200DE85D00145E8D /* AppDelegate.h */,
-				C917401E200DE85D00145E8D /* AppDelegate.m */,
-				C9174020200DE85D00145E8D /* ViewController.h */,
-				C9174021200DE85D00145E8D /* ViewController.m */,
-				C9174023200DE85D00145E8D /* Main.storyboard */,
+				C9174055200DF24700145E8D /* AppDelegate */,
+				C9174060200DF8E200145E8D /* Base */,
+				C917404F200DF24700145E8D /* Helper */,
+				C9174051200DF24700145E8D /* Home */,
+				C9174058200DF24800145E8D /* Mine */,
+				C9174050200DF24700145E8D /* Vendor */,
 				C9174026200DE85D00145E8D /* Assets.xcassets */,
-				C9174028200DE85D00145E8D /* LaunchScreen.storyboard */,
 				C917402B200DE85D00145E8D /* Info.plist */,
 				C917402C200DE85D00145E8D /* main.m */,
 			);
@@ -154,6 +150,100 @@
 				C9174043200DE85D00145E8D /* Info.plist */,
 			);
 			path = HeartAlarmClockUITests;
+			sourceTree = "<group>";
+		};
+		C917404F200DF24700145E8D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C9174050200DF24700145E8D /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C9174051200DF24700145E8D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C9174052200DF24700145E8D /* Controller */,
+				C9174053200DF24700145E8D /* Model */,
+				C9174054200DF24700145E8D /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C9174052200DF24700145E8D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C917405D200DF26000145E8D /* HomeViewController.h */,
+				C917405E200DF26000145E8D /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C9174053200DF24700145E8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9174054200DF24700145E8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9174055200DF24700145E8D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C9174056200DF24700145E8D /* AppDelegate.h */,
+				C9174057200DF24700145E8D /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C9174058200DF24800145E8D /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				C9174059200DF24800145E8D /* Controller */,
+				C917405A200DF24800145E8D /* Model */,
+				C917405B200DF24800145E8D /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		C9174059200DF24800145E8D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C917405A200DF24800145E8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C917405B200DF24800145E8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9174060200DF8E200145E8D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C917402A200DE85D00145E8D /* LaunchScreen.storyboard in Resources */,
 				C9174027200DE85D00145E8D /* Assets.xcassets in Resources */,
-				C9174025200DE85D00145E8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +428,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9174022200DE85D00145E8D /* ViewController.m in Sources */,
+				C917405C200DF24800145E8D /* AppDelegate.m in Sources */,
 				C917402D200DE85D00145E8D /* main.m in Sources */,
-				C917401F200DE85D00145E8D /* AppDelegate.m in Sources */,
+				C917405F200DF26000145E8D /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,25 +464,6 @@
 			targetProxy = C917403E200DE85D00145E8D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C9174023200DE85D00145E8D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9174024200DE85D00145E8D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C9174028200DE85D00145E8D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C9174029200DE85D00145E8D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C9174044200DE85D00145E8D /* Debug */ = {
@@ -506,13 +575,15 @@
 			baseConfigurationReference = CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q2YDFTL2W;
 				INFOPLIST_FILE = HeartAlarmClock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xingjian.HeartAlarmClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jack.HeartAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -521,13 +592,15 @@
 			baseConfigurationReference = 01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Q2YDFTL2W;
 				INFOPLIST_FILE = HeartAlarmClock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xingjian.HeartAlarmClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jack.HeartAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
