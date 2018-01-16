@@ -1,0 +1,223 @@
+﻿.ax_default {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#333333;
+  text-align:center;
+  line-height:normal;
+}
+._页面标题 {
+  font-family:'宋体 常规', '宋体';
+  font-weight:bold;
+  font-size:28px;
+}
+._元件名称 {
+  font-family:'宋体 常规', '宋体';
+  font-weight:bold;
+  font-size:18px;
+}
+._表格文字 {
+  font-family:'宋体 常规', '宋体';
+  font-weight:normal;
+  font-style:normal;
+  font-size:13px;
+}
+._正文 {
+  font-family:'宋体 常规', '宋体';
+  line-height:30px;
+}
+._形状 {
+}
+.box_1 {
+}
+._图片 {
+  color:#000000;
+}
+.placeholder {
+}
+.primary_button {
+  color:#FFFFFF;
+}
+._一级标题 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:32px;
+  text-align:left;
+}
+._二级标题 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:24px;
+  text-align:left;
+}
+._三级标题 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:18px;
+  text-align:left;
+}
+._四级标题 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:14px;
+  text-align:left;
+}
+._五级标题 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  text-align:left;
+}
+._六级标题 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:10px;
+  text-align:left;
+}
+._文本段落 {
+  font-size:18px;
+  text-align:left;
+}
+._文本链接 {
+  color:#0000FF;
+}
+._鼠标悬停文本链接时 {
+}
+._鼠标按下文本链接时 {
+}
+._流程形状 {
+}
+.line {
+}
+.droplist {
+  color:#000000;
+  text-align:left;
+}
+.box_3 {
+}
+.horizontal_line {
+}
+._表格 {
+}
+._单元格 {
+}
+._水平线 {
+}
+._垂直线 {
+}
+._连接线 {
+}
+._图像 {
+  color:#000000;
+}
+.icon {
+}
+.flow_shape {
+}
+.table {
+  font-size:13px;
+  color:#333333;
+  text-align:center;
+  line-height:normal;
+}
+.table_cell {
+}
+._形状1 {
+}
+._文本 {
+  text-align:left;
+}
+._横线 {
+}
+.connector {
+}
+.label {
+  font-size:13px;
+  color:#666666;
+  text-align:left;
+}
+.box_2 {
+}
+.heading_3 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:18px;
+  text-align:left;
+}
+.paragraph {
+  text-align:left;
+}
+.text_field {
+  color:#000000;
+  text-align:left;
+}
+.button {
+}
+._文本1 {
+  text-align:left;
+}
+._连接符 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:normal;
+  font-style:normal;
+  font-size:12px;
+  color:#666666;
+  text-align:center;
+  line-height:normal;
+}
+.heading_2 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-size:24px;
+  text-align:left;
+}
+.paragraph1 {
+  text-align:left;
+}
+.ellipse {
+}
+.connector1 {
+}
+.box_21 {
+}
+.heading_31 {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:bold;
+  font-size:18px;
+  text-align:left;
+}
+.shape {
+}
+._36号字_顶部标题、大按钮、弹窗提示主标题_ {
+  font-family:'PingFang SC Regular', 'PingFang SC';
+  font-size:18px;
+  text-align:left;
+}
+._32号字_单行列表内，右方操作说明的文字__） {
+  font-family:'PingFang SC Regular', 'PingFang SC';
+  font-size:16px;
+  text-align:left;
+}
+._30号字_服务主标题，例如双行列表内的下方描述信息。__） {
+  font-family:'PingFang SC Regular', 'PingFang SC';
+  font-size:15px;
+  text-align:left;
+}
+._28号字_页面备注信息及列表的表头说明文字__） {
+  font-family:'PingFang SC Regular', 'PingFang SC';
+  font-size:14px;
+  text-align:left;
+}
+._24号字_最小说明文本，例如列表时间态、版权信息等） {
+  font-family:'PingFang SC Regular', 'PingFang SC';
+  font-size:12px;
+  text-align:left;
+}
+.image {
+  color:#000000;
+}
+.paragraph2 {
+  text-align:left;
+}
+.button1 {
+}
