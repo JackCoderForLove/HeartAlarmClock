@@ -32,7 +32,8 @@
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
-
+@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)UIButton *rightBtn;
 @end
 
 @implementation HomeViewController
@@ -49,8 +50,22 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor greenColor];
 }
+- (void)layoutNavigationBar
+{
+    self.navigationBarSelf.leftView = self.leftBtn;
+    self.navigationBarSelf.rightView = self.rightBtn;
+}
+//点击主页
+- (void)jcLeftBtnOnClick:(UIButton *)sender
+{
+    NSLog(@"点击主页");
+}
 
-
+//点击添加
+- (void)jcRightBtnOnClick:(UIButton *)sender
+{
+    NSLog(@"点击添加");
+}
 #pragma mark - UITableViewDelegate
 
 #pragma mark - Public
@@ -58,7 +73,30 @@
 #pragma mark - Private
 
 #pragma mark - Getter
-
+- (UIButton *)leftBtn
+{
+    if (!_leftBtn)
+    {
+        _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_leftBtn setImage:[UIImage imageNamed:@"菜单.png"] forState:UIControlStateNormal];
+        _leftBtn.frame = CGRectMake(0, 0, 42, 42);
+        [_leftBtn addTarget:self action:@selector(jcLeftBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _leftBtn;
+}
+- (UIButton *)rightBtn
+{
+    if (!_rightBtn) {
+        
+        _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_rightBtn setImage:[UIImage imageNamed:@"添加2.png"] forState:UIControlStateNormal];
+        _rightBtn.frame = CGRectMake(0, 0, 42, 42);
+        [_rightBtn addTarget:self action:@selector(jcRightBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _rightBtn;
+}
 #pragma mark - Setter
 
 - (void)viewWillDisappear:(BOOL)animated

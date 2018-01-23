@@ -21,12 +21,27 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    //注册本地通知
+    [self registerLocalNotification];
     HomeViewController *homeVC = [HomeViewController new];
-    self.window.rootViewController = homeVC;
-    NSLog(@"啦啦啦");
+    BaseNavigationController *homeNav = [[BaseNavigationController alloc]initWithRootViewController:homeVC];
+    self.window.rootViewController = homeNav;
+
     return YES;
 }
 
+//注册本地通知
+- (void)registerLocalNotification
+{
+    //  ios8后，需要添加这个注册，才能得到授权
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationType type = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:type
+                                                                                 categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        // 通知重复提示的单位，可以是天、周、月
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

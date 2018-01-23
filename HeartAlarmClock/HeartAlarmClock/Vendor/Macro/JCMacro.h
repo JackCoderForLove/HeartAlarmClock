@@ -72,4 +72,7 @@
 //是否显示更新数据
 #define JCISShowUpdateData               @"jcisshowupdatedata"    //如果是No,则显示更新数据，如果是yes,则不显示更新数据
 
+//本地闹钟数组数据
+#define JCLocalClockArr                  @"jclocalclockarr"       //本地闹钟数据
+
 #endif /* JCMacro_h */

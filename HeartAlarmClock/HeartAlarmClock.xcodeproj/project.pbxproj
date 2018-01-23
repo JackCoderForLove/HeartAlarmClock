@@ -50,6 +50,7 @@
 		C91740D8200E002C00145E8D /* AppScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C91740D5200E002C00145E8D /* AppScene.m */; };
 		C91740D9200E002C00145E8D /* AppTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C91740D7200E002C00145E8D /* AppTheme.m */; };
 		C91740DC200E022A00145E8D /* HEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91740DB200E022A00145E8D /* HEBubbleView.m */; };
+		C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D956820171F7B00F21721 /* EvaluateRemindModel.m */; };
 		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +171,8 @@
 		C91740D7200E002C00145E8D /* AppTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTheme.m; sourceTree = "<group>"; };
 		C91740DA200E022900145E8D /* HEBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBubbleView.h; sourceTree = "<group>"; };
 		C91740DB200E022A00145E8D /* HEBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBubbleView.m; sourceTree = "<group>"; };
+		C92D956820171F7B00F21721 /* EvaluateRemindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateRemindModel.m; sourceTree = "<group>"; };
+		C92D956920171F7B00F21721 /* EvaluateRemindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateRemindModel.h; sourceTree = "<group>"; };
 		CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +323,8 @@
 		C9174053200DF24700145E8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C92D956920171F7B00F21721 /* EvaluateRemindModel.h */,
+				C92D956820171F7B00F21721 /* EvaluateRemindModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -685,6 +690,7 @@
 				C91740D2200DFEBF00145E8D /* TKFooterView.m in Sources */,
 				C91740A3200DFCE000145E8D /* NSDictionary+Extension.m in Sources */,
 				C91740DC200E022A00145E8D /* HEBubbleView.m in Sources */,
+				C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */,
 				C9174071200DFBFB00145E8D /* MainTabBarController.m in Sources */,
 				C917405C200DF24800145E8D /* AppDelegate.m in Sources */,
 				C91740A0200DFCE000145E8D /* MBProgressHUD+Extension.m in Sources */,
