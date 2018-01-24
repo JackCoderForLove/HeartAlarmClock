@@ -40,6 +40,9 @@
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)NSMutableArray *jcRemindData;
+@property(nonatomic,strong)UIImageView *topImgView;
+@property(nonatomic,strong)UIImageView *bottomImgView;
+@property(nonatomic,strong)UITableView *remindTable;
 @end
 
 @implementation HomeViewController
@@ -328,6 +331,25 @@
         
     }
     return _rightBtn;
+}
+- (UIImageView *)topImgView
+{
+    if (!_topImgView) {
+        
+        _topImgView = [UIImageView new];
+        _topImgView.image = [UIImage imageNamed:@""];
+    }
+    return _topImgView;
+}
+
+- (UIImageView *)bottomImgView
+{
+    if (!_bottomImgView) {
+        
+        _bottomImgView = [UIImageView new];
+        _bottomImgView.image = [UIImage imageNamed:@""];
+    }
+    return _bottomImgView;
 }
 #pragma mark - Setter
 
