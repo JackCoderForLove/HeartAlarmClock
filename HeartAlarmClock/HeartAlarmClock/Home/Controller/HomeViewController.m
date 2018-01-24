@@ -41,8 +41,16 @@
 @property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)NSMutableArray *jcRemindData;
 @property(nonatomic,strong)UIImageView *topImgView;
+@property(nonatomic,strong)UIImageView *middlImgView;
+@property(nonatomic,strong)UIImageView *leftBImgView;
+@property(nonatomic,strong)UIImageView *rightBImgView;
+@property(nonatomic,strong)UIButton  *addBtn;
 @property(nonatomic,strong)UIImageView *bottomImgView;
 @property(nonatomic,strong)UITableView *remindTable;
+@property(nonatomic,strong)UILabel  *timeLab;//时间lab
+@property(nonatomic,strong)UILabel *dateLab;//日期lab
+@property(nonatomic,strong)UILabel *weekLab;//周几
+@property(nonatomic,strong)UILabel *temperatureLab;//温度lab
 @end
 
 @implementation HomeViewController
@@ -87,7 +95,102 @@
 }
 - (void)jcLayoutMyUI
 {
-        self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.topImgView];
+    [self.topImgView addSubview:self.dateLab];
+    [self.topImgView addSubview:self.weekLab];
+    [self.topImgView addSubview:self.temperatureLab];
+    [self.topImgView addSubview:self.timeLab];
+    [self.view addSubview:self.middlImgView];
+    [self.view addSubview:self.addBtn];
+    [self.view addSubview:self.leftBImgView];
+    [self.view addSubview:self.rightBImgView];
+    [self.topImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(543/2.0);
+        make.height.mas_equalTo(313/2.0);
+        make.top.mas_equalTo(self.view.mas_top).offset(130/2.0);
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+    }];
+    [self.weekLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(15);
+        make.centerX.mas_equalTo(self.topImgView.mas_centerX);
+        make.top.mas_equalTo(self.topImgView.mas_top).offset(50);
+    }];
+    [self.temperatureLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(15);
+        make.left.mas_equalTo(self.weekLab.mas_right).offset(15);
+        make.top.mas_equalTo(self.topImgView.mas_top).offset(50);
+    }];
+    [self.dateLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(15);
+        make.right.mas_equalTo(self.weekLab.mas_left).offset(-15);
+        make.top.mas_equalTo(self.topImgView.mas_top).offset(50);
+    }];
+    [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(150);
+        make.height.mas_equalTo(40);
+        make.centerX.mas_equalTo(self.topImgView.mas_centerX);
+        make.top.mas_equalTo(self.dateLab.mas_bottom).offset(2);
+    }];
+    CGFloat jcMiddleY = 60/2;
+    CGFloat jcAddY = 80/2;
+    if (isIphone_5) {
+        jcMiddleY = 20/2;
+        jcAddY = 20/2;
+    }
+    [self.middlImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(394/2.0);
+        make.height.mas_equalTo(378/2.0);
+        make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcMiddleY);
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+    }];
+    [self.addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(182/2.0);
+        make.height.mas_equalTo(182/2.0);
+        make.top.mas_equalTo(self.middlImgView.mas_bottom).offset(jcAddY);
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+    }];
+    [self.leftBImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(254/2.0);
+        make.height.mas_equalTo(157/2.0);
+        make.top.mas_equalTo(self.addBtn.mas_centerY);
+        make.right.mas_equalTo(self.addBtn.mas_left).offset(22);
+    }];
+    [self.rightBImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(117/2.0);
+        make.height.mas_equalTo(227/2.0);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-JC_TabbarSafeBottomMargin);
+        make.right.mas_equalTo(self.view.mas_right);
+    }];
+
+    //布局空页面
+    [self jcLayoutEmptyUI];
+    
+}
+//布局空页面
+- (void)jcLayoutEmptyUI
+{
+
+    self.middlImgView.hidden = NO;
+    self.addBtn.hidden = NO;
+    self.leftBImgView.hidden = NO;
+    self.rightBImgView.hidden = NO;
+
+
+
+    
+}
+//布局有数据页面
+- (void)jcLayoutDataUI
+{
+    self.middlImgView.hidden = YES;
+    self.addBtn.hidden = YES;
+    self.leftBImgView.hidden = YES;
+    self.rightBImgView.hidden = YES;
+
 }
 //获取本地提醒数据
 - (void)jcGetRemindDataRequest
@@ -214,7 +317,7 @@
             UILocalNotification *newNotification = [[UILocalNotification alloc] init];
             if (newNotification) {
                 newNotification.fireDate = newFireDate ;
-           //     newNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:3] ;
+             //   newNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:3] ;
     //            newNotification.timeZone =  [NSTimeZone timeZoneWithName:@"GMT"];
                 newNotification.alertBody =  @"评测时间到了！快去评测吧!";
                 newNotification.applicationIconBadgeNumber = 0;
@@ -332,12 +435,13 @@
     }
     return _rightBtn;
 }
+
 - (UIImageView *)topImgView
 {
     if (!_topImgView) {
         
         _topImgView = [UIImageView new];
-        _topImgView.image = [UIImage imageNamed:@""];
+        _topImgView.image = [UIImage imageNamed:@"形状3.png"];
     }
     return _topImgView;
 }
@@ -347,9 +451,99 @@
     if (!_bottomImgView) {
         
         _bottomImgView = [UIImageView new];
-        _bottomImgView.image = [UIImage imageNamed:@""];
+        _bottomImgView.image = [UIImage imageNamed:@"扎心了.png"];
     }
     return _bottomImgView;
+}
+- (UIImageView *)middlImgView
+{
+    if (!_middlImgView) {
+        
+        _middlImgView = [UIImageView new];
+        _middlImgView.image = [UIImage imageNamed:@"老铁设置闹钟.png"];
+    }
+    return _middlImgView;
+}
+- (UIImageView *)leftBImgView
+{
+    if (!_leftBImgView) {
+        
+        _leftBImgView = [UIImageView new];
+        _leftBImgView.image = [UIImage imageNamed:@"点这里.png"];
+    }
+    return _leftBImgView;
+}
+- (UIImageView *)rightBImgView
+{
+    if (!_rightBImgView) {
+        
+        _rightBImgView = [UIImageView new];
+        _rightBImgView.image = [UIImage imageNamed:@"黄色小人.png"];
+    }
+    return _rightBImgView;
+}
+- (UIButton *)addBtn
+{
+    if (!_addBtn) {
+        
+        _addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addBtn setImage:[UIImage imageNamed:@"添加闹钟.png"] forState:UIControlStateNormal];
+        [_addBtn addTarget:self action:@selector(jcRightBtnOnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addBtn;
+}
+- (UILabel *)dateLab
+{
+    if (!_dateLab) {
+        
+        _dateLab = [UILabel new];
+        //_dateLab.backgroundColor = [UIColor purpleColor];
+        _dateLab.font = [UIFont systemFontOfSize:14];
+        _dateLab.textColor = [UIColor blackColor];
+        _dateLab.text = @"01/25";
+
+        
+    }
+    return _dateLab;
+}
+- (UILabel *)timeLab
+{
+    if (!_timeLab) {
+        
+        _timeLab = [UILabel new];
+        //_timeLab.backgroundColor = [UIColor blueColor];
+        _timeLab.textAlignment = NSTextAlignmentCenter;
+        _timeLab.font = [UIFont systemFontOfSize:55];
+        _timeLab.textColor = [UIColor redColor];
+        _timeLab.text = @"08:33";
+
+    }
+    return _timeLab;
+    
+}
+- (UILabel *)weekLab
+{
+    if (!_weekLab)
+    {
+        _weekLab = [UILabel new];
+       // _weekLab.backgroundColor = [UIColor greenColor];
+        _weekLab.font = [UIFont systemFontOfSize:14];
+        _weekLab.textColor = [UIColor blackColor];
+        _weekLab.text = @"周五";
+    }
+    return _weekLab;
+}
+- (UILabel *)temperatureLab
+{
+    if (!_temperatureLab) {
+        
+        _temperatureLab = [UILabel new];
+       // _temperatureLab.backgroundColor = [UIColor redColor];
+        _temperatureLab.font = [UIFont systemFontOfSize:14];
+        _temperatureLab.textColor = [UIColor blackColor];
+        _temperatureLab.text = @"-13C";
+    }
+    return _temperatureLab;
 }
 #pragma mark - Setter
 
