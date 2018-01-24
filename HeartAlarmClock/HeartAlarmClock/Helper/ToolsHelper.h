@@ -130,5 +130,8 @@
 
 //按比例缩放,size 是你要把图显示到 多大区域
 + (UIImage *) imageCompressFitSizeScale:(UIImage *)sourceImage targetSize:(CGSize)size;
-
+//根据时间字符串获取格林尼治时间NSDate
++ (NSDate *)jcGetGLNZDateWithString:(NSString *)dateStr withFormatter:(NSString *)jcformate;
+//根据NSDate转为格林尼治时间字符串
++(NSString *)jcGetGLNZTimeStrWithDate:(NSDate *)date withFormatter:(NSString *)jcformate;
 @end

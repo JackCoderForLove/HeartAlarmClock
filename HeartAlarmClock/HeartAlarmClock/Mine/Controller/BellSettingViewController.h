@@ -1,4 +1,4 @@
-//  HomeViewController.h
+//  BellSettingViewController.h
 //  HeartAlarmClock
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -22,16 +22,15 @@
  *
  * ━━━━━━感觉萌萌哒━━━━━━
  */
-//  Created by xingjian on 2018/1/16.
+//  Created by xingjian on 2018/1/24.
 //  Copyright © 2018年 xingjian. All rights reserved.杰克
-//  @class HomeViewController
-//  @abstract 主页
+//  @class BellSettingViewController
+//  @abstract 铃声设置
 //  @discussion <#类的功能#>
 //
 
-#import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController
+@interface BellSettingViewController : BaseViewController
 
 @end

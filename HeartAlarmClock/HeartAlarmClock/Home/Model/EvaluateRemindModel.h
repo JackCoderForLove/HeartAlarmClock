@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface EvaluateRemindModel : NSObject
-@property(nonatomic,strong)NSNumber *evaluateRemindId;//主键
+@property(nonatomic,strong)NSString *evaluateRemindId;//主键
 @property(nonatomic,strong)NSString *remindContent;//提醒内容
 @property(nonatomic,strong)NSArray *remindDate;//提醒日期数组
 @property(nonatomic,strong)NSString *remindTime;//提醒时间
 @property(nonatomic,strong)NSNumber *status;//状态 0：开 1：关
-@property(nonatomic,strong)NSNumber *userId;//用户id
+@property(nonatomic,strong)NSString *soundName;//响铃声音
 @end

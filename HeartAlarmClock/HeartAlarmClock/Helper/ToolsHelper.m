@@ -607,4 +607,39 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
+//根据时间字符串获取NSDate
++ (NSDate *)jcGetGLNZDateWithString:(NSString *)dateStr withFormatter:(NSString *)jcformate
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    // 设置日期格式 为了转换成功
+    if (jcformate.length==0) {
+        format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    }
+    else
+    {
+        format.dateFormat = jcformate;
+    }
+    // NSString * -> NSDate *
+    NSDate *data = [format dateFromString:dateStr];
+    return data;
+    
+}
+
+//根据NSDate转为时间字符串
++(NSString *)jcGetGLNZTimeStrWithDate:(NSDate *)date withFormatter:(NSString *)jcformate
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    // 设置日期格式 为了转换成功
+    if (jcformate.length==0) {
+        format.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    }
+    else
+    {
+        format.dateFormat = jcformate;
+    }
+    NSString *timeString = [format stringFromDate:date];
+    return timeString;
+}
+
 @end

@@ -53,7 +53,7 @@
 //        _titleLabel.font = [UIFont fontWithName:@"impact" size:16];
         _titleLabel.font = [UIFont fontScaleByDevice:32];
 //        _titleLabel.textColor = UIColorWithRGB(119, 119, 119);
-        _titleLabel.textColor = UIColorWithRGB(119, 119, 119);
+        _titleLabel.textColor = [ToolsHelper colorWithHexString:@"#333333"];
 
         CGFloat width = SCREEN_WIDTH - 124;
         [_titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
