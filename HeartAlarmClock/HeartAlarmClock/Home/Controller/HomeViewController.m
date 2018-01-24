@@ -36,7 +36,7 @@
 #import "ClockSettingViewController.h"
 
 
-@interface HomeViewController ()
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)NSMutableArray *jcRemindData;
@@ -51,6 +51,8 @@
 @property(nonatomic,strong)UILabel *dateLab;//日期lab
 @property(nonatomic,strong)UILabel *weekLab;//周几
 @property(nonatomic,strong)UILabel *temperatureLab;//温度lab
+@property(nonatomic,strong)UIImageView *huluImg;
+@property(nonatomic,strong)UIImageView *jchuluBImg;
 @end
 
 @implementation HomeViewController
@@ -105,10 +107,24 @@
     [self.view addSubview:self.addBtn];
     [self.view addSubview:self.leftBImgView];
     [self.view addSubview:self.rightBImgView];
+    [self.view addSubview:self.huluImg];
+    [self.view addSubview:self.jchuluBImg];
     [self.topImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(543/2.0);
         make.height.mas_equalTo(313/2.0);
         make.top.mas_equalTo(self.view.mas_top).offset(130/2.0);
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+    }];
+    [self.huluImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(495/2.0);
+        make.height.mas_equalTo(76/2.0);
+        make.top.mas_equalTo(self.topImgView.mas_bottom).offset(54/2.0);
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+    }];
+    [self.jchuluBImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(732/2.0);
+        make.height.mas_equalTo(335/2.0);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-JC_TabbarSafeBottomMargin);
         make.centerX.mas_equalTo(self.view.mas_centerX);
     }];
     [self.weekLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -165,7 +181,7 @@
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(-JC_TabbarSafeBottomMargin);
         make.right.mas_equalTo(self.view.mas_right);
     }];
-
+    [self.view addSubview:self.remindTable];
     //布局空页面
     [self jcLayoutEmptyUI];
     
@@ -178,6 +194,9 @@
     self.addBtn.hidden = NO;
     self.leftBImgView.hidden = NO;
     self.rightBImgView.hidden = NO;
+    self.jchuluBImg.hidden = YES;
+    self.huluImg.hidden = YES;
+    self.remindTable.hidden = YES;
 
 
 
@@ -190,6 +209,9 @@
     self.addBtn.hidden = YES;
     self.leftBImgView.hidden = YES;
     self.rightBImgView.hidden = YES;
+    self.jchuluBImg.hidden = NO;
+    self.huluImg.hidden = NO;
+    self.remindTable.hidden = NO;
 
 }
 //获取本地提醒数据
@@ -200,6 +222,7 @@
     //刷新表格数据
     //设置本地通知
     [self jcSetLocalNotification];
+    [self.remindTable reloadData];
     
 }
 //点击主页
@@ -403,9 +426,114 @@
 {
     [[UIApplication sharedApplication]cancelAllLocalNotifications];
 }
-
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //return self.jcRemindData.count;
+    return 3;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *jcCellID = @"jcCellID";
+    UITableViewCell *jcCell = [tableView dequeueReusableCellWithIdentifier:jcCellID];
+    if (!jcCell) {
+        jcCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcCellID];
+    }
+    jcCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    jcCell.textLabel.text = @"瓦力瓦力哇";
+    jcCell.backgroundColor = [UIColor grayColor];
+    return jcCell;
+}
 #pragma mark - UITableViewDelegate
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"点击了%ld",indexPath.section);
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.001;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10;
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [tableView reloadData];
+//        if (self.jcRemindData.count == 1) {
+//            [OMGToast showWithText:@"至少要留一个提醒呦"];
+//            [self.remindTable reloadData];
+//            return;
+//        }
+        
+        //1 获取当前选择的数据Model
+       // EvaluateRemindModel *eveModel =[self.jcRemindData objectAtIndex:indexPath.section];
+        //2 先删除本地提醒通知
+        //3 向后台删除提醒通知
+        //4 删除数组中的model
+//        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+//        UserModel *jcUser = [UserModel getLatestUser];
+//        [param setObject:eveModel.evaluateRemindId forKey:@"evaluateRemindId"];
+//        [param setObject:jcUser.userId forKey:@"userId"];
+//        [SessionRequest post:EVELUATEREMINDDELETE params:param success:^(id response) {
+//            if ([[response objectForKey:@"status"]integerValue] == 1000) {
+//
+//                NSDictionary *jcData = [response objectForKey:@"data"];
+//                BOOL deleteFlag = [[jcData objectForKey:@"deleteFlag"]boolValue];
+//                if (deleteFlag == YES) {
+//                    [OMGToast showWithText:JCLocalStr(@"Successfully delete", @"删除成功")];
+//                    //删除本地通知提醒
+//                    [self deleteLocalNotification:eveModel];
+//                    [self.jcRemindData removeObjectAtIndex:indexPath.row];
+//                    [self.jcRemindTable reloadData];
+//
+//
+//                }
+//                else
+//                {
+//                    [OMGToast showWithText:JCLocalStr(@"Unsuccessfully delete", @"删除失败")];
+//                    [self.jcRemindTable reloadData];
+//
+//                }
+//            }
+//            else
+//            {
+//                [OMGToast showWithText:JCLocalStr(@"Unsuccessfully delete", @"删除失败")];
+//                [self.jcRemindTable reloadData];
+//
+//            }
+//
+//        } fail:^(NSError *error) {
+//            NSLog(@"删除失败%@",error.localizedDescription);
+//            [OMGToast showWithText:JCLocalStr(@"Unsuccessfully delete", @"删除失败")];
+//            [self.jcRemindTable reloadData];
+//
+//        }];
+//
+        
+        
+        
+        
+    }
+}
 #pragma mark - Public
 
 #pragma mark - Private
@@ -482,6 +610,24 @@
     }
     return _rightBImgView;
 }
+- (UIImageView *)jchuluBImg
+{
+    if (!_jchuluBImg) {
+        
+        _jchuluBImg = [UIImageView new];
+        _jchuluBImg.image = [UIImage imageNamed:@"扎心了.png"];
+    }
+    return _jchuluBImg;
+}
+- (UIImageView *)huluImg
+{
+    if (!_huluImg) {
+        
+        _huluImg = [UIImageView new];
+        _huluImg.image = [UIImage imageNamed:@"葫芦娃.png"];
+    }
+    return _huluImg;
+}
 - (UIButton *)addBtn
 {
     if (!_addBtn) {
@@ -544,6 +690,24 @@
         _temperatureLab.text = @"-13C";
     }
     return _temperatureLab;
+}
+- (UITableView *)remindTable
+{
+    if (!_remindTable) {
+        
+        _remindTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 566/2.0, KScreenWidth, KScreenHeight-566/2.0-JC_TabbarSafeBottomMargin-335/2.0) style:UITableViewStyleGrouped];
+        _remindTable.delegate = self;
+        _remindTable.dataSource = self;
+        //IOS11适配
+        _remindTable.estimatedRowHeight = 0;
+        _remindTable.estimatedSectionHeaderHeight = 0;
+        _remindTable.estimatedSectionFooterHeight = 0;
+        //隐藏垂直滚动条
+        _remindTable.showsVerticalScrollIndicator = NO;
+        _remindTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _remindTable.backgroundColor = [UIColor whiteColor];
+    }
+    return _remindTable;
 }
 #pragma mark - Setter
 
