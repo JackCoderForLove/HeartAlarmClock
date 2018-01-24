@@ -32,12 +32,14 @@
 #import "SettingViewController.h"
 #import "AboutusViewController.h"
 #import "WallpaperViewController.h"
+#import "JCShareView.h"
 
-@interface SettingViewController ()
+@interface SettingViewController ()<ShareDelegate>
 @property(nonatomic,strong)UIImageView *topImgView;
 @property(nonatomic,strong)UIImageView *bottomImgView;
 @property(nonatomic,strong)NSMutableArray *jcBtnTitleArr;
 @property(nonatomic,strong)NSMutableArray *jcBtnColorArr;
+@property(nonatomic,strong)JCShareView    *shareView;//分享视图
 @end
 
 @implementation SettingViewController
@@ -135,6 +137,7 @@
         {
             //点击了分享
             NSLog(@"去分享吧");
+            [self.shareView show];
             break;
         }
         case 1002:
@@ -144,6 +147,31 @@
             [self.navigationController pushViewController:aboutVC animated:YES];
             break;
         }
+        default:
+            break;
+    }
+}
+#pragma mark -
+#pragma mark ShareDelegate
+- (void)shareWithType:(NSString *)type
+{
+    switch (type.integerValue) {
+        case 0://微信好友
+        {
+            NSLog(@"点击了微信好友");
+            break;
+        }
+        case 1://朋友圈
+        {
+            NSLog(@"点击了微信朋友圈");
+            break;
+        }
+        case 2://复制链接
+        {
+            NSLog(@"点击了复制链接");
+            break;
+        }
+
         default:
             break;
     }
@@ -172,6 +200,16 @@
         _bottomImgView.image = [UIImage imageNamed:@"扎心.png"];
     }
     return _bottomImgView;
+}
+-(JCShareView *)shareView
+{
+    if (!_shareView) {
+        _shareView = [[JCShareView alloc] init];
+        _shareView.delegate = self;
+        _shareView.jcType = 0;
+        
+    }
+    return _shareView;
 }
 #pragma mark - Setter
 

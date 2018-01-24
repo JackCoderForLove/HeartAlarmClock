@@ -56,6 +56,7 @@
 		C917E4FE201863B90038F8A1 /* AboutusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C917E4FD201863B90038F8A1 /* AboutusViewController.m */; };
 		C917E501201864380038F8A1 /* WallpaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C917E500201864380038F8A1 /* WallpaperViewController.m */; };
 		C917E5042018647C0038F8A1 /* BellRecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C917E5032018647C0038F8A1 /* BellRecordingViewController.m */; };
+		C917E507201899F10038F8A1 /* JCShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917E506201899F10038F8A1 /* JCShareView.m */; };
 		C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D956820171F7B00F21721 /* EvaluateRemindModel.m */; };
 		C92D956D2018282B00F21721 /* EvaluateRemindManger.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D956C2018282B00F21721 /* EvaluateRemindManger.m */; };
 		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
@@ -190,6 +191,8 @@
 		C917E500201864380038F8A1 /* WallpaperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallpaperViewController.m; sourceTree = "<group>"; };
 		C917E5022018647C0038F8A1 /* BellRecordingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BellRecordingViewController.h; sourceTree = "<group>"; };
 		C917E5032018647C0038F8A1 /* BellRecordingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BellRecordingViewController.m; sourceTree = "<group>"; };
+		C917E505201899F10038F8A1 /* JCShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCShareView.h; sourceTree = "<group>"; };
+		C917E506201899F10038F8A1 /* JCShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCShareView.m; sourceTree = "<group>"; };
 		C92D956820171F7B00F21721 /* EvaluateRemindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateRemindModel.m; sourceTree = "<group>"; };
 		C92D956920171F7B00F21721 /* EvaluateRemindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateRemindModel.h; sourceTree = "<group>"; };
 		C92D956B2018282B00F21721 /* EvaluateRemindManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateRemindManger.h; sourceTree = "<group>"; };
@@ -407,6 +410,8 @@
 		C917405B200DF24800145E8D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C917E505201899F10038F8A1 /* JCShareView.h */,
+				C917E506201899F10038F8A1 /* JCShareView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -726,6 +731,7 @@
 				C91740A1200DFCE000145E8D /* NSBundle+Language.m in Sources */,
 				C9174074200DFBFB00145E8D /* BaseViewController.m in Sources */,
 				C91740D2200DFEBF00145E8D /* TKFooterView.m in Sources */,
+				C917E507201899F10038F8A1 /* JCShareView.m in Sources */,
 				C91740A3200DFCE000145E8D /* NSDictionary+Extension.m in Sources */,
 				C91740DC200E022A00145E8D /* HEBubbleView.m in Sources */,
 				C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */,
