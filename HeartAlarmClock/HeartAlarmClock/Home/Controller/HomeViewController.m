@@ -34,6 +34,7 @@
 #import "EvaluateRemindManger.h"
 #import "SettingViewController.h"
 #import "ClockSettingViewController.h"
+#import "AboutusViewController.h"
 
 @interface HomeViewController ()
 @property(nonatomic,strong)UIButton *leftBtn;
@@ -99,8 +100,10 @@
 - (void)jcLeftBtnOnClick:(UIButton *)sender
 {
     NSLog(@"点击主页");
-    SettingViewController *settingVC = [SettingViewController new];
-    [self.navigationController pushViewController:settingVC animated:YES];
+//    SettingViewController *settingVC = [SettingViewController new];
+//    [self.navigationController pushViewController:settingVC animated:YES];
+    AboutusViewController *aboutVC = [AboutusViewController new];
+    [self.navigationController pushViewController:aboutVC animated:YES];
   
 }
 
