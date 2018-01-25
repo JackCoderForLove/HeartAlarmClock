@@ -34,7 +34,7 @@
 #import "EvaluateRemindManger.h"
 #import "SettingViewController.h"
 #import "ClockSettingViewController.h"
-
+#import "JCRemindTableViewCell.h"
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *leftBtn;
@@ -69,7 +69,7 @@
     [super viewDidLoad];
     [self jcConfigData];
     [self jcLayoutMyUI];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self jcGetRemindDataRequest];
     });
     //获取数据
@@ -335,8 +335,8 @@
         NSDate *jcCPFirDate = [[calendar dateFromComponents:comps] dateByAddingTimeInterval:3600 * 24 * days];
         NSString *jcNewDateStr = [ToolsHelper jcGetGLNZTimeStrWithDate:jcCPFirDate  withFormatter:@"yyyy-MM-dd"];
         NSString *jcNowDateStr = [ToolsHelper jcGetGLNZTimeStrWithDate:[NSDate date] withFormatter:@"yyyy-MM-dd"];
-        NSDate *jcNewDate = [ToolsHelper jcGetDateWithString:jcNewDateStr withFormatter:@"yyyy-MM-dd"];
-        NSDate *jcNowDate = [ToolsHelper jcGetDateWithString:jcNowDateStr withFormatter:@"yyyy-MM-dd"];
+//        NSDate *jcNewDate = [ToolsHelper jcGetDateWithString:jcNewDateStr withFormatter:@"yyyy-MM-dd"];
+//        NSDate *jcNowDate = [ToolsHelper jcGetDateWithString:jcNowDateStr withFormatter:@"yyyy-MM-dd"];
             UILocalNotification *newNotification = [[UILocalNotification alloc] init];
             if (newNotification) {
                 newNotification.fireDate = newFireDate ;
