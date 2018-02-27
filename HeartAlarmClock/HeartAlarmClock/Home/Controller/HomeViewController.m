@@ -184,6 +184,13 @@
     [self.view addSubview:self.remindTable];
     //布局空页面
     [self jcLayoutEmptyUI];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"music" ofType:@"plist"];
+    NSDictionary *jcDic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    NSLog(@"读取plist文件%@",jcDic);
+    NSString *filePath1 = [[NSBundle mainBundle] pathForResource:@"musickey" ofType:@"plist"];
+    NSArray *jcArr = [NSArray arrayWithContentsOfFile:filePath1];
+    NSLog(@"key=%@",jcArr);
+    
     
 }
 //布局空页面

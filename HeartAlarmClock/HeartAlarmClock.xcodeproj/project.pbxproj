@@ -60,6 +60,59 @@
 		C917E50A20196EE10038F8A1 /* JCRemindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C917E50920196EE10038F8A1 /* JCRemindTableViewCell.m */; };
 		C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D956820171F7B00F21721 /* EvaluateRemindModel.m */; };
 		C92D956D2018282B00F21721 /* EvaluateRemindManger.m in Sources */ = {isa = PBXBuildFile; fileRef = C92D956C2018282B00F21721 /* EvaluateRemindManger.m */; };
+		C9A5019C2044FA85005553F4 /* 斗地主~.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501982044FA84005553F4 /* 斗地主~.wav */; };
+		C9A5019D2044FA85005553F4 /* Normal 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501992044FA84005553F4 /* Normal 3.wav */; };
+		C9A5019E2044FA85005553F4 /* Welcome 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A5019A2044FA85005553F4 /* Welcome 1.wav */; };
+		C9A5019F2044FA85005553F4 /* Normal 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A5019B2044FA85005553F4 /* Normal 2.wav */; };
+		C9A501A32044FA96005553F4 /* 王者荣耀英雄台词版.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A02044FA95005553F4 /* 王者荣耀英雄台词版.wav */; };
+		C9A501A42044FA96005553F4 /* 【稳住别浪】.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A12044FA95005553F4 /* 【稳住别浪】.wav */; };
+		C9A501A52044FA96005553F4 /* 来一口炸裂的农药吧.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A22044FA96005553F4 /* 来一口炸裂的农药吧.wav */; };
+		C9A501AE2044FAAB005553F4 /* 《啦啦啦德玛西亚》主题曲.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A62044FAA8005553F4 /* 《啦啦啦德玛西亚》主题曲.wav */; };
+		C9A501AF2044FAAB005553F4 /* 亚索台词版.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A72044FAA9005553F4 /* 亚索台词版.wav */; };
+		C9A501B02044FAAB005553F4 /* Legends Never Die.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A82044FAA9005553F4 /* Legends Never Die.wav */; };
+		C9A501B12044FAAB005553F4 /* 《啦啦啦德玛西亚第四季超神学院》插曲.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501A92044FAA9005553F4 /* 《啦啦啦德玛西亚第四季超神学院》插曲.wav */; };
+		C9A501B22044FAAB005553F4 /* 2017英雄联盟全球总决赛主题曲.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501AA2044FAAA005553F4 /* 2017英雄联盟全球总决赛主题曲.wav */; };
+		C9A501B32044FAAB005553F4 /* Teemo迅捷斥候-提莫.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501AB2044FAAA005553F4 /* Teemo迅捷斥候-提莫.wav */; };
+		C9A501B42044FAAB005553F4 /* 英雄联盟的姑娘们.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501AC2044FAAA005553F4 /* 英雄联盟的姑娘们.wav */; };
+		C9A501B52044FAAB005553F4 /* 英雄联盟.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501AD2044FAAB005553F4 /* 英雄联盟.wav */; };
+		C9A501BC2044FABE005553F4 /* 哆啦a梦.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501B62044FABC005553F4 /* 哆啦a梦.wav */; };
+		C9A501BD2044FABE005553F4 /* 哆啦A梦伴我同行.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501B72044FABC005553F4 /* 哆啦A梦伴我同行.wav */; };
+		C9A501BE2044FABE005553F4 /* ひまわりの約束.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501B82044FABC005553F4 /* ひまわりの約束.wav */; };
+		C9A501BF2044FABE005553F4 /* 夏川りみ - ハグしちゃお.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501B92044FABD005553F4 /* 夏川りみ - ハグしちゃお.wav */; };
+		C9A501C02044FABE005553F4 /* 夢をかなえてドラえもん.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501BA2044FABD005553F4 /* 夢をかなえてドラえもん.wav */; };
+		C9A501C12044FABE005553F4 /* ドラえも～ん！.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501BB2044FABD005553F4 /* ドラえも～ん！.wav */; };
+		C9A501C62044FAD0005553F4 /* 煌めく瞬间 (とき) に捕らわれて.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501C22044FACF005553F4 /* 煌めく瞬间 (とき) に捕らわれて.wav */; };
+		C9A501C72044FAD0005553F4 /* 世界が终わるまでは.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501C32044FACF005553F4 /* 世界が终わるまでは.wav */; };
+		C9A501C82044FAD0005553F4 /* あなただけ見つめてる.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501C42044FACF005553F4 /* あなただけ見つめてる.wav */; };
+		C9A501C92044FAD0005553F4 /* 君が好きだと叫びたい.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501C52044FACF005553F4 /* 君が好きだと叫びたい.wav */; };
+		C9A501CC2044FAE0005553F4 /* Dear friends.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501CA2044FADF005553F4 /* Dear friends.wav */; };
+		C9A501CD2044FAE0005553F4 /* BRAND NEW WORLD.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501CB2044FAE0005553F4 /* BRAND NEW WORLD.wav */; };
+		C9A501D02044FAEF005553F4 /* FLOW - Sign.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501CE2044FAEF005553F4 /* FLOW - Sign.wav */; };
+		C9A501D12044FAEF005553F4 /* Hearts Grow - ユラユラ.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501CF2044FAEF005553F4 /* Hearts Grow - ユラユラ.wav */; };
+		C9A501D62044FAFC005553F4 /* 名探偵コナン」~メインテーマ.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501D22044FAFB005553F4 /* 名探偵コナン」~メインテーマ.wav */; };
+		C9A501D72044FAFC005553F4 /* ↑THE HIGH-LOWS↓ - 胸がドキドキ.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501D32044FAFB005553F4 /* ↑THE HIGH-LOWS↓ - 胸がドキドキ.wav */; };
+		C9A501D82044FAFC005553F4 /* CHICAGO POODLE - 君の笑顔がなによりも好きだった.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501D42044FAFB005553F4 /* CHICAGO POODLE - 君の笑顔がなによりも好きだった.wav */; };
+		C9A501D92044FAFC005553F4 /* Lie, Lie, Lie.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501D52044FAFB005553F4 /* Lie, Lie, Lie.wav */; };
+		C9A501DC2044FB0A005553F4 /* 大原櫻子 - おどるポンポコリン 00_00_12-00_00_41.44(New1).wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501DA2044FB09005553F4 /* 大原櫻子 - おどるポンポコリン 00_00_12-00_00_41.44(New1).wav */; };
+		C9A501DD2044FB0A005553F4 /* 水谷優子,山本圭子,渡辺菜生子 - あっけにとられた时のうた~出演者ヴァージョン 00_00_00-00_00_29(New1).wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501DB2044FB0A005553F4 /* 水谷優子,山本圭子,渡辺菜生子 - あっけにとられた时のうた~出演者ヴァージョン 00_00_00-00_00_29(New1).wav */; };
+		C9A501E72044FB25005553F4 /* 校长你什么时候装空调啊？.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501DE2044FB1E005553F4 /* 校长你什么时候装空调啊？.wav */; };
+		C9A501E82044FB25005553F4 /* 曾小贤魔性笑声第二弹.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501DF2044FB1E005553F4 /* 曾小贤魔性笑声第二弹.wav */; };
+		C9A501E92044FB25005553F4 /* 鬼畜弟弟第二版.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E02044FB1F005553F4 /* 鬼畜弟弟第二版.wav */; };
+		C9A501EA2044FB25005553F4 /* 元首nobody.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E12044FB1F005553F4 /* 元首nobody.wav */; };
+		C9A501EB2044FB25005553F4 /* 【全明星】刘备为何开枪打死曹操.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E22044FB20005553F4 /* 【全明星】刘备为何开枪打死曹操.wav */; };
+		C9A501EC2044FB25005553F4 /* 浙江温州江南皮革厂倒闭了.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E32044FB21005553F4 /* 浙江温州江南皮革厂倒闭了.wav */; };
+		C9A501ED2044FB25005553F4 /* Are You OK.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E42044FB22005553F4 /* Are You OK.wav */; };
+		C9A501EE2044FB25005553F4 /* 我居然鬼畜了弟弟（第一版）.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E52044FB23005553F4 /* 我居然鬼畜了弟弟（第一版）.wav */; };
+		C9A501EF2044FB25005553F4 /* 挖掘机技术哪家强？.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501E62044FB24005553F4 /* 挖掘机技术哪家强？.wav */; };
+		C9A501F62044FB32005553F4 /* 看我五五开.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501F02044FB30005553F4 /* 看我五五开.wav */; };
+		C9A501F72044FB32005553F4 /* 我是全英雄联盟最骚的骚猪.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501F12044FB30005553F4 /* 我是全英雄联盟最骚的骚猪.wav */; };
+		C9A501F82044FB32005553F4 /* 骚猪大战五五开.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501F22044FB31005553F4 /* 骚猪大战五五开.wav */; };
+		C9A501F92044FB32005553F4 /* 我是世界上最优良的中二杀神.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501F32044FB31005553F4 /* 我是世界上最优良的中二杀神.wav */; };
+		C9A501FA2044FB32005553F4 /* 笑笑没头发.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501F42044FB32005553F4 /* 笑笑没头发.wav */; };
+		C9A501FB2044FB32005553F4 /* 金牌鬼畜讲师热唱马大侠.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A501F52044FB32005553F4 /* 金牌鬼畜讲师热唱马大侠.wav */; };
+		C9A501FD2044FB9B005553F4 /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A501FC2044FB9B005553F4 /* music.plist */; };
+		C9A501FF2045028A005553F4 /* musickey.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A501FE2045028A005553F4 /* musickey.plist */; };
+		C9A5020120450464005553F4 /* 动物园.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A5020020450464005553F4 /* 动物园.wav */; };
 		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
 /* End PBXBuildFile section */
 
@@ -200,6 +253,59 @@
 		C92D956920171F7B00F21721 /* EvaluateRemindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateRemindModel.h; sourceTree = "<group>"; };
 		C92D956B2018282B00F21721 /* EvaluateRemindManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateRemindManger.h; sourceTree = "<group>"; };
 		C92D956C2018282B00F21721 /* EvaluateRemindManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateRemindManger.m; sourceTree = "<group>"; };
+		C9A501982044FA84005553F4 /* 斗地主~.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "斗地主~.wav"; sourceTree = "<group>"; };
+		C9A501992044FA84005553F4 /* Normal 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Normal 3.wav"; sourceTree = "<group>"; };
+		C9A5019A2044FA85005553F4 /* Welcome 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Welcome 1.wav"; sourceTree = "<group>"; };
+		C9A5019B2044FA85005553F4 /* Normal 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Normal 2.wav"; sourceTree = "<group>"; };
+		C9A501A02044FA95005553F4 /* 王者荣耀英雄台词版.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "王者荣耀英雄台词版.wav"; sourceTree = "<group>"; };
+		C9A501A12044FA95005553F4 /* 【稳住别浪】.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "【稳住别浪】.wav"; sourceTree = "<group>"; };
+		C9A501A22044FA96005553F4 /* 来一口炸裂的农药吧.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "来一口炸裂的农药吧.wav"; sourceTree = "<group>"; };
+		C9A501A62044FAA8005553F4 /* 《啦啦啦德玛西亚》主题曲.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "《啦啦啦德玛西亚》主题曲.wav"; sourceTree = "<group>"; };
+		C9A501A72044FAA9005553F4 /* 亚索台词版.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "亚索台词版.wav"; sourceTree = "<group>"; };
+		C9A501A82044FAA9005553F4 /* Legends Never Die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Legends Never Die.wav"; sourceTree = "<group>"; };
+		C9A501A92044FAA9005553F4 /* 《啦啦啦德玛西亚第四季超神学院》插曲.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "《啦啦啦德玛西亚第四季超神学院》插曲.wav"; sourceTree = "<group>"; };
+		C9A501AA2044FAAA005553F4 /* 2017英雄联盟全球总决赛主题曲.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "2017英雄联盟全球总决赛主题曲.wav"; sourceTree = "<group>"; };
+		C9A501AB2044FAAA005553F4 /* Teemo迅捷斥候-提莫.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Teemo迅捷斥候-提莫.wav"; sourceTree = "<group>"; };
+		C9A501AC2044FAAA005553F4 /* 英雄联盟的姑娘们.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "英雄联盟的姑娘们.wav"; sourceTree = "<group>"; };
+		C9A501AD2044FAAB005553F4 /* 英雄联盟.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "英雄联盟.wav"; sourceTree = "<group>"; };
+		C9A501B62044FABC005553F4 /* 哆啦a梦.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "哆啦a梦.wav"; sourceTree = "<group>"; };
+		C9A501B72044FABC005553F4 /* 哆啦A梦伴我同行.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "哆啦A梦伴我同行.wav"; sourceTree = "<group>"; };
+		C9A501B82044FABC005553F4 /* ひまわりの約束.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ひまわりの約束.wav"; sourceTree = "<group>"; };
+		C9A501B92044FABD005553F4 /* 夏川りみ - ハグしちゃお.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "夏川りみ - ハグしちゃお.wav"; sourceTree = "<group>"; };
+		C9A501BA2044FABD005553F4 /* 夢をかなえてドラえもん.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "夢をかなえてドラえもん.wav"; sourceTree = "<group>"; };
+		C9A501BB2044FABD005553F4 /* ドラえも～ん！.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "ドラえも～ん！.wav"; sourceTree = "<group>"; };
+		C9A501C22044FACF005553F4 /* 煌めく瞬间 (とき) に捕らわれて.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "煌めく瞬间 (とき) に捕らわれて.wav"; sourceTree = "<group>"; };
+		C9A501C32044FACF005553F4 /* 世界が终わるまでは.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "世界が终わるまでは.wav"; sourceTree = "<group>"; };
+		C9A501C42044FACF005553F4 /* あなただけ見つめてる.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "あなただけ見つめてる.wav"; sourceTree = "<group>"; };
+		C9A501C52044FACF005553F4 /* 君が好きだと叫びたい.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "君が好きだと叫びたい.wav"; sourceTree = "<group>"; };
+		C9A501CA2044FADF005553F4 /* Dear friends.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Dear friends.wav"; sourceTree = "<group>"; };
+		C9A501CB2044FAE0005553F4 /* BRAND NEW WORLD.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "BRAND NEW WORLD.wav"; sourceTree = "<group>"; };
+		C9A501CE2044FAEF005553F4 /* FLOW - Sign.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "FLOW - Sign.wav"; sourceTree = "<group>"; };
+		C9A501CF2044FAEF005553F4 /* Hearts Grow - ユラユラ.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Hearts Grow - ユラユラ.wav"; sourceTree = "<group>"; };
+		C9A501D22044FAFB005553F4 /* 名探偵コナン」~メインテーマ.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "名探偵コナン」~メインテーマ.wav"; sourceTree = "<group>"; };
+		C9A501D32044FAFB005553F4 /* ↑THE HIGH-LOWS↓ - 胸がドキドキ.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "↑THE HIGH-LOWS↓ - 胸がドキドキ.wav"; sourceTree = "<group>"; };
+		C9A501D42044FAFB005553F4 /* CHICAGO POODLE - 君の笑顔がなによりも好きだった.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "CHICAGO POODLE - 君の笑顔がなによりも好きだった.wav"; sourceTree = "<group>"; };
+		C9A501D52044FAFB005553F4 /* Lie, Lie, Lie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Lie, Lie, Lie.wav"; sourceTree = "<group>"; };
+		C9A501DA2044FB09005553F4 /* 大原櫻子 - おどるポンポコリン 00_00_12-00_00_41.44(New1).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "大原櫻子 - おどるポンポコリン 00_00_12-00_00_41.44(New1).wav"; sourceTree = "<group>"; };
+		C9A501DB2044FB0A005553F4 /* 水谷優子,山本圭子,渡辺菜生子 - あっけにとられた时のうた~出演者ヴァージョン 00_00_00-00_00_29(New1).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "水谷優子,山本圭子,渡辺菜生子 - あっけにとられた时のうた~出演者ヴァージョン 00_00_00-00_00_29(New1).wav"; sourceTree = "<group>"; };
+		C9A501DE2044FB1E005553F4 /* 校长你什么时候装空调啊？.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "校长你什么时候装空调啊？.wav"; sourceTree = "<group>"; };
+		C9A501DF2044FB1E005553F4 /* 曾小贤魔性笑声第二弹.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "曾小贤魔性笑声第二弹.wav"; sourceTree = "<group>"; };
+		C9A501E02044FB1F005553F4 /* 鬼畜弟弟第二版.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "鬼畜弟弟第二版.wav"; sourceTree = "<group>"; };
+		C9A501E12044FB1F005553F4 /* 元首nobody.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "元首nobody.wav"; sourceTree = "<group>"; };
+		C9A501E22044FB20005553F4 /* 【全明星】刘备为何开枪打死曹操.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "【全明星】刘备为何开枪打死曹操.wav"; sourceTree = "<group>"; };
+		C9A501E32044FB21005553F4 /* 浙江温州江南皮革厂倒闭了.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "浙江温州江南皮革厂倒闭了.wav"; sourceTree = "<group>"; };
+		C9A501E42044FB22005553F4 /* Are You OK.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Are You OK.wav"; sourceTree = "<group>"; };
+		C9A501E52044FB23005553F4 /* 我居然鬼畜了弟弟（第一版）.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "我居然鬼畜了弟弟（第一版）.wav"; sourceTree = "<group>"; };
+		C9A501E62044FB24005553F4 /* 挖掘机技术哪家强？.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "挖掘机技术哪家强？.wav"; sourceTree = "<group>"; };
+		C9A501F02044FB30005553F4 /* 看我五五开.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "看我五五开.wav"; sourceTree = "<group>"; };
+		C9A501F12044FB30005553F4 /* 我是全英雄联盟最骚的骚猪.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "我是全英雄联盟最骚的骚猪.wav"; sourceTree = "<group>"; };
+		C9A501F22044FB31005553F4 /* 骚猪大战五五开.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "骚猪大战五五开.wav"; sourceTree = "<group>"; };
+		C9A501F32044FB31005553F4 /* 我是世界上最优良的中二杀神.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "我是世界上最优良的中二杀神.wav"; sourceTree = "<group>"; };
+		C9A501F42044FB32005553F4 /* 笑笑没头发.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "笑笑没头发.wav"; sourceTree = "<group>"; };
+		C9A501F52044FB32005553F4 /* 金牌鬼畜讲师热唱马大侠.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "金牌鬼畜讲师热唱马大侠.wav"; sourceTree = "<group>"; };
+		C9A501FC2044FB9B005553F4 /* music.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = music.plist; sourceTree = "<group>"; };
+		C9A501FE2045028A005553F4 /* musickey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = musickey.plist; sourceTree = "<group>"; };
+		C9A5020020450464005553F4 /* 动物园.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "动物园.wav"; sourceTree = "<group>"; };
 		CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,8 +384,11 @@
 				C9174051200DF24700145E8D /* Home */,
 				C9174058200DF24800145E8D /* Mine */,
 				C9174050200DF24700145E8D /* Vendor */,
+				C9A501972044FA55005553F4 /* Resource */,
 				C9174026200DE85D00145E8D /* Assets.xcassets */,
 				C917402B200DE85D00145E8D /* Info.plist */,
+				C9A501FC2044FB9B005553F4 /* music.plist */,
+				C9A501FE2045028A005553F4 /* musickey.plist */,
 				C917402C200DE85D00145E8D /* main.m */,
 				C9174061200DF9E100145E8D /* HeartAlarmClockPrefixHeader.pch */,
 			);
@@ -531,6 +640,64 @@
 			path = Macro;
 			sourceTree = "<group>";
 		};
+		C9A501972044FA55005553F4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C9A501982044FA84005553F4 /* 斗地主~.wav */,
+				C9A5019B2044FA85005553F4 /* Normal 2.wav */,
+				C9A501992044FA84005553F4 /* Normal 3.wav */,
+				C9A5019A2044FA85005553F4 /* Welcome 1.wav */,
+				C9A501A12044FA95005553F4 /* 【稳住别浪】.wav */,
+				C9A501A22044FA96005553F4 /* 来一口炸裂的农药吧.wav */,
+				C9A501A02044FA95005553F4 /* 王者荣耀英雄台词版.wav */,
+				C9A501A62044FAA8005553F4 /* 《啦啦啦德玛西亚》主题曲.wav */,
+				C9A501A92044FAA9005553F4 /* 《啦啦啦德玛西亚第四季超神学院》插曲.wav */,
+				C9A501AA2044FAAA005553F4 /* 2017英雄联盟全球总决赛主题曲.wav */,
+				C9A501A72044FAA9005553F4 /* 亚索台词版.wav */,
+				C9A501AD2044FAAB005553F4 /* 英雄联盟.wav */,
+				C9A501AC2044FAAA005553F4 /* 英雄联盟的姑娘们.wav */,
+				C9A501A82044FAA9005553F4 /* Legends Never Die.wav */,
+				C9A501AB2044FAAA005553F4 /* Teemo迅捷斥候-提莫.wav */,
+				C9A501B62044FABC005553F4 /* 哆啦a梦.wav */,
+				C9A501B72044FABC005553F4 /* 哆啦A梦伴我同行.wav */,
+				C9A501BA2044FABD005553F4 /* 夢をかなえてドラえもん.wav */,
+				C9A501B92044FABD005553F4 /* 夏川りみ - ハグしちゃお.wav */,
+				C9A501BB2044FABD005553F4 /* ドラえも～ん！.wav */,
+				C9A501B82044FABC005553F4 /* ひまわりの約束.wav */,
+				C9A501C22044FACF005553F4 /* 煌めく瞬间 (とき) に捕らわれて.wav */,
+				C9A501C52044FACF005553F4 /* 君が好きだと叫びたい.wav */,
+				C9A501C32044FACF005553F4 /* 世界が终わるまでは.wav */,
+				C9A501C42044FACF005553F4 /* あなただけ見つめてる.wav */,
+				C9A501CB2044FAE0005553F4 /* BRAND NEW WORLD.wav */,
+				C9A501CA2044FADF005553F4 /* Dear friends.wav */,
+				C9A501CE2044FAEF005553F4 /* FLOW - Sign.wav */,
+				C9A501CF2044FAEF005553F4 /* Hearts Grow - ユラユラ.wav */,
+				C9A501D32044FAFB005553F4 /* ↑THE HIGH-LOWS↓ - 胸がドキドキ.wav */,
+				C9A501D22044FAFB005553F4 /* 名探偵コナン」~メインテーマ.wav */,
+				C9A501D42044FAFB005553F4 /* CHICAGO POODLE - 君の笑顔がなによりも好きだった.wav */,
+				C9A501D52044FAFB005553F4 /* Lie, Lie, Lie.wav */,
+				C9A501DA2044FB09005553F4 /* 大原櫻子 - おどるポンポコリン 00_00_12-00_00_41.44(New1).wav */,
+				C9A501DB2044FB0A005553F4 /* 水谷優子,山本圭子,渡辺菜生子 - あっけにとられた时のうた~出演者ヴァージョン 00_00_00-00_00_29(New1).wav */,
+				C9A501E22044FB20005553F4 /* 【全明星】刘备为何开枪打死曹操.wav */,
+				C9A501DF2044FB1E005553F4 /* 曾小贤魔性笑声第二弹.wav */,
+				C9A501E02044FB1F005553F4 /* 鬼畜弟弟第二版.wav */,
+				C9A501E62044FB24005553F4 /* 挖掘机技术哪家强？.wav */,
+				C9A501E52044FB23005553F4 /* 我居然鬼畜了弟弟（第一版）.wav */,
+				C9A501DE2044FB1E005553F4 /* 校长你什么时候装空调啊？.wav */,
+				C9A501E12044FB1F005553F4 /* 元首nobody.wav */,
+				C9A501E32044FB21005553F4 /* 浙江温州江南皮革厂倒闭了.wav */,
+				C9A501E42044FB22005553F4 /* Are You OK.wav */,
+				C9A501F52044FB32005553F4 /* 金牌鬼畜讲师热唱马大侠.wav */,
+				C9A501F02044FB30005553F4 /* 看我五五开.wav */,
+				C9A501F22044FB31005553F4 /* 骚猪大战五五开.wav */,
+				C9A501F12044FB30005553F4 /* 我是全英雄联盟最骚的骚猪.wav */,
+				C9A501F32044FB31005553F4 /* 我是世界上最优良的中二杀神.wav */,
+				C9A501F42044FB32005553F4 /* 笑笑没头发.wav */,
+				C9A5020020450464005553F4 /* 动物园.wav */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -640,7 +807,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A501E92044FB25005553F4 /* 鬼畜弟弟第二版.wav in Resources */,
+				C9A501E82044FB25005553F4 /* 曾小贤魔性笑声第二弹.wav in Resources */,
+				C9A501FD2044FB9B005553F4 /* music.plist in Resources */,
+				C9A5019C2044FA85005553F4 /* 斗地主~.wav in Resources */,
+				C9A501FB2044FB32005553F4 /* 金牌鬼畜讲师热唱马大侠.wav in Resources */,
+				C9A501F62044FB32005553F4 /* 看我五五开.wav in Resources */,
+				C9A501EB2044FB25005553F4 /* 【全明星】刘备为何开枪打死曹操.wav in Resources */,
+				C9A501DD2044FB0A005553F4 /* 水谷優子,山本圭子,渡辺菜生子 - あっけにとられた时のうた~出演者ヴァージョン 00_00_00-00_00_29(New1).wav in Resources */,
+				C9A501EA2044FB25005553F4 /* 元首nobody.wav in Resources */,
+				C9A5020120450464005553F4 /* 动物园.wav in Resources */,
+				C9A501F72044FB32005553F4 /* 我是全英雄联盟最骚的骚猪.wav in Resources */,
+				C9A501D12044FAEF005553F4 /* Hearts Grow - ユラユラ.wav in Resources */,
+				C9A501EC2044FB25005553F4 /* 浙江温州江南皮革厂倒闭了.wav in Resources */,
+				C9A501A52044FA96005553F4 /* 来一口炸裂的农药吧.wav in Resources */,
+				C9A501C12044FABE005553F4 /* ドラえも～ん！.wav in Resources */,
+				C9A501B22044FAAB005553F4 /* 2017英雄联盟全球总决赛主题曲.wav in Resources */,
+				C9A501B02044FAAB005553F4 /* Legends Never Die.wav in Resources */,
+				C9A501C62044FAD0005553F4 /* 煌めく瞬间 (とき) に捕らわれて.wav in Resources */,
 				C9174027200DE85D00145E8D /* Assets.xcassets in Resources */,
+				C9A501F92044FB32005553F4 /* 我是世界上最优良的中二杀神.wav in Resources */,
+				C9A501ED2044FB25005553F4 /* Are You OK.wav in Resources */,
+				C9A501D62044FAFC005553F4 /* 名探偵コナン」~メインテーマ.wav in Resources */,
+				C9A501F82044FB32005553F4 /* 骚猪大战五五开.wav in Resources */,
+				C9A501A32044FA96005553F4 /* 王者荣耀英雄台词版.wav in Resources */,
+				C9A501CC2044FAE0005553F4 /* Dear friends.wav in Resources */,
+				C9A501AF2044FAAB005553F4 /* 亚索台词版.wav in Resources */,
+				C9A501A42044FA96005553F4 /* 【稳住别浪】.wav in Resources */,
+				C9A501E72044FB25005553F4 /* 校长你什么时候装空调啊？.wav in Resources */,
+				C9A501DC2044FB0A005553F4 /* 大原櫻子 - おどるポンポコリン 00_00_12-00_00_41.44(New1).wav in Resources */,
+				C9A501BE2044FABE005553F4 /* ひまわりの約束.wav in Resources */,
+				C9A501BD2044FABE005553F4 /* 哆啦A梦伴我同行.wav in Resources */,
+				C9A5019E2044FA85005553F4 /* Welcome 1.wav in Resources */,
+				C9A501BC2044FABE005553F4 /* 哆啦a梦.wav in Resources */,
+				C9A501D92044FAFC005553F4 /* Lie, Lie, Lie.wav in Resources */,
+				C9A501BF2044FABE005553F4 /* 夏川りみ - ハグしちゃお.wav in Resources */,
+				C9A501D82044FAFC005553F4 /* CHICAGO POODLE - 君の笑顔がなによりも好きだった.wav in Resources */,
+				C9A501C82044FAD0005553F4 /* あなただけ見つめてる.wav in Resources */,
+				C9A501EE2044FB25005553F4 /* 我居然鬼畜了弟弟（第一版）.wav in Resources */,
+				C9A5019D2044FA85005553F4 /* Normal 3.wav in Resources */,
+				C9A501B42044FAAB005553F4 /* 英雄联盟的姑娘们.wav in Resources */,
+				C9A501C02044FABE005553F4 /* 夢をかなえてドラえもん.wav in Resources */,
+				C9A501B32044FAAB005553F4 /* Teemo迅捷斥候-提莫.wav in Resources */,
+				C9A501FA2044FB32005553F4 /* 笑笑没头发.wav in Resources */,
+				C9A501D72044FAFC005553F4 /* ↑THE HIGH-LOWS↓ - 胸がドキドキ.wav in Resources */,
+				C9A501B52044FAAB005553F4 /* 英雄联盟.wav in Resources */,
+				C9A501B12044FAAB005553F4 /* 《啦啦啦德玛西亚第四季超神学院》插曲.wav in Resources */,
+				C9A5019F2044FA85005553F4 /* Normal 2.wav in Resources */,
+				C9A501D02044FAEF005553F4 /* FLOW - Sign.wav in Resources */,
+				C9A501CD2044FAE0005553F4 /* BRAND NEW WORLD.wav in Resources */,
+				C9A501AE2044FAAB005553F4 /* 《啦啦啦德玛西亚》主题曲.wav in Resources */,
+				C9A501C72044FAD0005553F4 /* 世界が终わるまでは.wav in Resources */,
+				C9A501FF2045028A005553F4 /* musickey.plist in Resources */,
+				C9A501EF2044FB25005553F4 /* 挖掘机技术哪家强？.wav in Resources */,
+				C9A501C92044FAD0005553F4 /* 君が好きだと叫びたい.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
