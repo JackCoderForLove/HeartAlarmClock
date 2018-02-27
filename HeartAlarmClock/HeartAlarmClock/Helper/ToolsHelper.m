@@ -641,5 +641,11 @@
     NSString *timeString = [format stringFromDate:date];
     return timeString;
 }
-
+//生成唯一id标识符
++(NSString *)jcGetIdentifyID
+{
+    NSDate *currentDate = [ToolsHelper jcGetCurrentDate];
+    NSString *dateStr = [NSString stringWithFormat:@"jcidentify_%@",[ToolsHelper jcGetTimeStrWithDate:currentDate withFormatter:nil]];
+    return dateStr;
+}
 @end

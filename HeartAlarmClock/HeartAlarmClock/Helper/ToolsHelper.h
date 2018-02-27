@@ -134,4 +134,6 @@
 + (NSDate *)jcGetGLNZDateWithString:(NSString *)dateStr withFormatter:(NSString *)jcformate;
 //根据NSDate转为格林尼治时间字符串
 +(NSString *)jcGetGLNZTimeStrWithDate:(NSDate *)date withFormatter:(NSString *)jcformate;
+//生成唯一id标识符
++(NSString *)jcGetIdentifyID;
 @end

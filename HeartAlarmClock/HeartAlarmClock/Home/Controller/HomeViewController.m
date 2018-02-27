@@ -74,6 +74,7 @@
     });
     //获取数据
     NSLog(@"获取数据%@",[[EvaluateRemindManger shareManger]jcAllData]);
+    
 }
 - (void)layoutNavigationBar
 {
@@ -190,7 +191,9 @@
     NSString *filePath1 = [[NSBundle mainBundle] pathForResource:@"musickey" ofType:@"plist"];
     NSArray *jcArr = [NSArray arrayWithContentsOfFile:filePath1];
     NSLog(@"key=%@",jcArr);
-    
+    //获取唯一id
+    NSString *jcID = [ToolsHelper jcGetIdentifyID];
+    NSLog(@"唯一的id:%@",jcID);
     
 }
 //布局空页面
