@@ -184,13 +184,7 @@
     }];
     [self.view addSubview:self.remindTable];
     //布局空页面
-    [self jcLayoutEmptyUI];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"music" ofType:@"plist"];
-    NSDictionary *jcDic = [NSDictionary dictionaryWithContentsOfFile:filePath];
-    NSLog(@"读取plist文件%@",jcDic);
-    NSString *filePath1 = [[NSBundle mainBundle] pathForResource:@"musickey" ofType:@"plist"];
-    NSArray *jcArr = [NSArray arrayWithContentsOfFile:filePath1];
-    NSLog(@"key=%@",jcArr);
+    [self jcLayoutDataUI];
     //获取唯一id
     NSString *jcID = [ToolsHelper jcGetIdentifyID];
     NSLog(@"唯一的id:%@",jcID);
@@ -355,7 +349,6 @@
                 newNotification.alertBody =  @"评测时间到了！快去评测吧!";
                 newNotification.applicationIconBadgeNumber = 0;
                 newNotification.hasAction = YES;
-               // newNotification.alertLaunchImage = @"老子今天没睡觉.png";
                 newNotification.soundName = UILocalNotificationDefaultSoundName;
                 newNotification.repeatInterval = NSCalendarUnitWeekOfYear;
                 NSDictionary * info = @{@"infoKey":remindModel.evaluateRemindId,@"fireDate":newFireDate};
@@ -439,8 +432,8 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //return self.jcRemindData.count;
-    return 3;
+    return self.jcRemindData.count;
+//    return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -449,13 +442,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *jcCellID = @"jcCellID";
-    UITableViewCell *jcCell = [tableView dequeueReusableCellWithIdentifier:jcCellID];
+    JCRemindTableViewCell *jcCell = [tableView dequeueReusableCellWithIdentifier:jcCellID];
     if (!jcCell) {
-        jcCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcCellID];
+        jcCell = [[JCRemindTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcCellID];
     }
     jcCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    jcCell.textLabel.text = @"瓦力瓦力哇";
-    jcCell.backgroundColor = [UIColor grayColor];
+    
     return jcCell;
 }
 #pragma mark - UITableViewDelegate
@@ -705,7 +697,7 @@
 {
     if (!_remindTable) {
         
-        _remindTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 566/2.0, KScreenWidth, KScreenHeight-566/2.0-JC_TabbarSafeBottomMargin-335/2.0) style:UITableViewStyleGrouped];
+        _remindTable = [[UITableView alloc]initWithFrame:CGRectMake(30, 566/2.0, KScreenWidth-60, KScreenHeight-566/2.0-JC_TabbarSafeBottomMargin-335/2.0) style:UITableViewStyleGrouped];
         _remindTable.delegate = self;
         _remindTable.dataSource = self;
         //IOS11适配

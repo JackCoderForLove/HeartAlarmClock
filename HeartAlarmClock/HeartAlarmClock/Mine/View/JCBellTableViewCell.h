@@ -1,4 +1,4 @@
-//  JCRemindTableViewCell.h
+//  JCBellTableViewCell.h
 //  HeartAlarmClock
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -22,17 +22,16 @@
  *
  * ━━━━━━感觉萌萌哒━━━━━━
  */
-//  Created by xingjian on 2018/1/25.
+//  Created by xingjian on 2018/2/27.
 //  Copyright © 2018年 xingjian. All rights reserved.杰克
-//  @class JCRemindTableViewCell
-//  @abstract 首页闹钟提醒Cell
+//  @class JCBellTableViewCell
+//  @abstract 铃声自定义Cell
 //  @discussion <#类的功能#>
 //
 
 
 #import <UIKit/UIKit.h>
 
-@class EvaluateRemindModel;
-@interface JCRemindTableViewCell : UITableViewCell
-@property (nonatomic,strong) EvaluateRemindModel *reModel;
+@interface JCBellTableViewCell : UITableViewCell
+
 @end

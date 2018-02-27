@@ -1,4 +1,4 @@
-//  JCRemindTableViewCell.h
+//  JCRepeatSelectView.m
 //  HeartAlarmClock
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -22,17 +22,48 @@
  *
  * ━━━━━━感觉萌萌哒━━━━━━
  */
-//  Created by xingjian on 2018/1/25.
+//  Created by xingjian on 2018/2/27.
 //  Copyright © 2018年 xingjian. All rights reserved.杰克
-//  @class JCRemindTableViewCell
-//  @abstract 首页闹钟提醒Cell
+//  @class JCRepeatSelectView
+//  @abstract 选择重复View
 //  @discussion <#类的功能#>
 //
 
+#import "JCRepeatSelectView.h"
+@interface JCRepeatSelectView ()
 
-#import <UIKit/UIKit.h>
+@end
 
-@class EvaluateRemindModel;
-@interface JCRemindTableViewCell : UITableViewCell
-@property (nonatomic,strong) EvaluateRemindModel *reModel;
+@implementation JCRepeatSelectView
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) {
+        return nil;
+    }
+    [self jcLayoutMyUI];
+    return self;
+}
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (!self) {
+        return nil;
+    }
+    [self jcLayoutMyUI];
+    return self;
+}
+#pragma mark - 布局UI
+- (void)jcLayoutMyUI
+{
+    
+}
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+
 @end

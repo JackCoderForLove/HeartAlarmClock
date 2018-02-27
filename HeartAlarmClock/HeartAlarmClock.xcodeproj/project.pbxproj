@@ -113,6 +113,12 @@
 		C9A501FD2044FB9B005553F4 /* music.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A501FC2044FB9B005553F4 /* music.plist */; };
 		C9A501FF2045028A005553F4 /* musickey.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A501FE2045028A005553F4 /* musickey.plist */; };
 		C9A5020120450464005553F4 /* 动物园.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A5020020450464005553F4 /* 动物园.wav */; };
+		C9A5020420453B06005553F4 /* JCTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020320453B06005553F4 /* JCTimePickerView.m */; };
+		C9A5020720453CBA005553F4 /* JCTipSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020620453CBA005553F4 /* JCTipSelectView.m */; };
+		C9A5020A20453DAE005553F4 /* JCRepeatSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020920453DAE005553F4 /* JCRepeatSelectView.m */; };
+		C9A5020D20453E3A005553F4 /* JCBellSelctView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020C20453E3A005553F4 /* JCBellSelctView.m */; };
+		C9A5021020453EA7005553F4 /* JCVibrationSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020F20453EA7005553F4 /* JCVibrationSelectView.m */; };
+		C9A50213204547AB005553F4 /* JCBellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A50212204547AB005553F4 /* JCBellTableViewCell.m */; };
 		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +312,18 @@
 		C9A501FC2044FB9B005553F4 /* music.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = music.plist; sourceTree = "<group>"; };
 		C9A501FE2045028A005553F4 /* musickey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = musickey.plist; sourceTree = "<group>"; };
 		C9A5020020450464005553F4 /* 动物园.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "动物园.wav"; sourceTree = "<group>"; };
+		C9A5020220453B06005553F4 /* JCTimePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCTimePickerView.h; sourceTree = "<group>"; };
+		C9A5020320453B06005553F4 /* JCTimePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCTimePickerView.m; sourceTree = "<group>"; };
+		C9A5020520453CBA005553F4 /* JCTipSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCTipSelectView.h; sourceTree = "<group>"; };
+		C9A5020620453CBA005553F4 /* JCTipSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCTipSelectView.m; sourceTree = "<group>"; };
+		C9A5020820453DAE005553F4 /* JCRepeatSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCRepeatSelectView.h; sourceTree = "<group>"; };
+		C9A5020920453DAE005553F4 /* JCRepeatSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRepeatSelectView.m; sourceTree = "<group>"; };
+		C9A5020B20453E3A005553F4 /* JCBellSelctView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCBellSelctView.h; sourceTree = "<group>"; };
+		C9A5020C20453E3A005553F4 /* JCBellSelctView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBellSelctView.m; sourceTree = "<group>"; };
+		C9A5020E20453EA7005553F4 /* JCVibrationSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCVibrationSelectView.h; sourceTree = "<group>"; };
+		C9A5020F20453EA7005553F4 /* JCVibrationSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCVibrationSelectView.m; sourceTree = "<group>"; };
+		C9A50211204547AB005553F4 /* JCBellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCBellTableViewCell.h; sourceTree = "<group>"; };
+		C9A50212204547AB005553F4 /* JCBellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBellTableViewCell.m; sourceTree = "<group>"; };
 		CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -526,6 +544,18 @@
 			children = (
 				C917E505201899F10038F8A1 /* JCShareView.h */,
 				C917E506201899F10038F8A1 /* JCShareView.m */,
+				C9A5020220453B06005553F4 /* JCTimePickerView.h */,
+				C9A5020320453B06005553F4 /* JCTimePickerView.m */,
+				C9A5020520453CBA005553F4 /* JCTipSelectView.h */,
+				C9A5020620453CBA005553F4 /* JCTipSelectView.m */,
+				C9A5020820453DAE005553F4 /* JCRepeatSelectView.h */,
+				C9A5020920453DAE005553F4 /* JCRepeatSelectView.m */,
+				C9A5020B20453E3A005553F4 /* JCBellSelctView.h */,
+				C9A5020C20453E3A005553F4 /* JCBellSelctView.m */,
+				C9A5020E20453EA7005553F4 /* JCVibrationSelectView.h */,
+				C9A5020F20453EA7005553F4 /* JCVibrationSelectView.m */,
+				C9A50211204547AB005553F4 /* JCBellTableViewCell.h */,
+				C9A50212204547AB005553F4 /* JCBellTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -933,11 +963,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A5020420453B06005553F4 /* JCTimePickerView.m in Sources */,
 				C91740A2200DFCE000145E8D /* NSDate+Extension.m in Sources */,
 				C91740C4200DFD6E00145E8D /* OMGToast.mm in Sources */,
 				C91740A6200DFCE000145E8D /* NSString+JCAttributedString.m in Sources */,
 				C917E5042018647C0038F8A1 /* BellRecordingViewController.m in Sources */,
 				C91740A7200DFCE000145E8D /* UIBezierPath+curved.m in Sources */,
+				C9A5020D20453E3A005553F4 /* JCBellSelctView.m in Sources */,
 				C917E4F5201863630038F8A1 /* ClockSettingViewController.m in Sources */,
 				C91740AB200DFCE000145E8D /* UIFont+Extension.m in Sources */,
 				C9174075200DFBFB00145E8D /* XLWebViewController.m in Sources */,
@@ -952,6 +984,7 @@
 				C91740AF200DFCE000145E8D /* UITextField+HEFormatter.m in Sources */,
 				C91740B1200DFCE000145E8D /* UIView+Extension.m in Sources */,
 				C91740A8200DFCE000145E8D /* UIButton+Extension.m in Sources */,
+				C9A5020A20453DAE005553F4 /* JCRepeatSelectView.m in Sources */,
 				C91740AE200DFCE000145E8D /* UITableView+Extension.m in Sources */,
 				C917E4F2201863320038F8A1 /* SettingViewController.m in Sources */,
 				C91740A1200DFCE000145E8D /* NSBundle+Language.m in Sources */,
@@ -961,6 +994,7 @@
 				C91740A3200DFCE000145E8D /* NSDictionary+Extension.m in Sources */,
 				C91740DC200E022A00145E8D /* HEBubbleView.m in Sources */,
 				C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */,
+				C9A50213204547AB005553F4 /* JCBellTableViewCell.m in Sources */,
 				C9174071200DFBFB00145E8D /* MainTabBarController.m in Sources */,
 				C917405C200DF24800145E8D /* AppDelegate.m in Sources */,
 				C91740A0200DFCE000145E8D /* MBProgressHUD+Extension.m in Sources */,
@@ -977,7 +1011,9 @@
 				C91740B0200DFCE000145E8D /* UIView+Creation.m in Sources */,
 				C91740CD200DFE4700145E8D /* YPTransition.m in Sources */,
 				C9174073200DFBFB00145E8D /* BaseTabbarController.m in Sources */,
+				C9A5020720453CBA005553F4 /* JCTipSelectView.m in Sources */,
 				C91740A5200DFCE000145E8D /* NSString+Extension.m in Sources */,
+				C9A5021020453EA7005553F4 /* JCVibrationSelectView.m in Sources */,
 				C917402D200DE85D00145E8D /* main.m in Sources */,
 				C9174072200DFBFB00145E8D /* BaseWebViewController.m in Sources */,
 				C917405F200DF26000145E8D /* HomeViewController.m in Sources */,
