@@ -104,7 +104,7 @@
         jcBellCell = [[JCBellTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcBellID];
     }
     jcBellCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    jcBellCell.backgroundColor = [UIColor redColor];
+    jcBellCell.backgroundColor = [UIColor clearColor];
     return jcBellCell;
 }
 
@@ -150,7 +150,7 @@
         //隐藏垂直滚动条
         _jcBellTable.showsVerticalScrollIndicator = NO;
         _jcBellTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _jcBellTable.backgroundColor = [UIColor whiteColor];
+        _jcBellTable.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
         _jcBellTable.layer.masksToBounds = YES;
         _jcBellTable.layer.cornerRadius = 20;
     }

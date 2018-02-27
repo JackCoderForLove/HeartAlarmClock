@@ -33,7 +33,8 @@
 #import "JCBellTableViewCell.h"
 
 @interface JCBellTableViewCell ()
-
+@property(nonatomic,strong)UIView *lineView;
+@property(nonatomic,strong)UILabel *titleLab;
 @end
 
 @implementation JCBellTableViewCell
@@ -50,9 +51,41 @@
 
 - (void)jcLayoutMyUI
 {
-    
+    [self addSubview:self.lineView];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(KScreenWidth-60);
+        make.left.mas_equalTo(self.mas_left);
+        make.bottom.mas_equalTo(self.mas_bottom);
+        make.height.mas_equalTo(1);
+    }];
+    [self addSubview:self.titleLab];
+    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(KScreenWidth-60-25-35);
+        make.left.mas_equalTo(self.mas_left).offset(25);
+        make.centerY.mas_equalTo(self.mas_centerY);
+        make.height.mas_equalTo(15);
+    }];
+    self.titleLab.text = @"无敌吧啦啦啦";
 }
-
+- (UILabel *)titleLab
+{
+    if (!_titleLab) {
+        
+        _titleLab = [UILabel new];
+        _titleLab.font = [UIFont systemFontOfSize:15];
+        _titleLab.textColor = [ToolsHelper colorWithHexString:@"#666666"];
+    }
+    return _titleLab;
+}
+- (UIView *)lineView
+{
+    if (!_lineView) {
+        
+        _lineView = [UIView new];
+        _lineView.backgroundColor = [ToolsHelper colorWithHexString:@"#666666"];
+    }
+    return _lineView;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
