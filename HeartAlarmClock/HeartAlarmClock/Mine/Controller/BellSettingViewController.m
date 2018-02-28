@@ -45,6 +45,7 @@
 @property(nonatomic,strong)NSArray *musicTypeArr;//音乐类型List
 @property(nonatomic,strong)NSDictionary *jcMusicDic;//音乐字典
 @property(nonatomic,strong)UIImageView *huluImg;//最上边葫芦娃的img
+@property(nonatomic,strong)NSString *soundName;
 
 @end
 
@@ -90,6 +91,10 @@
 {
     self.navigationBarSelf.title = @"铃声设置";
 }
+- (void)backToPrevious
+{
+    
+}
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -105,14 +110,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *jcBellID = @"jcBellID";
-    JCBellTableViewCell *jcBellCell = [tableView dequeueReusableCellWithIdentifier:jcBellID];
-    if (!jcBellCell) {
-        
-        jcBellCell = [[JCBellTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcBellID];
-    }
+    NSString *jcBellID = [NSString stringWithFormat:@"%ld-%ld",indexPath.section,indexPath.row];
+    JCBellTableViewCell *jcBellCell = [[JCBellTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcBellID];
     jcBellCell.selectionStyle = UITableViewCellSelectionStyleNone;
     jcBellCell.backgroundColor = [UIColor clearColor];
+    jcBellCell.tintColor = [UIColor greenColor];
     NSString *key = [self.musicTypeArr objectAtIndex:indexPath.section];
     NSArray  *musicArr = [self.jcMusicDic objectForKey:key];
     NSString *title = [musicArr objectAtIndex:indexPath.row];
@@ -144,6 +146,12 @@
     NSString *title = [musicArr objectAtIndex:indexPath.row];
     NSLog(@"点击了哪个标题:%@",title);
     NSString *musicName = [NSString stringWithFormat:@"%@.wav",title];
+    [tableView.visibleCells enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.accessoryType = UITableViewCellAccessoryNone;
+    }];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     [self playWithName:musicName];
 //    SystemSoundID soundId;
 //    NSString *path = [[NSBundle mainBundle] pathForResource:title ofType:@"wav"];
