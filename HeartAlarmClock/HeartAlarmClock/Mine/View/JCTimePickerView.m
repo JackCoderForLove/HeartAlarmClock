@@ -88,8 +88,8 @@ static CGFloat jcMaxRowCount = 16384;
     self.hourPicker.dataSource = self;
     [self.hourPicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(110/2);
-        make.height.mas_equalTo(360/2);
-        make.top.mas_equalTo(self.mas_top).offset(106);
+        make.height.mas_equalTo(300/2);
+        make.top.mas_equalTo(self.mas_top).offset(15);
         make.right.mas_equalTo(self.pointLab.mas_left);
     }];
     self.minutePicker = [[UIPickerView alloc]init];
@@ -100,8 +100,8 @@ static CGFloat jcMaxRowCount = 16384;
     self.minutePicker.dataSource = self;
     [self.minutePicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(110/2);
-        make.height.mas_equalTo(360/2);
-        make.top.mas_equalTo(self.mas_top).offset(106);
+        make.height.mas_equalTo(300/2);
+        make.top.mas_equalTo(self.mas_top).offset(15);
         make.left.mas_equalTo(self.pointLab.mas_right);
     }];
     
@@ -168,7 +168,7 @@ static CGFloat jcMaxRowCount = 16384;
 }
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component __TVOS_PROHIBITED
 {
-    return 70;
+    return 40;
 }
 
 // these methods return either a plain NSString, a NSAttributedString, or a view (e.g UILabel) to display the row for the component.

@@ -35,7 +35,6 @@
 @interface JCBellTableViewCell ()
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UILabel *titleLab;
-@property(nonatomic,strong)UIImageView *flagImg;
 @end
 
 @implementation JCBellTableViewCell
@@ -67,13 +66,16 @@
         make.height.mas_equalTo(15);
     }];
     self.titleLab.text = @"无敌吧啦啦啦";
-    [self addSubview:self.flagImg];
-    [self.flagImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(10);
-        make.height.mas_equalTo(20);
-        make.right.mas_equalTo(self.mas_right).offset(-10);
-        make.centerY.mas_equalTo(self.mas_centerY);
-    }];
+
+  
+}
+- (void)jcConfigNormalState
+{
+    self.titleLab.textColor = [ToolsHelper colorWithHexString:@"#666666"];
+}
+- (void)jcConfigSelectState
+{
+    self.titleLab.textColor = [ToolsHelper colorWithHexString:@"#51e500"];
 }
 - (void)setTitle:(NSString *)title
 {
@@ -81,16 +83,7 @@
     self.titleLab.text = _title;
     
 }
-- (UIImageView *)flagImg
-{
-    if (!_flagImg)
-    {
-        _flagImg = [UIImageView new];
-        
-        
-    }
-    return _flagImg;
-}
+
 - (UILabel *)titleLab
 {
     if (!_titleLab) {

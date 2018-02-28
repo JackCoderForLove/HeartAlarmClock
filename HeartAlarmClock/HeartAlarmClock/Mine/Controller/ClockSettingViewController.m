@@ -46,6 +46,7 @@
 @property(nonatomic,strong)JCTipSelectView    *tipView;//闹钟标签View
 @property(nonatomic,strong)JCVibrationSelectView *vibrationView;//震动选择View
 @property(nonatomic,strong)NSString  *bellName;
+@property(nonatomic,strong)UIScrollView *jcBgScrollView;
 @end
 
 @implementation ClockSettingViewController
@@ -69,11 +70,12 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.huluImg];
-    [self.view addSubview:self.timePicker];
-    [self.view addSubview:self.repeatView];
-    [self.view addSubview:self.bellView];
-    [self.view addSubview:self.tipView];
-    [self.view addSubview:self.vibrationView];
+    [self.view addSubview:self.jcBgScrollView];
+    [self.jcBgScrollView addSubview:self.timePicker];
+    [self.jcBgScrollView addSubview:self.repeatView];
+    [self.jcBgScrollView addSubview:self.bellView];
+    [self.jcBgScrollView addSubview:self.tipView];
+    [self.jcBgScrollView addSubview:self.vibrationView];
     [self.huluImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(495/2.0);
         make.height.mas_equalTo(76/2.0);
@@ -86,21 +88,36 @@
         
     }
     [self.repeatView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.width.mas_equalTo(KScreenWidth-30);
+        make.height.mas_equalTo(310/2);
+        make.left.mas_equalTo(self.view.mas_left).offset(15);
+        make.top.mas_equalTo(self.timePicker.mas_bottom).offset(10);
     }];
     [self.bellView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.width.mas_equalTo(KScreenWidth-30);
+        make.height.mas_equalTo(60);
+        make.left.mas_equalTo(self.view.mas_left).offset(15);
+        make.top.mas_equalTo(self.repeatView.mas_bottom).offset(10);
+
     }];
     [self.tipView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.width.mas_equalTo(KScreenWidth-30);
+        make.height.mas_equalTo(60);
+        make.left.mas_equalTo(self.view.mas_left).offset(15);
+        make.top.mas_equalTo(self.bellView.mas_bottom).offset(10);
+
     }];
     [self.vibrationView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.width.mas_equalTo(KScreenWidth-30);
+        make.height.mas_equalTo(60);
+        make.left.mas_equalTo(self.view.mas_left).offset(15);
+        make.top.mas_equalTo(self.tipView.mas_bottom).offset(10);
+
     }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        BellSettingViewController *bellVC = [BellSettingViewController new];
-        [self.navigationController pushViewController:bellVC animated:YES];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        BellSettingViewController *bellVC = [BellSettingViewController new];
+//        [self.navigationController pushViewController:bellVC animated:YES];
+//    });
     
     
 }
@@ -144,8 +161,11 @@
 {
     if (!_timePicker)
     {
-        _timePicker = [[JCTimePickerView alloc]initWithFrame:CGRectMake(0, JCNavBarHeight+20/2.0+76/2.0, KScreenWidth, 334)];
+        _timePicker = [[JCTimePickerView alloc]initWithFrame:CGRectMake(15, 0, KScreenWidth-30, 370/2)];
         _timePicker.delegate = self;
+        _timePicker.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
+        _timePicker.layer.cornerRadius = 30;
+        _timePicker.layer.masksToBounds = YES;
         
     }
     return _timePicker;
@@ -156,7 +176,8 @@
         
         _repeatView = [JCRepeatSelectView new];
         _repeatView.layer.masksToBounds = YES;
-        _repeatView.layer.cornerRadius = 20;
+        _repeatView.layer.cornerRadius = 30;
+        _repeatView.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
     }
     return _repeatView;
 }
@@ -166,7 +187,8 @@
         
         _bellView = [JCBellSelctView new];
         _bellView.layer.masksToBounds = YES;
-        _bellView.layer.cornerRadius = 20;
+        _bellView.layer.cornerRadius = 30;
+        _bellView.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
     }
     return _bellView;
 }
@@ -176,7 +198,9 @@
         
         _tipView = [JCTipSelectView new];
         _tipView.layer.masksToBounds = YES;
-        _tipView.layer.cornerRadius = 20;
+        _tipView.layer.cornerRadius = 30;
+        _tipView.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
+
     }
     return _tipView;
 }
@@ -186,10 +210,22 @@
         
         _vibrationView = [JCVibrationSelectView new];
         _vibrationView.layer.masksToBounds = YES;
-        _vibrationView.layer.cornerRadius = 20;
+        _vibrationView.layer.cornerRadius = 30;
+        _vibrationView.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
+
         
     }
     return _vibrationView;
+}
+- (UIScrollView *)jcBgScrollView
+{
+    if (!_jcBgScrollView) {
+        
+        _jcBgScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, JCNavBarHeight+20/2+76/2, KScreenWidth, kScreenHeight-JCNavBarHeight-20/2-76/2)];
+        _jcBgScrollView.contentSize = CGSizeMake(KScreenWidth, 1200/2.0);
+        _jcBgScrollView.showsVerticalScrollIndicator = NO;
+    }
+    return _jcBgScrollView;
 }
 #pragma mark - Setter
 

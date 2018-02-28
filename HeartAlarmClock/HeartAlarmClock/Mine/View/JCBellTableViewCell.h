@@ -34,4 +34,6 @@
 
 @interface JCBellTableViewCell : UITableViewCell
 @property (nonatomic,strong) NSString *title;
+- (void)jcConfigNormalState;
+- (void)jcConfigSelectState;
 @end

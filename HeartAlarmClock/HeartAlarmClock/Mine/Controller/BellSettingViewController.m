@@ -93,7 +93,8 @@
 }
 - (void)backToPrevious
 {
-    
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"jcreceivebellname" object:self.soundName];
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -114,7 +115,7 @@
     JCBellTableViewCell *jcBellCell = [[JCBellTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcBellID];
     jcBellCell.selectionStyle = UITableViewCellSelectionStyleNone;
     jcBellCell.backgroundColor = [UIColor clearColor];
-    jcBellCell.tintColor = [UIColor greenColor];
+    jcBellCell.tintColor = [ToolsHelper colorWithHexString:@"#51e500"];
     NSString *key = [self.musicTypeArr objectAtIndex:indexPath.section];
     NSArray  *musicArr = [self.jcMusicDic objectForKey:key];
     NSString *title = [musicArr objectAtIndex:indexPath.row];
@@ -145,13 +146,16 @@
     NSArray  *musicArr = [self.jcMusicDic objectForKey:key];
     NSString *title = [musicArr objectAtIndex:indexPath.row];
     NSLog(@"点击了哪个标题:%@",title);
+    self.soundName = title;
     NSString *musicName = [NSString stringWithFormat:@"%@.wav",title];
-    [tableView.visibleCells enumerateObjectsUsingBlock:^(__kindof UITableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [tableView.visibleCells enumerateObjectsUsingBlock:^(__kindof JCBellTableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.accessoryType = UITableViewCellAccessoryNone;
+        [obj jcConfigNormalState];
     }];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    JCBellTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    [cell jcConfigSelectState];
     [self playWithName:musicName];
 //    SystemSoundID soundId;
 //    NSString *path = [[NSBundle mainBundle] pathForResource:title ofType:@"wav"];
@@ -160,8 +164,7 @@
 //        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path],&soundId);
 //        AudioServicesPlaySystemSound(soundId);
 //    }
-//    [[NSNotificationCenter defaultCenter]postNotificationName:@"jcreceivebellname" object:title];
-//    [self.navigationController popViewControllerAnimated:YES];
+
     
 }
 - (void)playWithName:(NSString *)name {
