@@ -69,6 +69,11 @@
     [super viewDidLoad];
     [self jcConfigData];
     [self jcLayoutMyUI];
+    //定时器 反复执行
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self jcGetRemindDataRequest];
     });
@@ -76,6 +81,45 @@
     NSLog(@"获取数据%@",[[EvaluateRemindManger shareManger]jcAllData]);
     
 }
+- (void)updateTime
+{
+    NSDate *currentDate = [NSDate date];
+    
+    NSDateFormatter *dataFormatter = [[NSDateFormatter alloc]init];
+    
+    [dataFormatter setDateFormat:@"MM dd HH mm"];
+    
+    NSString *dateString = [dataFormatter stringFromDate:currentDate];
+    NSArray *timeArr = [dateString componentsSeparatedByString:@" "];
+    
+    NSString *dateStr = [NSString stringWithFormat:@"%@/%@",[timeArr objectAtIndex:0],[timeArr objectAtIndex:1]];
+    NSString *timeStr = [NSString stringWithFormat:@"%@:%@",[timeArr objectAtIndex:2],[timeArr objectAtIndex:3]];
+    self.dateLab.text = dateStr;
+    self.timeLab.text = timeStr;
+    //获取周几
+//    NSCalendar * cal=[NSCalendar currentCalendar];
+//
+//    NSUInteger unitFlags=NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit;
+//
+//    NSDateComponents * conponent= [cal components:unitFlags fromDate:currentDate];
+//    NSInteger weekDay = [conponent weekday]+1;
+    self.weekLab.text = [self datestr];
+
+    
+    
+}
+//返回周几的问题
+- (NSString *)datestr
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSArray *weekdayAry = [NSArray arrayWithObjects:@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+    [dateFormat  setShortWeekdaySymbols:weekdayAry];
+    [dateFormat setDateFormat:@"eee"];
+    NSDate *date = [NSDate date];
+    NSString *srting = [dateFormat stringFromDate:date];
+    return srting;
+}
+
 - (void)layoutNavigationBar
 {
     self.navigationBarSelf.leftView = self.leftBtn;
@@ -140,6 +184,7 @@
         make.left.mas_equalTo(self.weekLab.mas_right).offset(15);
         make.top.mas_equalTo(self.topImgView.mas_top).offset(50);
     }];
+    self.temperatureLab.hidden = YES;
     [self.dateLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(40);
         make.height.mas_equalTo(15);
@@ -182,6 +227,7 @@
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(-JC_TabbarSafeBottomMargin);
         make.right.mas_equalTo(self.view.mas_right);
     }];
+    [self updateTime];
     [self.view addSubview:self.remindTable];
     //布局空页面
     [self jcLayoutDataUI];
@@ -344,12 +390,13 @@
             UILocalNotification *newNotification = [[UILocalNotification alloc] init];
             if (newNotification) {
                 newNotification.fireDate = newFireDate ;
-             //   newNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:3] ;
+               // newNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10] ;
     //            newNotification.timeZone =  [NSTimeZone timeZoneWithName:@"GMT"];
                 newNotification.alertBody =  @"评测时间到了！快去评测吧!";
                 newNotification.applicationIconBadgeNumber = 0;
                 newNotification.hasAction = YES;
-                newNotification.soundName = UILocalNotificationDefaultSoundName;
+                //newNotification.soundName = UILocalNotificationDefaultSoundName;
+                newNotification.soundName = @"英雄联盟.wav";
                 newNotification.repeatInterval = NSCalendarUnitWeekOfYear;
                 NSDictionary * info = @{@"infoKey":remindModel.evaluateRemindId,@"fireDate":newFireDate};
                 newNotification.userInfo = info;
@@ -690,6 +737,7 @@
         _temperatureLab.font = [UIFont systemFontOfSize:14];
         _temperatureLab.textColor = [UIColor blackColor];
         _temperatureLab.text = @"-13C";
+        
     }
     return _temperatureLab;
 }

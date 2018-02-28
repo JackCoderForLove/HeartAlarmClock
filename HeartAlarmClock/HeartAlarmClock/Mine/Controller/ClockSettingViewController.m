@@ -36,14 +36,16 @@
 #import "JCBellSelctView.h"
 #import "JCVibrationSelectView.h"
 #import "BellSettingViewController.h"
+#import "EvaluateRemindModel.h"
 
-@interface ClockSettingViewController ()
+@interface ClockSettingViewController ()<JCTimePickerViewDelegate>
 @property(nonatomic,strong)UIImageView *huluImg;//最上边葫芦娃的img
 @property(nonatomic,strong)JCTimePickerView  *timePicker;//时间选择器
 @property(nonatomic,strong)JCRepeatSelectView *repeatView;//时间重复选择
 @property(nonatomic,strong)JCBellSelctView    *bellView;//铃声选择View
 @property(nonatomic,strong)JCTipSelectView    *tipView;//闹钟标签View
 @property(nonatomic,strong)JCVibrationSelectView *vibrationView;//震动选择View
+@property(nonatomic,strong)NSString  *bellName;
 @end
 
 @implementation ClockSettingViewController
@@ -59,10 +61,12 @@
 {
     [super viewDidLoad];
     [self jcLayoutMyUI];
+    [self jcRegisterApns];
 }
 
 - (void)jcLayoutMyUI
 {
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.huluImg];
     [self.view addSubview:self.timePicker];
@@ -76,17 +80,49 @@
         make.top.mas_equalTo(self.view.mas_top).offset(JCNavBarHeight+20/2.0);
         make.centerX.mas_equalTo(self.view.mas_centerX);
     }];
-    
+    if (self.remindModel)
+    {
+        self.bellName = self.remindModel.soundName;
+        
+    }
+    [self.repeatView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.bellView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.tipView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
+    [self.vibrationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         BellSettingViewController *bellVC = [BellSettingViewController new];
         [self.navigationController pushViewController:bellVC animated:YES];
     });
     
+    
 }
-
+//注册通知
+- (void)jcRegisterApns
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(jcReceiveBellNotifi:) name:@"jcreceivebellname" object:nil];
+}
+- (void)jcReceiveBellNotifi:(NSNotification *)noti
+{
+    NSLog(@"选择:%@ 铃声",noti.object);
+    self.bellName = noti.object;
+    
+}
 - (void)layoutNavigationBar
 {
     self.navigationBarSelf.title = @"闹钟设置";
+}
+#pragma mark - JCTimePickerViewDelegate
+- (void)jcDatePickerSelect:(JCTimePickerView *)jcPickerView withTimeStr:(NSString *)timeStr
+{
+    
 }
 #pragma mark - UITableViewDelegate
 
@@ -108,7 +144,8 @@
 {
     if (!_timePicker)
     {
-        _timePicker = [JCTimePickerView new];
+        _timePicker = [[JCTimePickerView alloc]initWithFrame:CGRectMake(0, JCNavBarHeight+20/2.0+76/2.0, KScreenWidth, 334)];
+        _timePicker.delegate = self;
         
     }
     return _timePicker;

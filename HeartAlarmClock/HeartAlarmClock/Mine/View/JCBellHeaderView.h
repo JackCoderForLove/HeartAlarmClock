@@ -1,4 +1,4 @@
-//  JCBellTableViewCell.h
+//  JCBellHeaderView.h
 //  HeartAlarmClock
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -22,16 +22,15 @@
  *
  * ━━━━━━感觉萌萌哒━━━━━━
  */
-//  Created by xingjian on 2018/2/27.
+//  Created by xingjian on 2018/2/28.
 //  Copyright © 2018年 xingjian. All rights reserved.杰克
-//  @class JCBellTableViewCell
-//  @abstract 铃声自定义Cell
+//  @class JCBellHeaderView
+//  @abstract 铃声设置headerView
 //  @discussion <#类的功能#>
 //
 
-
 #import <UIKit/UIKit.h>
 
-@interface JCBellTableViewCell : UITableViewCell
+@interface JCBellHeaderView : UIView
 @property (nonatomic,strong) NSString *title;
 @end

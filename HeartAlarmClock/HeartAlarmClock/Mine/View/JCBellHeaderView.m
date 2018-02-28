@@ -1,4 +1,4 @@
-//  JCBellTableViewCell.m
+//  JCBellHeaderView.m
 //  HeartAlarmClock
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -22,34 +22,39 @@
  *
  * ━━━━━━感觉萌萌哒━━━━━━
  */
-//  Created by xingjian on 2018/2/27.
+//  Created by xingjian on 2018/2/28.
 //  Copyright © 2018年 xingjian. All rights reserved.杰克
-//  @class JCBellTableViewCell
-//  @abstract 铃声自定义Cell
+//  @class JCBellHeaderView
+//  @abstract 铃声设置headerView
 //  @discussion <#类的功能#>
 //
 
-
-#import "JCBellTableViewCell.h"
-
-@interface JCBellTableViewCell ()
+#import "JCBellHeaderView.h"
+@interface JCBellHeaderView ()
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UILabel *titleLab;
-@property(nonatomic,strong)UIImageView *flagImg;
 @end
 
-@implementation JCBellTableViewCell
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+@implementation JCBellHeaderView
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithCoder:aDecoder];
     if (!self) {
-        
         return nil;
     }
     [self jcLayoutMyUI];
     return self;
 }
-
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (!self) {
+        return nil;
+    }
+    [self jcLayoutMyUI];
+    return self;
+}
+#pragma mark - 布局UI
 - (void)jcLayoutMyUI
 {
     [self addSubview:self.lineView];
@@ -66,14 +71,7 @@
         make.centerY.mas_equalTo(self.mas_centerY);
         make.height.mas_equalTo(15);
     }];
-    self.titleLab.text = @"无敌吧啦啦啦";
-    [self addSubview:self.flagImg];
-    [self.flagImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(10);
-        make.height.mas_equalTo(20);
-        make.right.mas_equalTo(self.mas_right).offset(-10);
-        make.centerY.mas_equalTo(self.mas_centerY);
-    }];
+    self.titleLab.text = @"主播真会玩";
 }
 - (void)setTitle:(NSString *)title
 {
@@ -81,23 +79,13 @@
     self.titleLab.text = _title;
     
 }
-- (UIImageView *)flagImg
-{
-    if (!_flagImg)
-    {
-        _flagImg = [UIImageView new];
-        
-        
-    }
-    return _flagImg;
-}
 - (UILabel *)titleLab
 {
     if (!_titleLab) {
         
         _titleLab = [UILabel new];
-        _titleLab.font = [UIFont systemFontOfSize:15];
-        _titleLab.textColor = [ToolsHelper colorWithHexString:@"#666666"];
+        _titleLab.font = [UIFont systemFontOfSize:17];
+        _titleLab.textColor = [UIColor whiteColor];
     }
     return _titleLab;
 }
@@ -110,15 +98,13 @@
     }
     return _lineView;
 }
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
 }
+*/
 
 @end

@@ -119,6 +119,7 @@
 		C9A5020D20453E3A005553F4 /* JCBellSelctView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020C20453E3A005553F4 /* JCBellSelctView.m */; };
 		C9A5021020453EA7005553F4 /* JCVibrationSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5020F20453EA7005553F4 /* JCVibrationSelectView.m */; };
 		C9A50213204547AB005553F4 /* JCBellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A50212204547AB005553F4 /* JCBellTableViewCell.m */; };
+		C9A50216204644CB005553F4 /* JCBellHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A50215204644CB005553F4 /* JCBellHeaderView.m */; };
 		E360F908029386C27FA83675 /* libPods-HeartAlarmClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */; };
 /* End PBXBuildFile section */
 
@@ -324,6 +325,8 @@
 		C9A5020F20453EA7005553F4 /* JCVibrationSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCVibrationSelectView.m; sourceTree = "<group>"; };
 		C9A50211204547AB005553F4 /* JCBellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCBellTableViewCell.h; sourceTree = "<group>"; };
 		C9A50212204547AB005553F4 /* JCBellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBellTableViewCell.m; sourceTree = "<group>"; };
+		C9A50214204644CB005553F4 /* JCBellHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCBellHeaderView.h; sourceTree = "<group>"; };
+		C9A50215204644CB005553F4 /* JCBellHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBellHeaderView.m; sourceTree = "<group>"; };
 		CCFB5FDBD27DC23105824682 /* Pods-HeartAlarmClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -556,6 +559,8 @@
 				C9A5020F20453EA7005553F4 /* JCVibrationSelectView.m */,
 				C9A50211204547AB005553F4 /* JCBellTableViewCell.h */,
 				C9A50212204547AB005553F4 /* JCBellTableViewCell.m */,
+				C9A50214204644CB005553F4 /* JCBellHeaderView.h */,
+				C9A50215204644CB005553F4 /* JCBellHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -991,6 +996,7 @@
 				C9174074200DFBFB00145E8D /* BaseViewController.m in Sources */,
 				C91740D2200DFEBF00145E8D /* TKFooterView.m in Sources */,
 				C917E507201899F10038F8A1 /* JCShareView.m in Sources */,
+				C9A50216204644CB005553F4 /* JCBellHeaderView.m in Sources */,
 				C91740A3200DFCE000145E8D /* NSDictionary+Extension.m in Sources */,
 				C91740DC200E022A00145E8D /* HEBubbleView.m in Sources */,
 				C92D956A20171F7B00F21721 /* EvaluateRemindModel.m in Sources */,

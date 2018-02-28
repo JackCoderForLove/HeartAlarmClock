@@ -31,8 +31,16 @@
 
 #import "BellSettingViewController.h"
 #import "JCBellTableViewCell.h"
+#import "JCBellHeaderView.h"
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @interface BellSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+     SystemSoundID _currentID;
+     NSIndexPath  *selectIndexPath;
+    
+}
 @property(nonatomic,strong)UITableView *jcBellTable;
 @property(nonatomic,strong)NSArray *musicTypeArr;//音乐类型List
 @property(nonatomic,strong)NSDictionary *jcMusicDic;//音乐字典
@@ -105,6 +113,11 @@
     }
     jcBellCell.selectionStyle = UITableViewCellSelectionStyleNone;
     jcBellCell.backgroundColor = [UIColor clearColor];
+    NSString *key = [self.musicTypeArr objectAtIndex:indexPath.section];
+    NSArray  *musicArr = [self.jcMusicDic objectForKey:key];
+    NSString *title = [musicArr objectAtIndex:indexPath.row];
+    jcBellCell.title = title;
+    
     return jcBellCell;
 }
 
@@ -115,13 +128,51 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.001;
+    return 45;
 }
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    JCBellHeaderView *headerView = [JCBellHeaderView new];
+    NSString *title = [self.musicTypeArr objectAtIndex:section];
+    headerView.title = title;
+    return headerView;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *key = [self.musicTypeArr objectAtIndex:indexPath.section];
+    NSArray  *musicArr = [self.jcMusicDic objectForKey:key];
+    NSString *title = [musicArr objectAtIndex:indexPath.row];
+    NSLog(@"点击了哪个标题:%@",title);
+    NSString *musicName = [NSString stringWithFormat:@"%@.wav",title];
+    [self playWithName:musicName];
+//    SystemSoundID soundId;
+//    NSString *path = [[NSBundle mainBundle] pathForResource:title ofType:@"wav"];
+//    if (path) {
+//        //注册声音到系统
+//        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path],&soundId);
+//        AudioServicesPlaySystemSound(soundId);
+//    }
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"jcreceivebellname" object:title];
+//    [self.navigationController popViewControllerAnimated:YES];
     
 }
+- (void)playWithName:(NSString *)name {
+    //关闭上次
+    AudioServicesDisposeSystemSoundID(_currentID);
+    AudioServicesDisposeSystemSoundID(kSystemSoundID_Vibrate);
+    
+    NSURL *url = [[NSBundle mainBundle] URLForAuxiliaryExecutable:name];
+    SystemSoundID soundID = 0;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &soundID);
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(url), &soundID);
+    //    NSLog(@"ID = %U",soundID);
+    AudioServicesPlaySystemSound(soundID);
+    _currentID = soundID;
+    
+    //震动
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
 #pragma mark - Public
 
 #pragma mark - Private
@@ -162,6 +213,9 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    AudioServicesDisposeSystemSoundID(_currentID);
+    AudioServicesDisposeSystemSoundID(kSystemSoundID_Vibrate);
+    
 }
 
 - (void)didReceiveMemoryWarning

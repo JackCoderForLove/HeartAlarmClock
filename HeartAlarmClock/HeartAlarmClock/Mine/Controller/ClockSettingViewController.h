@@ -30,7 +30,7 @@
 //
 
 #import "BaseViewController.h"
-
+@class EvaluateRemindModel;
 @interface ClockSettingViewController : BaseViewController
-
+@property (nonatomic,strong) EvaluateRemindModel *remindModel;
 @end
