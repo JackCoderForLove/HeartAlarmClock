@@ -38,7 +38,7 @@
 #import "BellSettingViewController.h"
 #import "EvaluateRemindModel.h"
 
-@interface ClockSettingViewController ()<JCTimePickerViewDelegate>
+@interface ClockSettingViewController ()<JCTimePickerViewDelegate,UIScrollViewDelegate>
 @property(nonatomic,strong)UIImageView *huluImg;//最上边葫芦娃的img
 @property(nonatomic,strong)JCTimePickerView  *timePicker;//时间选择器
 @property(nonatomic,strong)JCRepeatSelectView *repeatView;//时间重复选择
@@ -47,6 +47,17 @@
 @property(nonatomic,strong)JCVibrationSelectView *vibrationView;//震动选择View
 @property(nonatomic,strong)NSString  *bellName;
 @property(nonatomic,strong)UIScrollView *jcBgScrollView;
+@property(nonatomic,strong)UILabel *vibrationLab;
+@property(nonatomic,strong)UISwitch *vibrantionSwtich;
+@property(nonatomic,strong)UILabel *tipLab;
+@property(nonatomic,strong)UITextField *tipTF;
+@property(nonatomic,strong)UILabel *bellLab;
+@property(nonatomic,strong)UILabel *bellValueLab;
+@property(nonatomic,strong)UILabel *repeatLab;
+@property(nonatomic,strong)NSMutableArray *repeatDateArr;
+@property(nonatomic,strong)NSMutableArray *repeatOptionArr;
+@property(nonatomic,strong)NSArray *repeatDateTitleArr;
+@property(nonatomic,strong)NSArray *repeatOptionTitleArr;
 @end
 
 @implementation ClockSettingViewController
@@ -69,6 +80,10 @@
 {
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.repeatDateArr = [NSMutableArray array];
+    self.repeatOptionArr = [NSMutableArray array];
+    self.repeatDateTitleArr = @[@"一",@"二",@"三",@"四",@"五",@"六",@"日"];
+    self.repeatOptionTitleArr = @[@"永不",@"工作日",@"每天",@"周末"];
     [self.view addSubview:self.huluImg];
     [self.view addSubview:self.jcBgScrollView];
     [self.jcBgScrollView addSubview:self.timePicker];
@@ -93,12 +108,76 @@
         make.left.mas_equalTo(self.view.mas_left).offset(15);
         make.top.mas_equalTo(self.timePicker.mas_bottom).offset(10);
     }];
+    [self.repeatView addSubview:self.repeatLab];
+    [self.repeatLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(16);
+        make.left.mas_equalTo(self.repeatView.mas_left).offset(25);
+        make.top.mas_equalTo(self.repeatView.mas_top).offset(15);
+    }];
+    CGFloat kItemW = 40;
+    CGFloat kSpace = (KScreenWidth-30-kItemW*7)/8.0;
+    for (int i = 0; i<7; i++)
+    {
+        UIButton *jcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        NSString *title = [self.repeatDateTitleArr objectAtIndex:i];
+        [jcBtn setTitle:title forState:UIControlStateNormal];
+        [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+        [jcBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        jcBtn.layer.masksToBounds = YES;
+        jcBtn.layer.cornerRadius = kItemW/2.0;
+        jcBtn.tag = 8000+i;
+        [self.repeatView addSubview:jcBtn];
+        [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.mas_equalTo(kItemW);
+            make.left.mas_equalTo(self.repeatView.mas_left).offset(kSpace+(kSpace+kItemW)*i);
+            make.top.mas_equalTo(self.repeatLab.mas_bottom).offset(15);
+        }];
+        [self.repeatDateArr addObject:jcBtn];
+    }
+    CGFloat kOItemW = 65;
+    CGFloat kOItemH = 30;
+    CGFloat kOSpace = (KScreenWidth-65*4-30)/5.0;
+    for (int i = 0; i<4; i++)
+    {
+        UIButton *jcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        NSString *title = [self.repeatOptionTitleArr objectAtIndex:i];
+        [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+        [jcBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        jcBtn.layer.masksToBounds = YES;
+        jcBtn.layer.cornerRadius = kOItemH/2.0;
+        jcBtn.tag = 9000+i;
+        [jcBtn setTitle:title forState:UIControlStateNormal];
+        [self.repeatView addSubview:jcBtn];
+        [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(kOItemW);
+            make.height.mas_equalTo(kOItemH);
+            make.left.mas_equalTo(self.repeatView.mas_left).offset(kOSpace+(kOSpace+kOItemW)*i);
+            make.bottom.mas_equalTo(self.repeatView.mas_bottom).offset(-15);
+        }];
+
+        
+    }
     [self.bellView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(KScreenWidth-30);
         make.height.mas_equalTo(60);
         make.left.mas_equalTo(self.view.mas_left).offset(15);
         make.top.mas_equalTo(self.repeatView.mas_bottom).offset(10);
 
+    }];
+    [self.bellView addSubview:self.bellLab];
+    [self.bellView addSubview:self.bellValueLab];
+    [self.bellLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(16);
+        make.centerY.mas_equalTo(self.bellView.mas_centerY);
+        make.left.mas_equalTo(self.bellView.mas_left).offset(25);
+    }];
+    [self.bellValueLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(KScreenWidth-60-50-10);
+        make.height.mas_equalTo(16);
+        make.right.mas_equalTo(self.bellView.mas_right).offset(-15);
+        make.centerY.mas_equalTo(self.bellView.mas_centerY);
     }];
     [self.tipView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(KScreenWidth-30);
@@ -107,6 +186,20 @@
         make.top.mas_equalTo(self.bellView.mas_bottom).offset(10);
 
     }];
+    [self.tipView addSubview:self.tipLab];
+    [self.tipView addSubview:self.tipTF];
+    [self.tipLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(16);
+        make.centerY.mas_equalTo(self.tipView.mas_centerY);
+        make.left.mas_equalTo(self.tipView.mas_left).offset(25);
+    }];
+    [self.tipTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self.tipView.mas_right).offset(-15);
+        make.centerY.mas_equalTo(self.tipView.mas_centerY);
+        make.height.mas_equalTo(35);
+        make.width.mas_equalTo(200);
+    }];
     [self.vibrationView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(KScreenWidth-30);
         make.height.mas_equalTo(60);
@@ -114,10 +207,20 @@
         make.top.mas_equalTo(self.tipView.mas_bottom).offset(10);
 
     }];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        BellSettingViewController *bellVC = [BellSettingViewController new];
-//        [self.navigationController pushViewController:bellVC animated:YES];
-//    });
+    [self.vibrationView addSubview:self.vibrationLab];
+    [self.vibrationView addSubview:self.vibrantionSwtich];
+    [self.vibrationLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(16);
+        make.centerY.mas_equalTo(self.vibrationView.mas_centerY);
+        make.left.mas_equalTo(self.vibrationView.mas_left).offset(25);
+    }];
+    [self.vibrantionSwtich mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(25);
+        make.right.mas_equalTo(self.vibrationView.mas_right).offset(-15);
+        make.centerY.mas_equalTo(self.vibrationView.mas_centerY);
+    }];
     
     
 }
@@ -140,6 +243,20 @@
 - (void)jcDatePickerSelect:(JCTimePickerView *)jcPickerView withTimeStr:(NSString *)timeStr
 {
     
+}
+//点击铃声条目
+- (void)jcJumpToBellVC:(UITapGestureRecognizer *)jcTap
+{
+    
+    //跳转到铃声设置页面
+    BellSettingViewController *bellVC = [BellSettingViewController new];
+    [self.navigationController pushViewController:bellVC animated:YES];
+
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
 }
 #pragma mark - UITableViewDelegate
 
@@ -181,6 +298,18 @@
     }
     return _repeatView;
 }
+- (UILabel *)repeatLab
+{
+    if (!_repeatLab) {
+        
+        _repeatLab = [UILabel new];
+        _repeatLab.font = [UIFont systemFontOfSize:16];
+        _repeatLab.textColor = [UIColor whiteColor];
+        _repeatLab.text = @"重复";
+        
+    }
+    return _repeatLab;
+}
 - (JCBellSelctView *)bellView
 {
     if (!_bellView) {
@@ -189,8 +318,35 @@
         _bellView.layer.masksToBounds = YES;
         _bellView.layer.cornerRadius = 30;
         _bellView.backgroundColor = [ToolsHelper colorWithHexString:@"#2e2e30"];
+        _bellView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *jcTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jcJumpToBellVC:)];
+        [_bellView addGestureRecognizer:jcTap];
+        
     }
     return _bellView;
+}
+- (UILabel *)bellLab
+{
+    if (!_bellLab) {
+        
+        _bellLab = [UILabel new];
+        _bellLab.font = [UIFont systemFontOfSize:16];
+        _bellLab.text = @"铃声";
+        _bellLab.textColor = [UIColor whiteColor];
+    }
+    return _bellLab;
+}
+- (UILabel *)bellValueLab
+{
+    if (!_bellValueLab) {
+        
+        _bellValueLab = [UILabel new];
+        _bellValueLab.font = [UIFont systemFontOfSize:16];
+        _bellValueLab.text = @"动物园";
+        _bellValueLab.textAlignment = NSTextAlignmentRight;
+        _bellValueLab.textColor = [UIColor whiteColor];
+    }
+    return _bellValueLab;
 }
 - (JCTipSelectView *)tipView
 {
@@ -217,6 +373,48 @@
     }
     return _vibrationView;
 }
+- (UILabel *)vibrationLab
+{
+    if (!_vibrationLab) {
+        
+        _vibrationLab = [UILabel new];
+        _vibrationLab.text = @"震动";
+        _vibrationLab.textColor = [UIColor whiteColor];
+        
+    }
+    return _vibrationLab;
+}
+- (UISwitch *)vibrantionSwtich
+{
+    if (!_vibrantionSwtich) {
+        
+        _vibrantionSwtich = [UISwitch new];
+        
+    }
+    return _vibrantionSwtich;
+}
+- (UILabel *)tipLab
+{
+    if (!_tipLab) {
+        
+        _tipLab = [UILabel new];
+        _tipLab.font = [UIFont systemFontOfSize:16];
+        _tipLab.text = @"标签";
+        _tipLab.textColor = [UIColor whiteColor];
+    }
+    return _tipLab;
+}
+- (UITextField *)tipTF
+{
+    if (!_tipTF) {
+        
+        _tipTF = [UITextField new];
+        _tipTF.text = @"闹钟";
+        _tipTF.textColor = [UIColor whiteColor];
+        _tipTF.textAlignment = NSTextAlignmentRight; 
+    }
+    return _tipTF;
+}
 - (UIScrollView *)jcBgScrollView
 {
     if (!_jcBgScrollView) {
@@ -224,8 +422,13 @@
         _jcBgScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, JCNavBarHeight+20/2+76/2, KScreenWidth, kScreenHeight-JCNavBarHeight-20/2-76/2)];
         _jcBgScrollView.contentSize = CGSizeMake(KScreenWidth, 1200/2.0);
         _jcBgScrollView.showsVerticalScrollIndicator = NO;
+        _jcBgScrollView.delegate = self;
     }
     return _jcBgScrollView;
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 #pragma mark - Setter
 
