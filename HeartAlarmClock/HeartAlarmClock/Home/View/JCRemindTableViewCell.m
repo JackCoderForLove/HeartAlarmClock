@@ -31,6 +31,7 @@
 
 
 #import "JCRemindTableViewCell.h"
+#import "EvaluateRemindModel.h"
 
 @interface JCRemindTableViewCell ()
 @property(nonatomic,strong)UILabel *timeLab;//时间Lab
@@ -66,7 +67,7 @@
     [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).offset(25);
         make.top.mas_equalTo(self.mas_top).offset(12);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(65);
         make.height.mas_equalTo(18);
     }];
     self.timeLab.text = @"10:12";
@@ -97,6 +98,8 @@
 - (void)setReModel:(EvaluateRemindModel *)reModel
 {
     _reModel = reModel;
+    self.timeLab.text = _reModel.remindTime;
+    
     
 }
 - (UILabel *)timeLab

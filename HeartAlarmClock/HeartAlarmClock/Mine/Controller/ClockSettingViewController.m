@@ -58,6 +58,7 @@
 @property(nonatomic,strong)NSMutableArray *repeatOptionArr;
 @property(nonatomic,strong)NSArray *repeatDateTitleArr;
 @property(nonatomic,strong)NSArray *repeatOptionTitleArr;
+@property(nonatomic,strong)UIButton *saveBtn;
 @end
 
 @implementation ClockSettingViewController
@@ -68,12 +69,26 @@
 {
     [super viewWillAppear:animated];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self jcLayoutMyUI];
     [self jcRegisterApns];
+    if (self.remindModel == nil) {
+        
+        //默认显示当前时间
+        NSString *nowTime = [ToolsHelper jcGetTimeStrWithDate:[ToolsHelper jcGetCurrentDate] withFormatter:@"HH:mm"];
+//        NSLog(@"现在的时间:%@",nowTime);
+//        self.jcDateStr = nowTime;
+        self.timePicker.jcDateStr = nowTime;
+        
+    }
+    else
+    {
+        self.timePicker.jcDateStr = self.remindModel.remindTime;
+    }
+    
+    
 }
 
 - (void)jcLayoutMyUI
@@ -436,11 +451,13 @@
 {
     NSLog(@"选择:%@ 铃声",noti.object);
     self.bellName = noti.object;
+    self.bellValueLab.text = self.bellName;
     
 }
 - (void)layoutNavigationBar
 {
     self.navigationBarSelf.title = @"闹钟设置";
+    self.navigationBarSelf.rightView = self.saveBtn;
 }
 #pragma mark - JCTimePickerViewDelegate
 - (void)jcDatePickerSelect:(JCTimePickerView *)jcPickerView withTimeStr:(NSString *)timeStr
@@ -459,7 +476,7 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.view endEditing:YES];
+    
 }
 #pragma mark - UITableViewDelegate
 
@@ -629,10 +646,24 @@
     }
     return _jcBgScrollView;
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (UIButton *)saveBtn
 {
-    [self.view endEditing:YES];
+    if (!_saveBtn) {
+        
+        _saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_saveBtn setTitle:@"保存" forState:UIControlStateNormal];
+        [_saveBtn addTarget:self action:@selector(jcSaveBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_saveBtn setTitleColor:[ToolsHelper colorWithHexString:@"#333333"] forState:UIControlStateNormal];
+        _saveBtn.titleFont = [UIFont systemFontOfSize:15];
+    }
+    return _saveBtn;
 }
+
+- (void)jcSaveBtn:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Setter
 
 - (void)viewWillDisappear:(BOOL)animated

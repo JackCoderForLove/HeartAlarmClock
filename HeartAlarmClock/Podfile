@@ -14,4 +14,5 @@ target 'HeartAlarmClock' do
     pod 'UMengUShare/Social/ReducedWeChat'
     pod 'UMengUShare/Social/ReducedQQ'
     pod 'UMengUShare/Social/ReducedSina'
+    pod 'IQKeyboardManager'
 end

@@ -36,6 +36,8 @@
 #import "ClockSettingViewController.h"
 #import "JCRemindTableViewCell.h"
 
+
+
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIButton *rightBtn;
@@ -129,12 +131,12 @@
 {
     EvaluateRemindModel *model = [EvaluateRemindModel new];
     model.evaluateRemindId = @"123";
-    model.remindTime = @"13:51";
+    model.remindTime = @"08:50";
     model.remindDate = @[@"1",@"2",@"3",@"4",@"5"];
     model.status = @0;
     EvaluateRemindModel *model1 = [EvaluateRemindModel new];
     model1.evaluateRemindId = @"124";
-    model1.remindTime = @"13:52";
+    model1.remindTime = @"11:52";
     model1.remindDate = @[@"1",@"2",@"3",@"5",@"6"];
     model1.status = @0;
     [[EvaluateRemindManger shareManger]saveDataWithModel:model];
@@ -293,6 +295,7 @@
 {
     NSLog(@"点击添加");
     ClockSettingViewController *clockVC = [ClockSettingViewController new];
+    clockVC.remindModel = nil;
     [self.navigationController pushViewController:clockVC animated:YES];
     
 }
@@ -494,13 +497,18 @@
         jcCell = [[JCRemindTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:jcCellID];
     }
     jcCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    EvaluateRemindModel *jcModel = [self.jcRemindData objectAtIndex:indexPath.section];
+    jcCell.reModel = jcModel;
     return jcCell;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击了%ld",indexPath.section);
+    ClockSettingViewController *clockVC = [ClockSettingViewController new];
+    EvaluateRemindModel *remindModel = [self.jcRemindData objectAtIndex:indexPath.section];
+    clockVC.remindModel = remindModel;
+    [self.navigationController pushViewController:clockVC animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -772,14 +780,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
