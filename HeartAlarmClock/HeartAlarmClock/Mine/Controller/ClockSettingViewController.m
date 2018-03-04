@@ -133,6 +133,7 @@
             make.left.mas_equalTo(self.repeatView.mas_left).offset(kSpace+(kSpace+kItemW)*i);
             make.top.mas_equalTo(self.repeatLab.mas_bottom).offset(15);
         }];
+        [jcBtn addTarget:self action:@selector(jcDateClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.repeatDateArr addObject:jcBtn];
     }
     CGFloat kOItemW = 65;
@@ -155,6 +156,8 @@
             make.left.mas_equalTo(self.repeatView.mas_left).offset(kOSpace+(kOSpace+kOItemW)*i);
             make.bottom.mas_equalTo(self.repeatView.mas_bottom).offset(-15);
         }];
+        [jcBtn addTarget:self action:@selector(jcOptionClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.repeatOptionArr addObject:jcBtn];
 
         
     }
@@ -224,6 +227,206 @@
     
     
 }
+//点击选择日期
+- (void)jcDateClick:(UIButton *)sender
+{
+    NSLog(@"点击了日期");
+  
+    for (int i = 0; i<self.repeatDateArr.count; i++) {
+        UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+        if (jcBtn.tag == sender.tag) {
+            
+            //将按钮置为选中状态
+            if (jcBtn.isSelected == YES) {
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                jcBtn.selected = NO;
+            }
+            else
+            {
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+                jcBtn.selected = YES;
+            }
+            
+        }
+        
+    }
+    for (int i = 0; i<self.repeatOptionArr.count; i++) {
+        UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+        jcBtn.selected = NO;
+        [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+        
+    }
+    BOOL first;
+    BOOL second;
+    BOOL third;
+    BOOL fourth;
+    BOOL fifth;
+    BOOL sixth;
+    BOOL seventh;
+    UIButton *firstBtn = [self.repeatDateArr objectAtIndex:0];
+    UIButton *secondBtn = [self.repeatDateArr objectAtIndex:1];
+    UIButton *thirdtn = [self.repeatDateArr objectAtIndex:2];
+    UIButton *fourthBtn = [self.repeatDateArr objectAtIndex:3];
+    UIButton *fifthBtn = [self.repeatDateArr objectAtIndex:4];
+    UIButton *sixBtn = [self.repeatDateArr objectAtIndex:5];
+    UIButton *seventhBtn = [self.repeatDateArr objectAtIndex:6];
+    first = firstBtn.isSelected;
+    second = secondBtn.isSelected;
+    third = thirdtn.isSelected;
+    fourth = fourthBtn.isSelected;
+    fifth = fifthBtn.isSelected;
+    sixth = sixBtn.isSelected;
+    seventh = seventhBtn.isSelected;
+    //判断
+    if (first==YES&&second==YES&&third==YES&&fourth==YES&&fifth==YES&&sixth == YES&&seventh==YES) {
+        
+        for (int i = 0; i<self.repeatOptionArr.count; i++) {
+            UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+            if (i == 2) {
+                jcBtn.selected = YES;
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+            }
+            else
+            {
+                jcBtn.selected = NO;
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                
+            }
+        }
+    }
+    if (first==YES&&second==YES&&third==YES&&fourth==YES&&fifth==YES&&sixth == NO&&seventh==NO) {
+        for (int i = 0; i<self.repeatOptionArr.count; i++)
+        {
+              
+        UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+        if (i == 1) {
+            jcBtn.selected = YES;
+            [jcBtn setBackgroundColor:[UIColor redColor]];
+        }
+        else
+        {
+            jcBtn.selected = NO;
+            [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+            
+        }
+      }
+        
+    }
+    if (first==NO&&second==NO&&third==NO&&fourth==NO&&fifth==NO&&sixth == YES &&seventh==YES) {
+        for (int i = 0; i<self.repeatOptionArr.count; i++)
+        {
+            
+            UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+            if (i == 3) {
+                jcBtn.selected = YES;
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+            }
+            else
+            {
+                jcBtn.selected = NO;
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                
+            }
+        }
+        
+    }
+    if (first==NO&&second==NO&&third==NO&&fourth==NO&&fifth==NO&&sixth == NO &&seventh==NO) {
+        for (int i = 0; i<self.repeatOptionArr.count; i++)
+        {
+            
+            UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+          
+                jcBtn.selected = NO;
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                
+        }
+        
+    }
+    
+    
+    
+    
+}
+//点击选项
+- (void)jcOptionClick:(UIButton *)sender
+{
+    NSLog(@"点击了选项");
+    //先设置点击选中按钮
+    for (int i = 0; i<self.repeatOptionArr.count; i++) {
+        UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+        if (jcBtn.tag == sender.tag) {
+            jcBtn.selected = YES;
+            jcBtn.backgroundColor = [UIColor redColor];
+        }
+        else
+        {
+            jcBtn.selected = NO;
+            jcBtn.backgroundColor = [ToolsHelper colorWithHexString:@"#5d5d5d"];
+        }
+    }
+    if (sender.tag == 9000)
+    {
+       
+        //点击永不
+        for (int i = 0; i<self.repeatDateArr.count; i++) {
+            UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+            jcBtn.selected = NO;
+            [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+        }
+        
+    }
+    else if (sender.tag == 9001)
+    {
+        //点击工作日
+        for (int i = 0; i<self.repeatDateArr.count; i++) {
+            UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+            if (i<5)
+            {
+                jcBtn.selected = YES;
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+                
+                
+            }
+            else
+            {
+                jcBtn.selected = NO;
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                
+            }
+        }
+
+    }
+    else if (sender.tag == 9002)
+    {
+        //点击每天
+        for (int i = 0; i<self.repeatDateArr.count; i++) {
+            UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+            jcBtn.selected = YES;
+            [jcBtn setBackgroundColor:[UIColor redColor]];
+        }
+        
+    }
+    else if (sender.tag == 9003)
+    {
+        //点击周末
+        for (int i = 0; i<self.repeatDateArr.count; i++) {
+            UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+            if (i<5)
+            {
+                jcBtn.selected = NO;
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                
+            }
+            else
+            {
+                jcBtn.selected = YES;
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+            }
+        }
+    }
+    
+}
+
 //注册通知
 - (void)jcRegisterApns
 {
