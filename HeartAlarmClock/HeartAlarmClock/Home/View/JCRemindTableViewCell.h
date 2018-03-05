@@ -33,6 +33,11 @@
 #import <UIKit/UIKit.h>
 
 @class EvaluateRemindModel;
+@class JCRemindTableViewCell;
+@protocol JCRemindTableViewCellDelegate<NSObject>
+- (void)jcRemindTableViewChange:(JCRemindTableViewCell *)jcCell withModel:(EvaluateRemindModel *)remodel;
+@end
 @interface JCRemindTableViewCell : UITableViewCell
 @property (nonatomic,strong) EvaluateRemindModel *reModel;
+@property (nonatomic,assign) id <JCRemindTableViewCellDelegate>delegate;
 @end

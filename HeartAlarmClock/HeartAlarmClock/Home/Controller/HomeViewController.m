@@ -69,8 +69,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self jcConfigData];
     [self jcLayoutMyUI];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(jcConfigData:) name:@"jcReloadClock" object:nil];
     //定时器 反复执行
     NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     
@@ -127,20 +127,23 @@
     self.navigationBarSelf.leftView = self.leftBtn;
     self.navigationBarSelf.rightView = self.rightBtn;
 }
-- (void)jcConfigData
+
+- (void)jcConfigData:(NSNotification *)noti
 {
-    EvaluateRemindModel *model = [EvaluateRemindModel new];
-    model.evaluateRemindId = @"123";
-    model.remindTime = @"08:50";
-    model.remindDate = @[@"1",@"2",@"3",@"4",@"5"];
-    model.status = @0;
-    EvaluateRemindModel *model1 = [EvaluateRemindModel new];
-    model1.evaluateRemindId = @"124";
-    model1.remindTime = @"11:52";
-    model1.remindDate = @[@"1",@"2",@"3",@"5",@"6"];
-    model1.status = @0;
-    [[EvaluateRemindManger shareManger]saveDataWithModel:model];
-    [[EvaluateRemindManger shareManger]saveDataWithModel:model1];
+    self.jcRemindData = [[EvaluateRemindManger shareManger]jcAllData];
+    if (self.jcRemindData.count == 0) {
+        [self jcLayoutEmptyUI];
+    }
+    else
+    {
+        [self jcLayoutDataUI];
+    }
+
+    //刷新表格数据
+    [self deleteAllLocalNotifcation];
+    //设置本地通知
+    [self jcSetLocalNotification];
+    [self.remindTable reloadData];
 }
 - (void)jcLayoutMyUI
 {
@@ -232,10 +235,10 @@
     [self updateTime];
     [self.view addSubview:self.remindTable];
     //布局空页面
-    [self jcLayoutDataUI];
+//    [self jcLayoutDataUI];
     //获取唯一id
-    NSString *jcID = [ToolsHelper jcGetIdentifyID];
-    NSLog(@"唯一的id:%@",jcID);
+//    NSString *jcID = [ToolsHelper jcGetIdentifyID];
+//    NSLog(@"唯一的id:%@",jcID);
     
 }
 //布局空页面
@@ -249,9 +252,6 @@
     self.jchuluBImg.hidden = YES;
     self.huluImg.hidden = YES;
     self.remindTable.hidden = YES;
-
-
-
     
 }
 //布局有数据页面
@@ -271,6 +271,13 @@
 {
   
     self.jcRemindData = [[EvaluateRemindManger shareManger]jcAllData];
+    if (self.jcRemindData.count == 0) {
+        [self jcLayoutEmptyUI];
+    }
+    else
+    {
+        [self jcLayoutDataUI];
+    }
     //刷新表格数据
     //设置本地通知
     [self jcSetLocalNotification];
@@ -284,9 +291,6 @@
     //跳转到设置页面
     SettingViewController *settingVC = [SettingViewController new];
     [self.navigationController pushViewController:settingVC animated:YES];
-    //跳转到关于我们
-//    AboutusViewController *aboutVC = [AboutusViewController new];
-//    [self.navigationController pushViewController:aboutVC animated:YES];
   
 }
 
@@ -315,11 +319,11 @@
     for (int i = 0; i<self.jcRemindData.count; i++)
     {
         EvaluateRemindModel *remindModel = [self.jcRemindData objectAtIndex:i];
-        if (remindModel.status.integerValue == 1) {
+        if (remindModel.status == 1) {
             //如果通知提醒是关闭状态，则继续下一个循环
             continue;
         }
-        else if(remindModel.status.integerValue == 0)
+        else if(remindModel.status == 0)
         {
             //如果通知提醒是开启状态，则添加本地通知提醒
             [self addMineLocalNotification:remindModel againTime:remindModel.remindDate];
@@ -501,6 +505,7 @@
     jcCell.reModel = jcModel;
     return jcCell;
 }
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -534,61 +539,25 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [tableView reloadData];
-//        if (self.jcRemindData.count == 1) {
-//            [OMGToast showWithText:@"至少要留一个提醒呦"];
-//            [self.remindTable reloadData];
-//            return;
-//        }
-        
+     
         //1 获取当前选择的数据Model
-       // EvaluateRemindModel *eveModel =[self.jcRemindData objectAtIndex:indexPath.section];
+        EvaluateRemindModel *eveModel =[self.jcRemindData objectAtIndex:indexPath.section];
+        [[EvaluateRemindManger shareManger]deleteDataWithModel:eveModel];
+        //删除本地通知提醒
+        [self deleteLocalNotification:eveModel];
+        
+        if (self.jcRemindData.count == 0) {
+            [self jcLayoutEmptyUI];
+        }
+        else
+        {
+            [self jcLayoutDataUI];
+        }
+        [self.remindTable reloadData];
+
         //2 先删除本地提醒通知
         //3 向后台删除提醒通知
         //4 删除数组中的model
-//        NSMutableDictionary *param = [NSMutableDictionary dictionary];
-//        UserModel *jcUser = [UserModel getLatestUser];
-//        [param setObject:eveModel.evaluateRemindId forKey:@"evaluateRemindId"];
-//        [param setObject:jcUser.userId forKey:@"userId"];
-//        [SessionRequest post:EVELUATEREMINDDELETE params:param success:^(id response) {
-//            if ([[response objectForKey:@"status"]integerValue] == 1000) {
-//
-//                NSDictionary *jcData = [response objectForKey:@"data"];
-//                BOOL deleteFlag = [[jcData objectForKey:@"deleteFlag"]boolValue];
-//                if (deleteFlag == YES) {
-//                    [OMGToast showWithText:JCLocalStr(@"Successfully delete", @"删除成功")];
-//                    //删除本地通知提醒
-//                    [self deleteLocalNotification:eveModel];
-//                    [self.jcRemindData removeObjectAtIndex:indexPath.row];
-//                    [self.jcRemindTable reloadData];
-//
-//
-//                }
-//                else
-//                {
-//                    [OMGToast showWithText:JCLocalStr(@"Unsuccessfully delete", @"删除失败")];
-//                    [self.jcRemindTable reloadData];
-//
-//                }
-//            }
-//            else
-//            {
-//                [OMGToast showWithText:JCLocalStr(@"Unsuccessfully delete", @"删除失败")];
-//                [self.jcRemindTable reloadData];
-//
-//            }
-//
-//        } fail:^(NSError *error) {
-//            NSLog(@"删除失败%@",error.localizedDescription);
-//            [OMGToast showWithText:JCLocalStr(@"Unsuccessfully delete", @"删除失败")];
-//            [self.jcRemindTable reloadData];
-//
-//        }];
-//
-        
-        
-        
-        
     }
 }
 #pragma mark - Public

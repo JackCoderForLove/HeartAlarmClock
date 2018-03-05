@@ -32,6 +32,7 @@
 
 #import "JCRemindTableViewCell.h"
 #import "EvaluateRemindModel.h"
+#import "EvaluateRemindManger.h"
 
 @interface JCRemindTableViewCell ()
 @property(nonatomic,strong)UILabel *timeLab;//时间Lab
@@ -91,14 +92,30 @@
         make.right.mas_equalTo(self.mas_right).offset(-15);
         make.centerY.mas_equalTo(self.mas_centerY);
     }];
+    [self.jcSwitch addTarget:self action:@selector(jcSwitchChange:) forControlEvents:UIControlEventValueChanged];
     
     
 }
 
+- (void)jcSwitchChange:(UISwitch *)jcSwitch
+{
+    NSInteger jcStatus = jcSwitch.isOn == YES?0:1;
+    _reModel.status = jcStatus;
+    [[EvaluateRemindManger shareManger]saveDataWithModel:_reModel];
+
+}
 - (void)setReModel:(EvaluateRemindModel *)reModel
 {
     _reModel = reModel;
     self.timeLab.text = _reModel.remindTime;
+    if (_reModel.status == 0) {
+        self.jcSwitch.on = YES;
+    }
+    else
+    {
+        self.jcSwitch.on = NO;
+    }
+    self.tipLab.text = self.reModel.remindContent;
     
     
 }

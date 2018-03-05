@@ -37,6 +37,7 @@
 #import "JCVibrationSelectView.h"
 #import "BellSettingViewController.h"
 #import "EvaluateRemindModel.h"
+#import "EvaluateRemindManger.h"
 
 @interface ClockSettingViewController ()<JCTimePickerViewDelegate,UIScrollViewDelegate>
 @property(nonatomic,strong)UIImageView *huluImg;//最上边葫芦娃的img
@@ -59,6 +60,8 @@
 @property(nonatomic,strong)NSArray *repeatDateTitleArr;
 @property(nonatomic,strong)NSArray *repeatOptionTitleArr;
 @property(nonatomic,strong)UIButton *saveBtn;
+@property(nonatomic,strong)NSString *jcDateStr;
+
 @end
 
 @implementation ClockSettingViewController
@@ -78,14 +81,19 @@
         
         //默认显示当前时间
         NSString *nowTime = [ToolsHelper jcGetTimeStrWithDate:[ToolsHelper jcGetCurrentDate] withFormatter:@"HH:mm"];
-//        NSLog(@"现在的时间:%@",nowTime);
-//        self.jcDateStr = nowTime;
+       NSLog(@"现在的时间:%@",nowTime);
+        self.jcDateStr = nowTime;
         self.timePicker.jcDateStr = nowTime;
+        self.vibrantionSwtich.on = YES;
         
     }
     else
     {
         self.timePicker.jcDateStr = self.remindModel.remindTime;
+        self.jcDateStr = self.remindModel.remindTime;
+        self.vibrantionSwtich.on = self.remindModel.status==0?YES:NO;
+        self.bellValueLab.text = self.remindModel.soundName;
+        
     }
     
     
@@ -462,7 +470,8 @@
 #pragma mark - JCTimePickerViewDelegate
 - (void)jcDatePickerSelect:(JCTimePickerView *)jcPickerView withTimeStr:(NSString *)timeStr
 {
-    
+    NSLog(@"选中的时间:%@",timeStr);
+    self.jcDateStr = timeStr;
 }
 //点击铃声条目
 - (void)jcJumpToBellVC:(UITapGestureRecognizer *)jcTap
@@ -661,6 +670,26 @@
 
 - (void)jcSaveBtn:(UIButton *)sender
 {
+    EvaluateRemindModel *model = [EvaluateRemindModel new];
+    if (self.remindModel == nil) {
+        //添加新闹钟
+         model.evaluateRemindId = [ToolsHelper jcGetIdentifyID];
+        
+    }
+    else
+    {
+        //更新闹钟
+        model.evaluateRemindId = self.remindModel.evaluateRemindId;
+        
+    }
+   
+    model.remindTime = self.jcDateStr;
+    model.remindDate = @[@"1",@"2",@"3",@"4",@"5"];
+    model.soundName = self.bellName;
+    model.status = self.vibrantionSwtich.isOn==YES?0:1;
+    model.remindContent = self.tipTF.text;
+    [[EvaluateRemindManger shareManger]saveDataWithModel:model];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"jcReloadClock" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
