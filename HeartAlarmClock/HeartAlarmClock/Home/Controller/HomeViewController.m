@@ -319,15 +319,9 @@
     for (int i = 0; i<self.jcRemindData.count; i++)
     {
         EvaluateRemindModel *remindModel = [self.jcRemindData objectAtIndex:i];
-        if (remindModel.status == 1) {
-            //如果通知提醒是关闭状态，则继续下一个循环
-            continue;
-        }
-        else if(remindModel.status == 0)
-        {
-            //如果通知提醒是开启状态，则添加本地通知提醒
-            [self addMineLocalNotification:remindModel againTime:remindModel.remindDate];
-        }
+       
+        //如果通知提醒是开启状态，则添加本地通知提醒
+        [self addMineLocalNotification:remindModel againTime:remindModel.remindDate];
         
     }
     NSArray *alocalNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
@@ -384,6 +378,11 @@
             }
         }
     }
+    
+    if (count == 0) {
+        //如果日期为空，则为永不重复
+        [jcArr addObject:[NSNumber numberWithInteger:jcIndex-1]];
+    }
     //  根据相差天数  计算出第一次响铃的日期  并设置周循环
     for (i = 0; i < jcArr.count; i++) {
         days = [jcArr[i]intValue];
@@ -396,15 +395,23 @@
 //        NSDate *jcNowDate = [ToolsHelper jcGetDateWithString:jcNowDateStr withFormatter:@"yyyy-MM-dd"];
             UILocalNotification *newNotification = [[UILocalNotification alloc] init];
             if (newNotification) {
-                newNotification.fireDate = newFireDate ;
+                newNotification.fireDate = newFireDate;
                // newNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10] ;
     //            newNotification.timeZone =  [NSTimeZone timeZoneWithName:@"GMT"];
-                newNotification.alertBody =  @"评测时间到了！快去评测吧!";
+                newNotification.alertBody =  remindModel.remindContent;
                 newNotification.applicationIconBadgeNumber = 0;
                 newNotification.hasAction = YES;
                 //newNotification.soundName = UILocalNotificationDefaultSoundName;
-                newNotification.soundName = @"英雄联盟.wav";
-                newNotification.repeatInterval = NSCalendarUnitWeekOfYear;
+                NSString *jcSoundName = remindModel.soundName.length==0?@"动物园":remindModel.soundName;
+                newNotification.soundName = [NSString stringWithFormat:@"%@.wav",jcSoundName];
+                if (array.count == 0) {
+                     newNotification.repeatInterval = 0;
+                }
+                else
+                {
+                     newNotification.repeatInterval = NSCalendarUnitWeekOfYear;
+                }
+               
                 NSDictionary * info = @{@"infoKey":remindModel.evaluateRemindId,@"fireDate":newFireDate};
                 newNotification.userInfo = info;
                 [[UIApplication sharedApplication] scheduleLocalNotification:newNotification];

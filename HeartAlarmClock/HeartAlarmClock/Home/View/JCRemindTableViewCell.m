@@ -85,7 +85,7 @@
         make.left.mas_equalTo(self.mas_left).offset(25);
         make.top.mas_equalTo(self.timeLab.mas_bottom).offset(7);
     }];
-    self.dateLab.text = @"周一，周二，周三，周四，周五，周六";
+  
     [self.jcSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(30);
@@ -96,7 +96,65 @@
     
     
 }
-
+- (NSString *)jcGetDescStr
+{
+    NSString *jcDescStr = [NSString string];
+    if (self.reModel.remindDate.count == 0)
+    {
+        //仅一次
+        jcDescStr = @"永不";
+        
+    }
+    else if (self.reModel.remindDate.count == 7)
+    {
+        jcDescStr = @"每天";
+    }
+    else
+    {
+        for (int i = 0; i<self.reModel.remindDate.count; i++) {
+            NSNumber *jcItemStr = [self.reModel.remindDate objectAtIndex:i];
+            jcDescStr = [jcDescStr stringByAppendingString:[self jcDateItemStr:jcItemStr]];
+            if (self.reModel.remindDate.count>1) {
+                if (i!=self.reModel.remindDate.count-1) {
+                    jcDescStr = [jcDescStr stringByAppendingString:@"、"];
+                }
+            }
+        }
+    }
+    return jcDescStr;
+}
+- (NSString *)jcDateItemStr:(NSNumber *)jcItem
+{
+    NSString *jcItemStr;
+    if (jcItem.intValue == 1) {
+        jcItemStr = @"周一";
+    }
+    else if (jcItem.intValue == 2)
+    {
+        jcItemStr = @"周二";
+    }
+    else if (jcItem.intValue == 3)
+    {
+        jcItemStr = @"周三";
+    }
+    else if (jcItem.intValue == 4)
+    {
+        jcItemStr = @"周四";
+    }
+    else if (jcItem.intValue == 5)
+    {
+        jcItemStr = @"周五";
+    }
+    else if (jcItem.intValue == 6)
+    {
+        jcItemStr = @"周六";
+    }
+    else if (jcItem.intValue == 7)
+    {
+        jcItemStr = @"周日";
+    }
+    return jcItemStr;
+}
 - (void)jcSwitchChange:(UISwitch *)jcSwitch
 {
     NSInteger jcStatus = jcSwitch.isOn == YES?0:1;
@@ -116,6 +174,7 @@
         self.jcSwitch.on = NO;
     }
     self.tipLab.text = self.reModel.remindContent;
+    self.dateLab.text = [self jcGetDescStr];
     
     
 }

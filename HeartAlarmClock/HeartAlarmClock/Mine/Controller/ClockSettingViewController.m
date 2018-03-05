@@ -93,6 +93,159 @@
         self.jcDateStr = self.remindModel.remindTime;
         self.vibrantionSwtich.on = self.remindModel.status==0?YES:NO;
         self.bellValueLab.text = self.remindModel.soundName;
+        if (self.remindModel.remindDate.count == 0) {
+            //永不
+            for (int i = 0; i<self.repeatDateArr.count; i++) {
+                UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+                //将按钮置为选中状态
+                [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                jcBtn.selected = NO;
+            }
+            for (int i = 0; i<self.repeatOptionArr.count; i++) {
+                UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+                if (i == 0)
+                {
+                    
+                    //将按钮置为选中状态
+                    [jcBtn setBackgroundColor:[UIColor redColor]];
+                    jcBtn.selected = YES;
+
+                    
+                }
+                else
+                {
+                    
+                    [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                    jcBtn.selected = NO;
+
+                }
+            }
+
+            
+        }
+        else if (self.remindModel.remindDate.count == 7)
+        {
+            //永不
+            for (int i = 0; i<self.repeatDateArr.count; i++) {
+                UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+                //将按钮置为选中状态
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+                jcBtn.selected = YES;
+            }
+            for (int i = 0; i<self.repeatOptionArr.count; i++) {
+                UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+                if (i == 2) {
+                   
+                    //将按钮置为选中状态
+                    [jcBtn setBackgroundColor:[UIColor redColor]];
+                    jcBtn.selected = YES;
+
+    
+                }
+                else
+                {
+                    [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                    jcBtn.selected = NO;
+
+                }
+            }
+        }
+        else
+        {
+            //如果是工作日
+            if ([self.remindModel.remindDate isEqualToArray:@[@1,@2,@3,@4,@5]]) {
+                
+                for (int i = 0; i<self.repeatOptionArr.count; i++) {
+                    UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+                    if (i == 1) {
+                        
+                        //将按钮置为选中状态
+                        [jcBtn setBackgroundColor:[UIColor redColor]];
+                        jcBtn.selected = YES;
+                        
+                        
+                    }
+                    else
+                    {
+                        [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                        jcBtn.selected = NO;
+                        
+                    }
+                }
+                
+                for (int j = 0; j<self.remindModel.remindDate.count; j++)
+                {
+                    NSInteger jcTag = [[self.remindModel.remindDate objectAtIndex:j]integerValue];
+                    for (int i = 0; i<self.repeatDateArr.count; i++) {
+                        UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+                        //将按钮置为选中状态
+                        if (jcTag-1 == jcBtn.tag-8000)
+                        {
+                            [jcBtn setBackgroundColor:[UIColor redColor]];
+                            jcBtn.selected = YES;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            //如果是周末
+            else if ([self.remindModel.remindDate isEqualToArray:@[@6,@7]])
+            {
+                for (int i = 0; i<self.repeatOptionArr.count; i++) {
+                    UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
+                    if (i == 3) {
+                        
+                        //将按钮置为选中状态
+                        [jcBtn setBackgroundColor:[UIColor redColor]];
+                        jcBtn.selected = YES;
+                        
+                        
+                    }
+                    else
+                    {
+                        [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+                        jcBtn.selected = NO;
+                        
+                    }
+                }
+                for (int j = 0; j<self.remindModel.remindDate.count; j++)
+                {
+                    NSInteger jcTag = [[self.remindModel.remindDate objectAtIndex:j]integerValue];
+                    for (int i = 0; i<self.repeatDateArr.count; i++) {
+                        UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+                        //将按钮置为选中状态
+                        if (jcTag-1 == jcBtn.tag-8000)
+                        {
+                            [jcBtn setBackgroundColor:[UIColor redColor]];
+                            jcBtn.selected = YES;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            else
+            {
+                for (int j = 0; j<self.remindModel.remindDate.count; j++)
+                {
+                    NSInteger jcTag = [[self.remindModel.remindDate objectAtIndex:j]integerValue];
+                    for (int i = 0; i<self.repeatDateArr.count; i++) {
+                        UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+                        //将按钮置为选中状态
+                        if (jcTag-1 == jcBtn.tag-8000)
+                        {
+                            [jcBtn setBackgroundColor:[UIColor redColor]];
+                            jcBtn.selected = YES;
+                        }
+                       
+                    }
+                    
+                }
+               
+            }
+        }
+    
         
     }
     
@@ -358,9 +511,19 @@
         {
             
             UIButton *jcBtn = [self.repeatOptionArr objectAtIndex:i];
-          
+            if (i == 0)
+            {
+                
+                jcBtn.selected = YES;
+                [jcBtn setBackgroundColor:[UIColor redColor]];
+
+            }
+            else
+            {
                 jcBtn.selected = NO;
                 [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:@"#5d5d5d"]];
+            }
+
                 
         }
         
@@ -684,7 +847,7 @@
     }
    
     model.remindTime = self.jcDateStr;
-    model.remindDate = @[@"1",@"2",@"3",@"4",@"5"];
+    model.remindDate = [self jcGetSelectDate];
     model.soundName = self.bellName;
     model.status = self.vibrantionSwtich.isOn==YES?0:1;
     model.remindContent = self.tipTF.text;
@@ -692,7 +855,57 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"jcReloadClock" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+//获取当前选中的日期数组
+- (NSMutableArray *)jcGetSelectDate
+{
+    NSMutableArray *jcArr = [NSMutableArray array];
+    for (int i = 0; i<self.repeatDateArr.count; i++) {
+        UIButton *jcBtn = [self.repeatDateArr objectAtIndex:i];
+        if (jcBtn.isSelected == YES)
+        {
+            //获取选中标题
+            NSString *jcSeltTitle = [jcBtn titleForState:UIControlStateSelected];
+            [jcArr addObject:[self jcNumberSwithDate:jcSeltTitle]];
+        }
+    }
+    return jcArr;
+}
+//日期罗马数字转换
+- (NSNumber *)jcNumberSwithDate:(NSString *)title
+{
+    NSNumber *totoalNumber;
+    if ([title isEqualToString:@"一"]) {
+        totoalNumber = [NSNumber numberWithInt:1];
+    }
+    else if ([title isEqualToString:@"二"])
+    {
+        totoalNumber = [NSNumber numberWithInt:2];
+        
+    }
+    else if ([title isEqualToString:@"三"])
+    {
+        totoalNumber = [NSNumber numberWithInt:3];
+    }
+    else if ([title isEqualToString:@"四"])
+    {
+        totoalNumber = [NSNumber numberWithInt:4];
+    }
+    else if ([title isEqualToString:@"五"])
+    {
+        totoalNumber = [NSNumber numberWithInt:5];
+        
+    }
+    else if ([title isEqualToString:@"六"])
+    {
+        totoalNumber = [NSNumber numberWithInt:6];
+    }
+    else if ([title isEqualToString:@"日"])
+    {
+        totoalNumber = [NSNumber numberWithInt:7];
+    }
+    
+    return totoalNumber;
+}
 #pragma mark - Setter
 
 - (void)viewWillDisappear:(BOOL)animated
