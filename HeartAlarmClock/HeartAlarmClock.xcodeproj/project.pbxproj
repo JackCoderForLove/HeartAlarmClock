@@ -803,7 +803,7 @@
 				TargetAttributes = {
 					C9174019200DE85D00145E8D = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C9174031200DE85D00145E8D = {
 						CreatedOnToolsVersion = 9.2;
@@ -1179,14 +1179,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6Q2YDFTL2W;
+				CODE_SIGN_IDENTITY = "iPhone Developer: yuan liu (8G9SHPYVFU)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4UVANHMZ54;
 				GCC_PREFIX_HEADER = HeartAlarmClock/HeartAlarmClockPrefixHeader.pch;
 				INFOPLIST_FILE = HeartAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jackclocka.HeartAlarmClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jackclock.HeartAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5c23d271-d395-46c2-84ec-d62a76d7d957";
+				PROVISIONING_PROFILE_SPECIFIER = HeartAlarmClock_Dev_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1197,14 +1200,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6Q2YDFTL2W;
+				CODE_SIGN_IDENTITY = "iPhone Developer: yuan liu (8G9SHPYVFU)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4UVANHMZ54;
 				GCC_PREFIX_HEADER = HeartAlarmClock/HeartAlarmClockPrefixHeader.pch;
 				INFOPLIST_FILE = HeartAlarmClock/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jackclocka.HeartAlarmClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jackclock.HeartAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5c23d271-d395-46c2-84ec-d62a76d7d957";
+				PROVISIONING_PROFILE_SPECIFIER = HeartAlarmClock_Dev_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
