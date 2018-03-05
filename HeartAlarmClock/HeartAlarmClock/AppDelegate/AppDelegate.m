@@ -8,9 +8,12 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface AppDelegate ()
-
+@interface AppDelegate ()<UIAlertViewDelegate>
+{
+    AVAudioPlayer *musicPalyer;
+}
 @end
 
 @implementation AppDelegate
@@ -80,13 +83,38 @@
     application.applicationIconBadgeNumber = 0;
     UIApplicationState state = application.applicationState;
     if (state == UIApplicationStateActive){
+        NSString *musicName = [NSString stringWithFormat:@"%@",notification.soundName];
+        [self playWithName:musicName];
         //当程序处于活跃状态时
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"时间提醒" message:notification.alertBody delegate:self cancelButtonTitle: @"确定" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"扎心闹钟，闹起来" message:notification.alertBody delegate:self cancelButtonTitle: @"确定" otherButtonTitles:nil];
         [alert show];
     }else if(state == UIApplicationStateInactive){
         //程序运行在后台时，点击启动程序按钮时
         NSLog(@"后台点击进入");
     }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //关闭上次
+    [musicPalyer stop];
+    musicPalyer.currentTime = 0;//将播放的进度设置为初始状态
+    
+}
+- (void)playWithName:(NSString *)name {
+ 
+    NSURL *url = [[NSBundle mainBundle] URLForAuxiliaryExecutable:name];
+    musicPalyer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
+    //设置声音的大小
+    musicPalyer.volume = 1;//范围为（0到1）；
+    //设置循环次数，如果为负数，就是无限循环
+    musicPalyer.numberOfLoops =-1;
+    //设置播放进度
+    musicPalyer.currentTime = 0;
+    //准备播放
+    [musicPalyer prepareToPlay];
+    [musicPalyer play];
+    
+
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

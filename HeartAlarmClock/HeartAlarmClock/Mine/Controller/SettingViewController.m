@@ -105,6 +105,9 @@
             make.left.mas_equalTo(self.view.mas_left).offset(jcLLX);
             make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
         }];
+        if (i<2) {
+            jcBtn.hidden = YES;
+        }
         
     }
     [self.view addSubview:self.bottomImgView];

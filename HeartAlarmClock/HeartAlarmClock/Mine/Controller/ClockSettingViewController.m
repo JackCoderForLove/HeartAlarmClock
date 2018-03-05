@@ -85,6 +85,8 @@
         self.jcDateStr = nowTime;
         self.timePicker.jcDateStr = nowTime;
         self.vibrantionSwtich.on = YES;
+        self.tipTF.text = @"闹钟";
+        self.bellName = @"动物园";
         
     }
     else
@@ -93,6 +95,7 @@
         self.jcDateStr = self.remindModel.remindTime;
         self.vibrantionSwtich.on = self.remindModel.status==0?YES:NO;
         self.bellValueLab.text = self.remindModel.soundName;
+        self.tipTF.text = self.remindModel.remindContent;
         if (self.remindModel.remindDate.count == 0) {
             //永不
             for (int i = 0; i<self.repeatDateArr.count; i++) {
@@ -621,8 +624,12 @@
 - (void)jcReceiveBellNotifi:(NSNotification *)noti
 {
     NSLog(@"选择:%@ 铃声",noti.object);
-    self.bellName = noti.object;
-    self.bellValueLab.text = self.bellName;
+    if (noti.object)
+    {
+        self.bellName = noti.object;
+        self.bellValueLab.text = self.bellName;
+
+    }
     
 }
 - (void)layoutNavigationBar
