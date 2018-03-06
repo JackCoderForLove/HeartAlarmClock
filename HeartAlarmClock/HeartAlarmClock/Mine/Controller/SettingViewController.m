@@ -33,6 +33,7 @@
 #import "AboutusViewController.h"
 #import "WallpaperViewController.h"
 #import "JCShareView.h"
+#import <UMSocialCore/UMSocialCore.h>
 
 @interface SettingViewController ()<ShareDelegate>
 @property(nonatomic,strong)UIImageView *topImgView;
@@ -54,7 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.jcBtnTitleArr = [NSMutableArray arrayWithObjects:@"壁纸",@"分享",@"关于\n我们", nil];
+    self.jcBtnTitleArr = [NSMutableArray arrayWithObjects:@"分享",@"关于\n我们", nil];
     self.jcBtnColorArr = [NSMutableArray arrayWithObjects:@"0xfb635e",@"0xb9e051",@"0x72746c", nil];
     [self jcLayoutMyUI];
 }
@@ -81,7 +82,7 @@
     if (isIphone_5) {
         jcBtnY = 80/2.0;
     }
-    CGFloat jcBtnX = (KScreenWidth-126/2.0*3-70)/2.0;
+    CGFloat jcBtnX = (KScreenWidth-126/2.0*2-70)/2.0;
     for (int i = 0; i<self.jcBtnTitleArr.count; i++) {
         CGFloat jcLLX = jcBtnX+(jcBtnW+35)*i;
         UIButton *jcBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -90,7 +91,7 @@
         [jcBtn setTitle:title forState:UIControlStateNormal];
         [jcBtn setBackgroundColor:[ToolsHelper colorWithHexString:color]];
         [jcBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        if (i == 2)
+        if (i == 1)
         {
             jcBtn.titleLabel.numberOfLines = 2;
             jcBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -100,14 +101,26 @@
         jcBtn.layer.masksToBounds = YES;
         jcBtn.layer.cornerRadius = 126/2.0/2.0;
         [self.view addSubview:jcBtn];
-        [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.height.mas_equalTo(jcBtnW);
-            make.left.mas_equalTo(self.view.mas_left).offset(jcLLX);
-            make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
-        }];
-        if (i<2) {
-            jcBtn.hidden = YES;
+        if (i == 0) {
+            [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.height.mas_equalTo(jcBtnW);
+                make.right.mas_equalTo(self.view.mas_centerX).offset(-35);
+                make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
+            }];
+
         }
+        else if (i == 1)
+        {
+            [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.height.mas_equalTo(jcBtnW);
+                make.left.mas_equalTo(self.view.mas_centerX).offset(35);
+                make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
+            }];
+
+        }
+//        if (i<1) {
+//            jcBtn.hidden = YES;
+//        }
         
     }
     [self.view addSubview:self.bottomImgView];
@@ -129,21 +142,21 @@
 - (void)jcBtnOnClick:(UIButton *)sender
 {
     switch (sender.tag) {
+//        case 1000:
+//        {
+//            //点击了壁纸
+//            WallpaperViewController *wallVC = [WallpaperViewController new];
+//            [self.navigationController pushViewController:wallVC animated:YES];
+//            break;
+//        }
         case 1000:
-        {
-            //点击了壁纸
-            WallpaperViewController *wallVC = [WallpaperViewController new];
-            [self.navigationController pushViewController:wallVC animated:YES];
-            break;
-        }
-        case 1001:
         {
             //点击了分享
             NSLog(@"去分享吧");
             [self.shareView show];
             break;
         }
-        case 1002:
+        case 1001:
         {
             //点击了关于我们
             AboutusViewController *aboutVC = [AboutusViewController new];
@@ -158,20 +171,90 @@
 #pragma mark ShareDelegate
 - (void)shareWithType:(NSString *)type
 {
+    UIImage *image = [UIImage imageNamed:@"AppIcon"];
     switch (type.integerValue) {
         case 0://微信好友
         {
             NSLog(@"点击了微信好友");
+            UMSocialPlatformType platform = UMSocialPlatformType_WechatSession;
+            //创建分享对象
+            UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+            
+            UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"[扎心闹钟­]——解除你的被窝封印！" descr:@"闹钟内含多款二次元动漫原声带及热门游戏原声音频，帮你摆脱起床气，进入元气满满的一天~" thumImage:image];
+              shareObject.webpageUrl = @"https://itunes.apple.com/cn/app/%E5%8F%82%E5%8F%82-%E5%AD%A9%E5%AD%90%E4%BD%93%E6%80%81%E5%81%A5%E5%BA%B7%E5%8A%A9%E6%89%8B/id1339666114?mt=8";
+            //分享消息对象设置分享内容对象
+            messageObject.shareObject = shareObject;
+          
+            
+            //调用分享接口
+            [[UMSocialManager defaultManager] shareToPlatform:platform messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+                if (error) {
+                    UMSocialLogInfo(@"************Share unsuccessfully with error %@*********",error);
+                    [OMGToast showWithText:JCLocalStr(@"Share unsuccessfully", @"分享失败")];
+                    
+                }else{
+                    if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                        UMSocialShareResponse *resp = data;
+                        //分享结果消息
+                        UMSocialLogInfo(@"response message is %@",resp.message);
+                        //第三方原始返回的数据
+                        UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                        
+                    }else{
+                        UMSocialLogInfo(@"response data is %@",data);
+                    }
+                    
+                    [OMGToast showWithText:JCLocalStr(@"Share successfully", @"分享成功") ];
+                }
+                
+            }];
             break;
         }
         case 1://朋友圈
         {
             NSLog(@"点击了微信朋友圈");
+            UMSocialPlatformType platform = UMSocialPlatformType_WechatTimeLine;
+            //创建分享对象
+            UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+            
+            UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"[扎心闹钟­]——解除你的被窝封印！" descr:@"闹钟内含多款二次元动漫原声带及热门游戏原声音频，帮你摆脱起床气，进入元气满满的一天~" thumImage:image];
+            shareObject.webpageUrl = @"https://itunes.apple.com/cn/app/%E5%8F%82%E5%8F%82-%E5%AD%A9%E5%AD%90%E4%BD%93%E6%80%81%E5%81%A5%E5%BA%B7%E5%8A%A9%E6%89%8B/id1339666114?mt=8";
+            //分享消息对象设置分享内容对象
+            messageObject.shareObject = shareObject;
+            
+            
+            //调用分享接口
+            [[UMSocialManager defaultManager] shareToPlatform:platform messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+                if (error) {
+                    UMSocialLogInfo(@"************Share unsuccessfully with error %@*********",error);
+                    [OMGToast showWithText:JCLocalStr(@"Share unsuccessfully", @"分享失败")];
+                    
+                }else{
+                    if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                        UMSocialShareResponse *resp = data;
+                        //分享结果消息
+                        UMSocialLogInfo(@"response message is %@",resp.message);
+                        //第三方原始返回的数据
+                        UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                        
+                    }else{
+                        UMSocialLogInfo(@"response data is %@",data);
+                    }
+                    
+                    [OMGToast showWithText:JCLocalStr(@"Share successfully", @"分享成功") ];
+                }
+                
+            }];
+
             break;
         }
         case 2://复制链接
         {
             NSLog(@"点击了复制链接");
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            pasteboard.string =  @"https://itunes.apple.com/cn/app/%E5%8F%82%E5%8F%82-%E5%AD%A9%E5%AD%90%E4%BD%93%E6%80%81%E5%81%A5%E5%BA%B7%E5%8A%A9%E6%89%8B/id1339666114?mt=8";
+            [OMGToast showWithText:@"复制成功"];
+;
             break;
         }
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <UMSocialCore/UMSocialCore.h>
 
 @interface AppDelegate ()<UIAlertViewDelegate>
 {
@@ -26,11 +27,53 @@
     [self.window makeKeyAndVisible];
     //注册本地通知
     [self registerLocalNotification];
+    [self configUSharePlatforms];
     HomeViewController *homeVC = [HomeViewController new];
     BaseNavigationController *homeNav = [[BaseNavigationController alloc]initWithRootViewController:homeVC];
     self.window.rootViewController = homeNav;
 
     return YES;
+}
+#pragma mark ————— 配置第三方 —————
+-(void)configUSharePlatforms{
+    //打开日志
+    [[UMSocialManager defaultManager] openLog:YES];
+    
+    // 获取友盟social版本号
+    //    NSLog(@"UMeng social version: %@", [UMSocialGlobal umSocialSDKVersion]);
+    
+    //设置友盟appkey
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a689d668f4a9d3b2f0002c1"];
+    
+    //设置微信的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx93c390cbed8517c8" appSecret:@"6d8cccf9b871f4aa872c1081c037f8a0" redirectURL:@"http://www.umeng.com/social"];
+    //朋友圈
+    [[UMSocialManager defaultManager]setPlaform:UMSocialPlatformType_WechatTimeLine appKey:@"wx93c390cbed8517c8" appSecret:@"6d8cccf9b871f4aa872c1081c037f8a0" redirectURL:@"http://www.umeng.com/social"];
+    /*
+     * 添加某一平台会加入平台下所有分享渠道，如微信：好友、朋友圈、收藏，QQ：QQ和QQ空间
+     * 以下接口可移除相应平台类型的分享，如微信收藏，对应类型可在枚举中查找
+     */
+    //[[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
+    
+    // 设置分享到QQ互联的appID
+    // U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:kQQKey/*设置QQ平台的appID*/  appSecret:kQQAppSecret redirectURL:@"http://mobile.umeng.com/social"];
+//    [[UMSocialManager defaultManager]setPlaform:UMSocialPlatformType_Qzone appKey:kQQKey appSecret:kQQAppSecret redirectURL:@"http://mobile.umeng.com/social"];
+//
+//    //设置新浪的appKey和appSecret
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:kWeiboKey  appSecret:kWeiboAppSecret redirectURL:kWeiboRedirectURI];
+}
+
+#pragma mark ————— OpenURL 回调 —————
+// 支持所有iOS系统
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
 }
 
 //注册本地通知
