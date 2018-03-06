@@ -347,7 +347,7 @@
     NSInteger jcIndex = [self jcgetweekDayWithDate:dateNow];
     NSLog(@"周几:%ld",jcIndex);
     //获取该周周一的日期
-    NSDate *jcFirstDate = [self jcgetFirstDayWithDate:dateNow withDay:jcIndex-1];
+    NSDate *jcFirstDate = [self jcgetFirstDayWithDate:dateNow withDay:jcIndex];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -355,7 +355,7 @@
     //[calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     //[comps setTimeZone:[NSTimeZone timeZoneWithName:@"CMT"]];
     NSInteger unitFlags =  NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    comps = [calendar components:unitFlags fromDate:jcFirstDate];
+    comps = [calendar components:unitFlags fromDate:dateNow];
     [comps setHour:[[clockTimeArray objectAtIndex:0] intValue]];
     [comps setMinute:[[clockTimeArray objectAtIndex:1] intValue]];
     [comps setSecond:0];
@@ -365,15 +365,15 @@
     
     int i = 0;
     int j = 0;
-    int days = 0;
+    NSInteger days = 0;
     NSInteger count = [array count];
     NSMutableArray *jcArr = [NSMutableArray array];
-    NSArray *tempWeekdays = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6",@"7", nil];
+    NSArray *tempWeekdays = [NSArray arrayWithObjects:@"7",@"1", @"2", @"3", @"4", @"5", @"6", nil];
     //查找设定的周期模式
     for (i = 0; i < count; i++) {
         for (j = 0; j < 7; j++) {
             if ([[array objectAtIndex:i]integerValue] == [[tempWeekdays objectAtIndex:j]integerValue]) {
-                [jcArr addObject:[NSNumber numberWithInt:[[tempWeekdays objectAtIndex:j]intValue]-1]];
+                [jcArr addObject:[NSNumber numberWithInt:j+1]];
                 break;
             }
         }
@@ -381,11 +381,12 @@
     
     if (count == 0) {
         //如果日期为空，则为永不重复
-        [jcArr addObject:[NSNumber numberWithInteger:jcIndex-1]];
+        [jcArr addObject:[NSNumber numberWithInteger:jcIndex]];
     }
     //  根据相差天数  计算出第一次响铃的日期  并设置周循环
     for (i = 0; i < jcArr.count; i++) {
-        days = [jcArr[i]intValue];
+      NSInteger  temp = [jcArr[i]integerValue] - jcIndex;
+        days = (temp >= 0 ? temp : temp + 7);
         
         NSDate *newFireDate = [[calendar dateFromComponents:comps] dateByAddingTimeInterval:3600 * 24 * days];
         NSDate *jcCPFirDate = [[calendar dateFromComponents:comps] dateByAddingTimeInterval:3600 * 24 * days];
@@ -430,7 +431,7 @@
     comps = [calendar components:unitFlags fromDate:date];
     
     // 1 是周日，2是周一 3.以此类推
-    return [comps weekday]-1;
+    return [comps weekday];
     
 }
 //获取该周周一的日期
@@ -552,7 +553,7 @@
         [[EvaluateRemindManger shareManger]deleteDataWithModel:eveModel];
         //删除本地通知提醒
         [self deleteLocalNotification:eveModel];
-        
+        self.jcRemindData  = [[EvaluateRemindManger shareManger]jcAllData];
         if (self.jcRemindData.count == 0) {
             [self jcLayoutEmptyUI];
         }
