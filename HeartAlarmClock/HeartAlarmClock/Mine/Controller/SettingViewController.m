@@ -56,7 +56,7 @@
 {
     [super viewDidLoad];
     self.jcBtnTitleArr = [NSMutableArray arrayWithObjects:@"分享",@"关于\n我们", nil];
-    self.jcBtnColorArr = [NSMutableArray arrayWithObjects:@"0xfb635e",@"0xb9e051",@"0x72746c", nil];
+    self.jcBtnColorArr = [NSMutableArray arrayWithObjects:@"0xb9e051",@"0x72746c", nil];
     [self jcLayoutMyUI];
 }
 
@@ -104,7 +104,7 @@
         if (i == 0) {
             [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.width.height.mas_equalTo(jcBtnW);
-                make.right.mas_equalTo(self.view.mas_centerX).offset(-35);
+                make.right.mas_equalTo(self.view.mas_centerX).offset(-20);
                 make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
             }];
 
@@ -113,7 +113,7 @@
         {
             [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.width.height.mas_equalTo(jcBtnW);
-                make.left.mas_equalTo(self.view.mas_centerX).offset(35);
+                make.left.mas_equalTo(self.view.mas_centerX).offset(20);
                 make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
             }];
 
