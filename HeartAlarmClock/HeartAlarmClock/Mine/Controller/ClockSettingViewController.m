@@ -93,7 +93,7 @@
     {
         self.timePicker.jcDateStr = self.remindModel.remindTime;
         self.jcDateStr = self.remindModel.remindTime;
-        self.vibrantionSwtich.on = self.remindModel.status==0?YES:NO;
+        self.vibrantionSwtich.on = self.remindModel.vibrationStatus==0?YES:NO;
         self.bellValueLab.text = self.remindModel.soundName;
         self.tipTF.text = self.remindModel.remindContent;
         if (self.remindModel.remindDate.count == 0) {
@@ -857,7 +857,8 @@
     model.remindTime = self.jcDateStr;
     model.remindDate = [self jcGetSelectDate];
     model.soundName = self.bellName;
-    model.status = self.vibrantionSwtich.isOn==YES?0:1;
+    model.vibrationStatus = self.vibrantionSwtich.isOn==YES?0:1;
+    model.status = 0;
     model.remindContent = self.tipTF.text;
     [[EvaluateRemindManger shareManger]saveDataWithModel:model];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"jcReloadClock" object:nil];

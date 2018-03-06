@@ -15,4 +15,5 @@
 @property(nonatomic,strong)NSString *remindTime;//提醒时间
 @property(nonatomic,assign)NSInteger status;//状态 0：开 1：关
 @property(nonatomic,strong)NSString *soundName;//响铃声音
+@property(nonatomic,assign)NSInteger vibrationStatus;//状态 0：开 1：关
 @end

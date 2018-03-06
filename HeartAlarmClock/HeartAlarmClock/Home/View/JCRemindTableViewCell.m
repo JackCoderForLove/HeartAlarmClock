@@ -157,9 +157,12 @@
 }
 - (void)jcSwitchChange:(UISwitch *)jcSwitch
 {
-    NSInteger jcStatus = jcSwitch.isOn == YES?0:1;
-    _reModel.status = jcStatus;
-    [[EvaluateRemindManger shareManger]saveDataWithModel:_reModel];
+//    NSInteger jcStatus = jcSwitch.isOn == YES?0:1;
+//    _reModel.status = jcStatus;
+//    [[EvaluateRemindManger shareManger]saveDataWithModel:_reModel];
+    if ([self.delegate respondsToSelector:@selector(jcRemindTableViewChange:withModel:)]) {
+        [self.delegate jcRemindTableViewChange:self withModel:_reModel];
+    }
 
 }
 - (void)setReModel:(EvaluateRemindModel *)reModel

@@ -38,7 +38,7 @@
 
 
 
-@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,JCRemindTableViewCellDelegate>
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)NSMutableArray *jcRemindData;
@@ -303,6 +303,7 @@
     [self.navigationController pushViewController:clockVC animated:YES];
     
 }
+
 - (void)jcSetLocalNotification
 {
     //获取所有通知
@@ -319,9 +320,16 @@
     for (int i = 0; i<self.jcRemindData.count; i++)
     {
         EvaluateRemindModel *remindModel = [self.jcRemindData objectAtIndex:i];
-       
-        //如果通知提醒是开启状态，则添加本地通知提醒
-        [self addMineLocalNotification:remindModel againTime:remindModel.remindDate];
+        if (remindModel.status == 1) {
+            //如果是关闭
+            continue;
+        }
+        else
+        {
+            //如果通知提醒是开启状态，则添加本地通知提醒
+            [self addMineLocalNotification:remindModel againTime:remindModel.remindDate];
+        }
+     
         
     }
     NSArray *alocalNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
@@ -332,6 +340,21 @@
     }
     
 }
+- (void)jcRemindTableViewChange:(JCRemindTableViewCell *)jcCell withModel:(EvaluateRemindModel *)remodel
+{
+    //修改本地数据
+    remodel.status = remodel.status==0?1:0;
+    [[EvaluateRemindManger shareManger]saveDataWithModel:remodel];
+    if (remodel.status == 0) {
+        //如果是开启，则添加本地通知提醒
+        [self addMineLocalNotification:remodel againTime:remodel.remindDate];
+    }
+    else if (remodel.status == 1)
+    {
+        //如果是关闭，删除本地单个通知提醒
+        [self deleteLocalNotification:remodel];
+        
+    }}
 
 /**
  自定义闹钟    有重复
@@ -420,6 +443,7 @@
             NSLog(@"Post new localNotification:%@", [newNotification fireDate]);
     }
 }
+
 //获取当天是周几
 - (NSInteger) jcgetweekDayWithDate:(NSDate *) date
 {
@@ -510,6 +534,7 @@
     }
     jcCell.selectionStyle = UITableViewCellSelectionStyleNone;
     EvaluateRemindModel *jcModel = [self.jcRemindData objectAtIndex:indexPath.section];
+    jcCell.delegate = self;
     jcCell.reModel = jcModel;
     return jcCell;
 }
