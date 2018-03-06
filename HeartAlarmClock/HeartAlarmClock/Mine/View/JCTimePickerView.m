@@ -36,6 +36,8 @@
 @property(nonatomic,strong)NSMutableArray *hourArr;
 @property(nonatomic,strong)NSMutableArray *minuteArr;
 @property(nonatomic,strong)UILabel *pointLab;
+@property(nonatomic,strong)UILabel *lineTop;
+@property(nonatomic,strong)UILabel *lineBottom;
 @end
 static CGFloat jcMaxRowCount = 16384;
 @implementation JCTimePickerView
@@ -80,6 +82,8 @@ static CGFloat jcMaxRowCount = 16384;
         make.centerX.mas_equalTo(self.mas_centerX);
         
     }];
+    [self addSubview:self.lineTop];
+    [self addSubview:self.lineBottom];
     self.hourPicker = [[UIPickerView alloc]init];
     self.hourPicker.backgroundColor = [UIColor clearColor];
     [self addSubview:self.hourPicker];
@@ -88,8 +92,8 @@ static CGFloat jcMaxRowCount = 16384;
     self.hourPicker.dataSource = self;
     [self.hourPicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(110/2);
-        make.height.mas_equalTo(300/2);
-        make.top.mas_equalTo(self.mas_top).offset(15);
+        make.height.mas_equalTo(370/2.0);
+        make.top.mas_equalTo(self.mas_top).offset(0);
         make.right.mas_equalTo(self.pointLab.mas_left);
     }];
     self.minutePicker = [[UIPickerView alloc]init];
@@ -100,9 +104,22 @@ static CGFloat jcMaxRowCount = 16384;
     self.minutePicker.dataSource = self;
     [self.minutePicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(110/2);
-        make.height.mas_equalTo(300/2);
-        make.top.mas_equalTo(self.mas_top).offset(15);
+        make.height.mas_equalTo(370/2.0);
+        make.top.mas_equalTo(self.mas_top).offset(0);
         make.left.mas_equalTo(self.pointLab.mas_right);
+    }];
+    [self.lineTop mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(KScreenWidth-30);
+        make.height.mas_equalTo(1);
+        make.top.mas_equalTo(self.mas_top).offset(70);
+        make.centerX.mas_equalTo(self.mas_centerX);
+    }];
+    [self.lineBottom mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(KScreenWidth-30);
+        make.height.mas_equalTo(1);
+        make.bottom.mas_equalTo(self.mas_bottom).offset(-75);
+        make.centerX.mas_equalTo(self.mas_centerX);
+
     }];
     
 }
@@ -227,7 +244,23 @@ static CGFloat jcMaxRowCount = 16384;
     }
     return _pointLab;
 }
-
+- (UILabel *)lineTop
+{
+    if (!_lineTop) {
+        
+        _lineTop = [UILabel new];
+        _lineTop.backgroundColor = [ToolsHelper colorWithHexString:@"#666666"];
+    }
+    return _lineTop;
+}
+- (UILabel *)lineBottom
+{
+    if (!_lineBottom) {
+        _lineBottom = [UILabel new];
+        _lineBottom.backgroundColor = [ToolsHelper colorWithHexString:@"#666666"];
+    }
+    return _lineBottom;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

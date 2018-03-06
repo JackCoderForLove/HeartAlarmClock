@@ -822,6 +822,7 @@
         _jcBgScrollView.contentSize = CGSizeMake(KScreenWidth, 1200/2.0);
         _jcBgScrollView.showsVerticalScrollIndicator = NO;
         _jcBgScrollView.delegate = self;
+        _jcBgScrollView.bounces = NO;
     }
     return _jcBgScrollView;
 }
