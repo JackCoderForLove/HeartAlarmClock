@@ -46,6 +46,7 @@
 @property(nonatomic,strong)NSDictionary *jcMusicDic;//音乐字典
 @property(nonatomic,strong)UIImageView *huluImg;//最上边葫芦娃的img
 @property(nonatomic,strong)NSString *soundName;
+@property(nonatomic,strong)NSMutableArray *allMusic;
 
 @end
 
@@ -61,7 +62,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.allMusic = [NSMutableArray array];
     [self jcLayoutMyUI];
+    
 }
 
 - (void)jcLayoutMyUI
@@ -83,6 +86,12 @@
     NSLog(@"key=%@",jcArr);
     self.jcMusicDic = jcDic;
     self.musicTypeArr = jcArr;
+    for (NSString *key in jcArr) {
+        if (![key isEqualToString:@"佛系随缘闹钟"]) {
+            NSArray *jcItemArr = [self.jcMusicDic objectForKey:key];
+            [self.allMusic addObjectsFromArray:jcItemArr];
+        }
+    }
     [self.jcBellTable reloadData];
     
 }
@@ -146,8 +155,6 @@
     NSArray  *musicArr = [self.jcMusicDic objectForKey:key];
     NSString *title = [musicArr objectAtIndex:indexPath.row];
     NSLog(@"点击了哪个标题:%@",title);
-    self.soundName = title;
-    NSString *musicName = [NSString stringWithFormat:@"%@.wav",title];
     [tableView.visibleCells enumerateObjectsUsingBlock:^(__kindof JCBellTableViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.accessoryType = UITableViewCellAccessoryNone;
         [obj jcConfigNormalState];
@@ -156,16 +163,24 @@
     JCBellTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     [cell jcConfigSelectState];
-    [self playWithName:musicName];
-//    SystemSoundID soundId;
-//    NSString *path = [[NSBundle mainBundle] pathForResource:title ofType:@"wav"];
-//    if (path) {
-//        //注册声音到系统
-//        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path],&soundId);
-//        AudioServicesPlaySystemSound(soundId);
-//    }
+    NSString *musicName;
+    if (indexPath.section == 5) {
+        
+        NSString *jcRoundName = [self.allMusic objectAtIndex:arc4random()%self.allMusic.count];
+        self.soundName = jcRoundName;
+        musicName = [NSString stringWithFormat:@"%@.wav",jcRoundName];
 
+    }
+    else
+    {
+        self.soundName = title;
+        musicName = [NSString stringWithFormat:@"%@.wav",title];
+
+    }
     
+    [self playWithName:musicName];
+
+
 }
 - (void)playWithName:(NSString *)name {
     //关闭上次

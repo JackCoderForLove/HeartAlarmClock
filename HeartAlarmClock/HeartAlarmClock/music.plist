@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>佛系随缘闹钟</key>
+	<array>
+		<string>随机闹钟</string>
+	</array>
 	<key>默认铃声</key>
 	<array>
 		<string>动物园</string>
