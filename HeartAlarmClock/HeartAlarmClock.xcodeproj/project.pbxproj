@@ -1188,7 +1188,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackclock.HeartAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5c23d271-d395-46c2-84ec-d62a76d7d957";
+				PROVISIONING_PROFILE = "61deb5b7-8177-4e20-8b39-edc10777fc58";
 				PROVISIONING_PROFILE_SPECIFIER = HeartAlarmClock_Dev_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1209,7 +1209,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jackclock.HeartAlarmClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5c23d271-d395-46c2-84ec-d62a76d7d957";
+				PROVISIONING_PROFILE = "61deb5b7-8177-4e20-8b39-edc10777fc58";
 				PROVISIONING_PROFILE_SPECIFIER = HeartAlarmClock_Dev_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
