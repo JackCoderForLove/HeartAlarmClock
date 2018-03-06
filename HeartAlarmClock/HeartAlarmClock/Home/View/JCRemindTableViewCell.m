@@ -102,7 +102,7 @@
     if (self.reModel.remindDate.count == 0)
     {
         //仅一次
-        jcDescStr = @"永不";
+        jcDescStr = @"仅一次";
         
     }
     else if (self.reModel.remindDate.count == 7)

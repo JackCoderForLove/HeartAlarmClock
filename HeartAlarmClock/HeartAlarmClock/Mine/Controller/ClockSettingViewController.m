@@ -262,7 +262,7 @@
     self.repeatDateArr = [NSMutableArray array];
     self.repeatOptionArr = [NSMutableArray array];
     self.repeatDateTitleArr = @[@"一",@"二",@"三",@"四",@"五",@"六",@"日"];
-    self.repeatOptionTitleArr = @[@"永不",@"工作日",@"每天",@"周末"];
+    self.repeatOptionTitleArr = @[@"仅一次",@"工作日",@"每天",@"周末"];
     [self.view addSubview:self.huluImg];
     [self.view addSubview:self.jcBgScrollView];
     [self.jcBgScrollView addSubview:self.timePicker];
