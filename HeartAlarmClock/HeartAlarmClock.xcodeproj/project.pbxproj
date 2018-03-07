@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00FA7927205010AD00AC36EE /* 微信二维码.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00FA7926205010AC00AC36EE /* 微信二维码.jpg */; };
+		00FA79292050289300AC36EE /* jcshare.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FA79282050289200AC36EE /* jcshare.png */; };
 		C9174027200DE85D00145E8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9174026200DE85D00145E8D /* Assets.xcassets */; };
 		C917402D200DE85D00145E8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C917402C200DE85D00145E8D /* main.m */; };
 		C9174037200DE85D00145E8D /* HeartAlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174036200DE85D00145E8D /* HeartAlarmClockTests.m */; };
@@ -143,6 +144,7 @@
 
 /* Begin PBXFileReference section */
 		00FA7926205010AC00AC36EE /* 微信二维码.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "微信二维码.jpg"; sourceTree = "<group>"; };
+		00FA79282050289200AC36EE /* jcshare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcshare.png; sourceTree = "<group>"; };
 		01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.release.xcconfig"; sourceTree = "<group>"; };
 		4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartAlarmClock.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C917401A200DE85D00145E8D /* HeartAlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartAlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -680,6 +682,7 @@
 		C9A501972044FA55005553F4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				00FA79282050289200AC36EE /* jcshare.png */,
 				C9A501982044FA84005553F4 /* 斗地主~.wav */,
 				C9A5019B2044FA85005553F4 /* Normal 2.wav */,
 				C9A501992044FA84005553F4 /* Normal 3.wav */,
@@ -871,6 +874,7 @@
 				C9A501F82044FB32005553F4 /* 骚猪大战五五开.wav in Resources */,
 				C9A501A32044FA96005553F4 /* 王者荣耀英雄台词版.wav in Resources */,
 				C9A501CC2044FAE0005553F4 /* Dear friends.wav in Resources */,
+				00FA79292050289300AC36EE /* jcshare.png in Resources */,
 				C9A501AF2044FAAB005553F4 /* 亚索台词版.wav in Resources */,
 				C9A501A42044FA96005553F4 /* 【稳住别浪】.wav in Resources */,
 				C9A501E72044FB25005553F4 /* 校长你什么时候装空调啊？.wav in Resources */,

@@ -171,7 +171,7 @@
 #pragma mark ShareDelegate
 - (void)shareWithType:(NSString *)type
 {
-    UIImage *image = [UIImage imageNamed:@"AppIcon"];
+    UIImage *image = [UIImage imageNamed:@"jcshare.png"];
     switch (type.integerValue) {
         case 0://微信好友
         {
