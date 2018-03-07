@@ -46,9 +46,9 @@
     [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a689d668f4a9d3b2f0002c1"];
     
     //设置微信的appKey和appSecret
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx93c390cbed8517c8" appSecret:@"6d8cccf9b871f4aa872c1081c037f8a0" redirectURL:@"http://www.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx32de630af2245988" appSecret:@"d2c3407c2e8d48b7e8805868859c1b93" redirectURL:@"http://www.umeng.com/social"];
     //朋友圈
-    [[UMSocialManager defaultManager]setPlaform:UMSocialPlatformType_WechatTimeLine appKey:@"wx93c390cbed8517c8" appSecret:@"6d8cccf9b871f4aa872c1081c037f8a0" redirectURL:@"http://www.umeng.com/social"];
+    [[UMSocialManager defaultManager]setPlaform:UMSocialPlatformType_WechatTimeLine appKey:@"wx32de630af2245988" appSecret:@"d2c3407c2e8d48b7e8805868859c1b93" redirectURL:@"http://www.umeng.com/social"];
     /*
      * 添加某一平台会加入平台下所有分享渠道，如微信：好友、朋友圈、收藏，QQ：QQ和QQ空间
      * 以下接口可移除相应平台类型的分享，如微信收藏，对应类型可在枚举中查找
