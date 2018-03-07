@@ -114,7 +114,7 @@
             [jcBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.width.height.mas_equalTo(jcBtnW);
                 make.left.mas_equalTo(self.view.mas_centerX).offset(20);
-                make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
+               make.top.mas_equalTo(self.topImgView.mas_bottom).offset(jcBtnY);
             }];
 
         }

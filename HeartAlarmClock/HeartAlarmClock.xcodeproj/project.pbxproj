@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00FA7927205010AD00AC36EE /* 微信二维码.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00FA7926205010AC00AC36EE /* 微信二维码.jpg */; };
 		C9174027200DE85D00145E8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9174026200DE85D00145E8D /* Assets.xcassets */; };
 		C917402D200DE85D00145E8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C917402C200DE85D00145E8D /* main.m */; };
 		C9174037200DE85D00145E8D /* HeartAlarmClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9174036200DE85D00145E8D /* HeartAlarmClockTests.m */; };
@@ -141,6 +142,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00FA7926205010AC00AC36EE /* 微信二维码.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "微信二维码.jpg"; sourceTree = "<group>"; };
 		01EBB5A7A1C146495AFDE50E /* Pods-HeartAlarmClock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartAlarmClock.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartAlarmClock/Pods-HeartAlarmClock.release.xcconfig"; sourceTree = "<group>"; };
 		4A1D57E124BB2950A048E6FD /* libPods-HeartAlarmClock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartAlarmClock.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C917401A200DE85D00145E8D /* HeartAlarmClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartAlarmClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -729,6 +731,7 @@
 				C9A501F32044FB31005553F4 /* 我是世界上最优良的中二杀神.wav */,
 				C9A501F42044FB32005553F4 /* 笑笑没头发.wav */,
 				C9A5020020450464005553F4 /* 动物园.wav */,
+				00FA7926205010AC00AC36EE /* 微信二维码.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				C9A501B02044FAAB005553F4 /* Legends Never Die.wav in Resources */,
 				C9A501C62044FAD0005553F4 /* 煌めく瞬间 (とき) に捕らわれて.wav in Resources */,
 				C9174027200DE85D00145E8D /* Assets.xcassets in Resources */,
+				00FA7927205010AD00AC36EE /* 微信二维码.jpg in Resources */,
 				C9A501F92044FB32005553F4 /* 我是世界上最优良的中二杀神.wav in Resources */,
 				C9A501ED2044FB25005553F4 /* Are You OK.wav in Resources */,
 				C9A501D62044FAFC005553F4 /* 名探偵コナン」~メインテーマ.wav in Resources */,
