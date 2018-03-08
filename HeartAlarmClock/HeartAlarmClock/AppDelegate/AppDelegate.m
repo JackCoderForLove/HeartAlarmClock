@@ -10,6 +10,8 @@
 #import "HomeViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UMSocialCore/UMSocialCore.h>
+#import "EvaluateRemindModel.h"
+#import "EvaluateRemindManger.h"
 
 @interface AppDelegate ()<UIAlertViewDelegate>
 {
@@ -123,17 +125,47 @@
 {
     //收到本地通知
     NSLog(@"收到本地通知");
+    NSLog(@"通知的东西:%@",notification.userInfo);
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *key = [userInfo objectForKey:@"infoKey"];
+    EvaluateRemindModel *jcModel = [[EvaluateRemindManger shareManger]jcgetDataForKey:key];
+    if (jcModel.remindDate.count == 0) {
+        jcModel.status = 1;
+        [[EvaluateRemindManger shareManger]saveDataWithModel:jcModel];
+    }
+    [self deleteLocalNotification:jcModel];
+    
     application.applicationIconBadgeNumber = 0;
     UIApplicationState state = application.applicationState;
     if (state == UIApplicationStateActive){
         NSString *musicName = [NSString stringWithFormat:@"%@",notification.soundName];
         [self playWithName:musicName];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"jcReloadClock" object:nil];
         //当程序处于活跃状态时
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"扎心闹钟，闹起来" message:notification.alertBody delegate:self cancelButtonTitle: @"确定" otherButtonTitles:nil];
         [alert show];
+        return;
+        
     }else if(state == UIApplicationStateInactive){
         //程序运行在后台时，点击启动程序按钮时
         NSLog(@"后台点击进入");
+    }
+}
+/**
+ 删除某一个巡逻提醒   开关关闭
+ 
+ @param model 要删除的巡逻提醒数据
+ */
+-(void) deleteLocalNotification:(EvaluateRemindModel *)model
+{
+    // 获取所有本地通知数组
+    NSArray *localNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
+    for (UILocalNotification *notification in localNotifications)
+    {
+        NSDictionary *userInfo = notification.userInfo;
+        if (model.evaluateRemindId.integerValue == [userInfo[@"infoKey"]integerValue]) {
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+        }
     }
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

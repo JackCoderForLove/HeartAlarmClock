@@ -279,6 +279,7 @@
         [self jcLayoutDataUI];
     }
     //刷新表格数据
+    [self deleteAllLocalNotifcation];
     //设置本地通知
     [self jcSetLocalNotification];
     [self.remindTable reloadData];

@@ -135,6 +135,22 @@ static EvaluateRemindManger *manager = nil;
     }
 
 }
+- (EvaluateRemindModel *)jcgetDataForKey:(NSString *)key
+{
+    //先获取所有数据
+    NSMutableArray *jcAllData = [self jcAllData];
+    if (jcAllData == nil) {
+        jcAllData = [NSMutableArray array];
+    }
+    EvaluateRemindModel *jcModel = nil;
+    for (EvaluateRemindModel *model in jcAllData) {
+        if ([model.evaluateRemindId isEqualToString:key]) {
+            jcModel = model;
+            break;
+        }
+    }
+    return jcModel;
+}
 //删除所有数据
 - (void)deleteAllData
 {

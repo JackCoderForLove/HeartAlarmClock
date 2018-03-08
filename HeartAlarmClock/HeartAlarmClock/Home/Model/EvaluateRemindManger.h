@@ -35,6 +35,7 @@
 +(EvaluateRemindManger *)shareManger;
 //获取所有数据
 - (NSMutableArray *)jcAllData;
+- (EvaluateRemindModel *)jcgetDataForKey:(NSString *)key;
 //保存单条数据
 - (void)saveDataWithModel:(EvaluateRemindModel *)model;
 //删除单条数据

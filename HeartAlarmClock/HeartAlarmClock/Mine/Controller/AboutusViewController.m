@@ -128,18 +128,17 @@
         make.height.mas_equalTo(40);
 //        make.bottom.mas_equalTo(self.jcBottomView.mas_bottom);
     }];
-    UILongPressGestureRecognizer *jcLong = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(jcSavePhotoAlbum:)];
+    UITapGestureRecognizer *jcLong = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jcSavePhotoAlbum:)];
     [self.jcBTImg addGestureRecognizer:jcLong];
 
 }
 
-- (void)jcSavePhotoAlbum:(UILongPressGestureRecognizer *)jcLongGes
+- (void)jcSavePhotoAlbum:(UITapGestureRecognizer *)jcLongGes
 {
-    if (jcLongGes.state == UIGestureRecognizerStateBegan) {
+   
         UIActionSheet *jcSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"保存图片", nil];
         jcSheet.tag = 8001;
         [jcSheet showInView:self.view];
-    }
 }
 #pragma mark -
 #pragma mark UIActionSheetDelegate
